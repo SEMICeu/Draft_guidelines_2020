@@ -1,0 +1,261 @@
+:guideline-number: 92
+:base-wiki-dir: https://github.com/ecobosco/SEMICguidelines/wiki/
+:imagesdir: https://github.com/ecobosco/SEMICguidelines/blob/master/asciidoc/art/
+
+The following guidelines describe how the setup environment needs to be formulated while creating SHACL files for the Application Profiles.
+
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: SHACL Level**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: SHACL Level**::]
+{nbsp} **Summary**::
+Every ontology SHALL be declared following the naming guidelines in link:{base-wiki-dir}naming-and-versioning[Naming and versioning].
+
+
+{nbsp} **Description** ::
+Every vocabulary should be uniquely identifiable.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[source,turtle]
+----
+<https://data.europe.eu/semanticassets/ns/cbv-ap_v1.0.0>
+  rdf:type owl:Ontology;.
+----
+ifndef::backend-pdf[]
+++++
+</details>
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[source,turtle]
+----
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+<https://data.europe.eu/semanticassets/ns/cbv-ap_v1.0.0> <--1-->
+  a owl:Ontology; <--1-->
+  .
+----
+<1> Guideline 93
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: SHACL Level II**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: SHACL Level II**::]
+{nbsp} **Summary**::
+The related SHACL constraint file of the eGovernment Core Vocabulary SHOULD be imported. 
+Alternatively, an existing application profile CAN be imported, if it is being extended. 
+
+
+{nbsp} **Description** ::
+The existing structures need to be further refined, extended or restricted. Importing is preferred over copy and paste, which leads to errors and semantic hijacking.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+In the following case, one starts an application profile based on the eGovernment Business eGovernment Core Vocabulary. This application profile will extend the constraints already defined in the SHACL shape file of the eGovernment Core Vocabulary itself, hence the import `+owl:imports+` is done.
+{empty}::
+[source, turtle]
+----
+<https://data.europe.eu/semanticassets/ns/cbv-ap_v1.0.0>
+  rdf:type owl:Ontology;
+  owl:imports <https://data.europe.eu/semanticassets/ns/cbv-constraints_v1.0.0>;.
+----
+ifndef::backend-pdf[]
+++++
+</details>
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[source,turtle]
+----
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+<https://data.europe.eu/semanticassets/ns/cbv-ap_v1.0.0> <--1-->
+  a owl:Ontology; <--1-->
+  owl:imports <https:// data.europe.eu/semanticassets/ns/cbv-constraints_v1.0.0>; <--2-->
+  .
+----
+<1> Guideline 93
+<2> Guideline 94
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: SHACL Level III**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: SHACL Level III**::]
+{nbsp} **Summary**::
+Prefixes for all namespaces SHOULD be defined. 
+
+{nbsp} **Description** ::
+The use of prefixes leads to more naturally readable statements.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[source,turtle]
+----
+@prefix cb-c: <https://data.europe.eu/semanticassets/ns/cbv-constraints_v1.0.0#> .
+@prefix cb: <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#> .
+@prefix cb-ap: <https://data.europe.eu/semanticassets/ns/cbv-ap_v1.0.0#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+----
+ifndef::backend-pdf[]
+++++
+</details>
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[source,turtle]
+----
+@prefix cb-ap: <https://data.europe.eu/semanticassets/ns/cbv-ap_v1.0.0#> . <--3-->
+@prefix cb-c: <https://data.europe.eu/semanticassets/ns/cbv-constraints_v1.0.0#> .
+@prefix cb: <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+<https://data.europe.eu/semanticassets/ns/cbv-ap_v1.0.0> <--1-->
+  a owl:Ontology; <--1-->
+  owl:imports <https://data.europe.eu/semanticassets/ns/cbv-constraints_v1.0.0>; <--2-->
+  .
+
+----
+<1> Guideline 93
+<2> Guideline 94
+<3> Guideline 95
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: SHACL Level IV**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: SHACL Level IV**::]
+{nbsp} **Summary**::
+Semantic Asset Metadata SHALL be assigned as described in _Metadata_.
+
+{nbsp} **Description** ::
+This helps to find the constraint SHACL file of the vocabulary at semantic asset portals and to evaluate if it suits the needs.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[source,turtle]
+----
+dcterms:title "Business eGovernment Core Vocabulary constraint SHACL AP"@en;
+  dcterms:description """The Core Business Vocabulary constraint SHACL Application Profile provides the classes with their attributes and relationships, and the constraints on occurrences and values used."""@en;
+
+----
+ifndef::backend-pdf[]
+++++
+</details>
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[source,turtle]
+----
+prefix cb-ap: <https://data.europe.eu/semanticassets/ns/cbv-ap_v1.0.0#> . <--3-->
+@prefix cb-c: <https://data.europe.eu/semanticassets/ns/cbv-constraints_v1.0.0#> .
+@prefix cb: <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+<https://data.europe.eu/semanticassets/ns/cbv-ap_v1.0.0> <--1-->
+  a owl:Ontology; <--1-->
+  owl:imports <https://data.europe.eu/semanticassets/ns/cbv-constraints_v1.0.0>; <--2-->
+  dcterms:title "Business eGovernment Core Vocabulary constraint SHACL AP"@en; <--4-->
+  dcterms:description """The Core Business Vocabulary constraint SHACL Application Profile provides the classes with their attributes and relationships, and the constraints on occurrences and values used."""@en; <--4-->
+  .
+
+----
+<1> Guideline 93
+<2> Guideline 94
+<3> Guideline 95
+<4> Guideline 96
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''

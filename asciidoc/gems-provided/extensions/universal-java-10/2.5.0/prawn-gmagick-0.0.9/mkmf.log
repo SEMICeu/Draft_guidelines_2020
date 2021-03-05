@@ -1,0 +1,3 @@
+"pkg-config --exists GraphicsMagickWand"
+| pkg-config --libs GraphicsMagickWand
+uri:classloader:/META-INF/jruby.home/lib/ruby/stdlib/mkmf.rb:408: warning: unsupported popen option: err

@@ -1,0 +1,120 @@
+
+ifdef::env-github[]
+:guideline-number: 70
+:base-wiki-dir: https://github.com/ecobosco/SEMICguidelines/wiki/
+endif::[]
+
+The guidelines for setting up the environment while creating an RDFS file are described below.
+
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Set up the environment**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}**: Set up the environment::]
+{nbsp} **Summary**::
+The namespace of the semantic version of the vocabulary SHALL be defined according to the rules set in link:{base-wiki-dir}naming-and-versioning[Naming and versioning].
+
+{nbsp} **Description** ::
+Each vocabulary should be uniquely identifiable.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+https://data.europe.eu/semanticassets/ns/cbv-semantics_v-1.0.0
+
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+++++
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated xample**::
+endif::[]
+[source,turtle]
+----
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+<https://data.europe.eu/semanticassets/ns/cbv-semantics_v1.0.0> <--1-->
+  a owl:Ontology;
+  .
+
+----
+<1> Guideline 71
+
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Set up the environment II**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Set up the environment II**::]
+{nbsp} **Summary**::
+A prefix SHALL be declared for the semantics version and for the version with the core. +
+The use of prefixes enhances readability.
+
+{nbsp} **Description** ::
+This takes the form of the namespace URI followed by a _#_, the base URI. An example in turtle syntax is given here.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[source,turtle]
+----
+@prefix cb-sem: <https://data.europe.eu/semanticassets/ns/cbv-semantics_v1.0.0#> .
+@prefix cb: <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#> .
+----
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+++++
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated xample**::
+endif::[]
+[source,turtle]
+----
+@prefix cb-sem: <https://data.europe.eu/semanticassets/ns/cbv-semantics_v1.0.0#> . <--2-->
+@prefix cb: <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#> . <--2-->
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+<https://data.europe.eu/semanticassets/ns/cbv-semantics_v1.0.0> <--1-->
+  a owl:Ontology;
+  .
+----
+<1> Guideline 71
+<2> Guideline 72
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''

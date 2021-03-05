@@ -1,0 +1,40 @@
+ifndef::backend-pdf[]
+{nbsp}
+
+[#SEMIC_Community_Logo]
+image::SEMIC_Community_Logo.jpg[SEMIC Community Logo, 60%, 60%, align="center"]
+
+{nbsp}
+
+''''
+{nbsp}
+
+==  Welcome to the SEMIC Style Guide for Drafting Semantic Specifications.
+endif::[]
+
+ifdef::backend-pdf[== Introduction]
+
+{nbsp} +
+This document defines the style guide to be applied to the formal representations of SEMIC’s specifications, notably to the https://joinup.ec.europa.eu/solution/e-government-core-vocabularies/about[eGovernment Core Vocabularies]. It provides rules on naming conventions, syntax, and organisation for the SEMIC specifications. It is complemented with technical artefacts and rules which allow for automatic validation.
+
+The content of these guides is part of the https://ec.europa.eu/isa2/dashboard/node/1691[_ISA2 Action 2016.07_] _**Promoting semantic interoperability amongst the EU Member States**_  with the objective of promoting the use of standards by, for example, offering guidelines and expert advice on semantic interoperability for public administrations.
+
+=== Current status
+
+The status of this release of the SEMIC Style Guide is _**draft version for revision**_. It is intended for the European Commission's officers, collaborating consultants, and stakeholders to read, comment, and improve.
+
+=== How to contribute
+
+Any comments, suggestions, corrections, and other feedback is expected to be addressed in this https://github.com/ecobosco/SEMICguidelines/issues[Issues] workspace.
+
+Please use the template and labels provided therein and follow the provided instructions for optimal management and communication with the SEMIC team. 
+
+=== Future works
+
+* **Revision of the eGovernment Core Vocabularies**: This SEMIC Style Guide will be used as the basis for revision and evolution of the eGovernment Core Vocabularies.
+
+* **Tooling**: In alignment with the SEMIC Style Guide, a technical solution is being developed to automate the production of the semantic artefacts based on the conceptual representations (as UML) of the Vocabularies. 
+
+* **Dissemination**: The deliverables related to the SEMIC Style Guide, including the tooling, will be made publicly available under the https://joinup.ec.europa.eu/collection/semantic-interoperability-community-semic/document/joinup-semantic-asset-licensing-framework[SEMIC licensing policy]. Any European Public Administration, or stakeholder, is encouraged to use and extend them.
+
+Communication events, technical documentation, and training materials will be provided by the European Commission to raise awareness on the existence of the SEMIC Style Guide and related solutions, as well as to promote their use.

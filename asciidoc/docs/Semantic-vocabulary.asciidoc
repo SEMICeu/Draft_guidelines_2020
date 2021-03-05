@@ -1,0 +1,405 @@
+
+ifdef::env-github[]
+:guideline-number: 72
+:base-wiki-dir: https://github.com/ecobosco/SEMICguidelines/wiki/
+endif::[]
+
+The following guidelines describe the way vocabularies need to be applied and used.
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Vocabulary**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Vocabulary**::]
+{nbsp} **Summary**::
+An ontology using the vocabularies’ namespace SHALL be declared as in: "<URI> a `+owl:Ontology+`."
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[source,turtle]
+----
+<https://data.europe.eu/semanticassets/ns/cbv-semantics_v1.0.0> a owl:Ontology.
+----
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+++++
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[source,turtle]
+----
+@prefix cb-sem: <https://data.europe.eu/semanticassets/ns/cbv-semantics_v1.0.0#> . <--2-->
+@prefix cb: <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#> . <--2-->
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+<https://data.europe.eu/semanticassets/ns/cbv-semantics_v1.0.0> <--1-->
+  a owl:Ontology; <--3-->
+  .
+----
+<1> Guideline 71
+<2> Guideline 72
+<3> Guideline 73
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Vocabulary II**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Vocabulary II**::]
+{nbsp} **Summary**::
+Only one ontology SHALL be declared per RDF(S) file.
+
+{nbsp} **Description** ::
+RDF tools are sensitive to this and throw warnings if multiple exist.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[source,turtle]
+----
+<https://data.europe.eu/semanticassets/ns/cbv-semantics_v1.0.0> a owl:Ontology.
+----
+ifndef::backend-pdf[]
+++++
+</details>
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[source,turtle]
+----
+@prefix cb-sem: <https://data.europe.eu/semanticassets/ns/cbv-semantics_v1.0.0#> . <--2-->
+@prefix cb: <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#> . <--2-->
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+<https://data.europe.eu/semanticassets/ns/cbv-semantics_v1.0.0> <--1-->
+  a owl:Ontology; <--3--><--4-->
+  .
+----
+<1> Guideline 71
+<2> Guideline 72
+<3> Guideline 73
+<4> Guideline 74
+
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Vocabulary III**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Vocabulary III**::]
+{nbsp} **Summary**::
+Source vocabulary SHALL be imported.
+
+{nbsp} **Description** ::
+Import is needed since one is adding machine semantics to the human semantics. The alternative (copy and paste) leads to errors and semantic hijacking.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[source,turtle]
+----
+<data.europe.eu/semanticassets/ns/cbv-semantics_v1.0.0> a owl:Ontology;
+owl:imports <data.europe.eu/semanticassets/ns /cbv_v1.0.0>;
+----
+ifndef::backend-pdf[]
+++++
+</details>
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[source,turtle]
+----
+@prefix cb-sem: <https://data.europe.eu/semanticassets/ns/cbv-semantics_v1.0.0#> . <--2-->
+@prefix cb: <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#> . <--2-->
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+<https://data.europe.eu/semanticassets/ns/cbv-semantics_v1.0.0> <--1-->
+  a owl:Ontology; <--3--><--4-->
+  owl:imports <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0>; <--5-->
+  .
+----
+<1> Guideline 71
+<2> Guideline 72
+<3> Guideline 73
+<4> Guideline 74
+<5> Guideline 75
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Vocabulary IV**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Vocabulary IV**::]
+{nbsp} **Summary**::
+External vocabularies SHOULD be imported if needed and appropriate.
+
+{nbsp} **Description** ::
+The rationale for this guideline is to be found in Section {base-wiki-dir}reuse-of-external-vocabularies[Reuse of external vocabularies].
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[source,turtle]
+----
+<https://data.europe.eu/semanticassets/ns/cbv-semantics_v1.0.0> a owl:Ontology;
+owl:imports <https:// data.europe.eu/semanticassets/ns/cbv_v1.0.0>;
+owl:imports <http://purl.org/dc/terms/>;
+owl:imports <http://xmlns.com/foaf/0.1/> .
+----
+ifndef::backend-pdf[]
+++++
+</details>
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[source,turtle]
+----
+@prefix cb-sem: <https://data.europe.eu/semanticassets/ns/cbv-semantics_v1.0.0#> . <--2-->
+@prefix cb: <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#> . <--2-->
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+<https://data.europe.eu/semanticassets/ns/cbv-semantics_v1.0.0> <--1-->
+  a owl:Ontology;<--3--><--4-->
+  owl:imports <https:// data.europe.eu/semanticassets/ns/cbv_v1.0.0>; <--5-->
+  owl:imports dcterms:; <--6-->
+  owl:imports foaf:;
+  .
+----
+<1> Guideline 71
+<2> Guideline 72
+<3> Guideline 73
+<4> Guideline 74
+<5> Guideline 75
+<6> Guideline 76
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Vocabulary V**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Vocabulary V**::]
+{nbsp} **Summary**::
+Metadata SHOULD be assigned to the vocabulary (see Metadata).
+
+{nbsp} **Description** ::
+This is established good practice. This helps to find the vocabulary at semantic asset portals and to evaluate if a vocabulary suits the needs.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[source,turtle]
+----
+<https://data.europe.eu/semanticassets/ns/cbv-semantics_v1.0.0> a owl:Ontology;
+owl:imports <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0>;
+owl:imports <http://purl.org/dc/terms/>;
+owl:imports <http://xmlns.com/foaf/0.1/> ;
+### metadata proposed by adms(-ap)
+  dcterms:title "Business eGovernment Core Vocabulary Semantics"@en;
+  dcterms:description """The Core Business Vocabulary provides the minimum set of classes and properties for describing a registered legal entity (business) and their machine oriented semantics e.g. the inferences that are useful to make using the model"""@en;
+  dcterms:modified "2020-31-03"^^xsd:date;
+  adms:status <http://purl.org/adms/status/Completed>;
+###
+----
+ifndef::backend-pdf[]
+++++
+</details>
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[source,turtle]
+----
+@prefix cb-sem: <https://data.europe.eu/semanticassets/ns/cbv-semantics_v1.0.0#> . <--2-->
+@prefix cb: <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#> . <--2-->
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+
+<https://data.europe.eu/semanticassets/ns/cbv-semantics_v1.0.0> <--1-->
+  a owl:Ontology; <--3--><--4-->
+  owl:imports <http://data.europe.eu/semanticassets/ns/cbv_v1.0.0>; <--5-->
+  owl:imports dcterms:; <--6-->
+  owl:imports foaf:; <--6-->
+  dcterms:title "Business eGovernment Core Vocabulary Semantics"@en; <--7-->
+  dcterms:description """The Core Business Vocabulary provides the minimum set of classes and properties for describing a registered legal entity (business) and their machine oriented semantics e.g. the inferences that are useful to make using the model"""@en; <--7-->
+  dcterms:modified "2020-31-03"^^xsd:date; <--7-->
+  adms:status <http://purl.org/adms/status/Completed>; <--7-->
+  .
+----
+<1> Guideline 71
+<2> Guideline 72
+<3> Guideline 73
+<4> Guideline 74
+<5> Guideline 75
+<6> Guideline 76
+<7> Guideline 77
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Vocabulary VI**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Vocabulary VI**::]
+{nbsp} **Summary**::
+Disjointness between classes (`+owl:disjointWith+`) CAN be indicated. This surely helps in detecting inconsistencies when doing inferencing.
+
+{nbsp} **Description** ::
+This is crucial for detecting inconsistencies in the vocabulary by means of automated reasoners.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[source,turtle]
+----
+@prefix cb-sem: <https://data.europe.eu/semanticassets/ns/cbv-semantics_v1.0.0#> .
+@prefix cb: <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+<https://data.europe.eu/semanticassets/ns/cbv-semantics_v1.0.0> a owl:Ontology;
+owl:imports <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0>;.
+cb:LegalEntity owl:disjointWith locn:Address.
+----
+ifndef::backend-pdf[]
+++++
+</details>
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[source,turtle]
+----
+@prefix cb-sem: <https://data.europe.eu/semanticassets/ns/cbv-semantics_v1.0.0#> . <--2-->
+@prefix cb: <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#> . <--2-->
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+
+<https://data.europe.eu/semanticassets/ns/cbv-semantics_v1.0.0> <--1-->
+  a owl:Ontology; <--3--><--4-->
+  owl:imports <http://data.europe.eu/semanticassets/ns/cbv_v1.0.0>; <--5-->
+  owl:imports dcterms:; <--6-->
+  owl:imports foaf:; <--6-->
+  dcterms:title "Business eGovernment Core Vocabulary Semantics"@en; <--7-->
+  dcterms:description """The Core Business Vocabulary provides the minimum set of classes and properties for describing a registered legal entity (business) and their machine oriented semantics e.g. the inferences that are useful to make using the model"""@en; <--7-->
+  dcterms:modified "2020-31-03"^^xsd:date; <--7-->
+  adms:status <http://purl.org/adms/status/Completed>; <--7-->
+
+<https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#LegalEntity>
+  owl:disjointWith <http://www.w3.org/ns/locn#Address>; <--8-->
+  .
+----
+<1> Guideline 71
+<2> Guideline 72
+<3> Guideline 73
+<4> Guideline 74
+<5> Guideline 75
+<6> Guideline 76
+<7> Guideline 77
+<8> Guideline 78
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+

@@ -1,0 +1,31 @@
+
+=== Description
+
+This deliverable establishes guidelines for drafting eGovernment Core Vocabularies and Application Profiles. It has been considered that defining and aligning common guidelines is beneficial for – at least – the following reasons:
+
+=== Branding
+
+SEMIC aims to present these standards as one large group under a single brand. Such branding will only work when all standards use the same modelling approach, follow the same naming conventions, notations, guidelines and rules, and are published with identical documentation output.
+
+=== Ownership and governance.
+
+In the future, SEMIC will make sure it has ownership over the vocabularies and can therefore govern them in a timely manner aligned with stakeholders' needs. This is intended to lead to a policy with less dependence on external vocabularies and external organisations. For this reason, own namespace(s) will be claimed, and the core concepts and relationships needed will be defined using these own namespace(s).
+
+=== Pragmatism and ease of use
+
+Previous versions of these standards were only oriented to the Semantic Web and Linked Open Data. However, these technologies are not yet universally understood nor used and are considered to be too difficult. Hence, having unified guidelines and good practice advice is essential for keeping the eGovernment Core Vocabularies pragmatic and straightforward. Besides, the majority of users use established data formats such as XML and JSON. As far as these contexts are concerned, the present guidelines also include XML Schema and detailed guidelines on how to use and implement these in alignment with the semantic web-oriented assets (including JSON Schema guidelines for the future as soon as they will come to a stable version). 
+
+=== Broad applicability	
+
+These standards should have general applicability. Accordingly, the eGovernment Core Vocabularies aim is to define simplified, reusable, and extensible data models that capture only the fundamental characteristics in a context-neutral manner. 
+
+This will lead to:
+
+- low ontological commitment, meaning that semantics which would lead to inferences/deductions that could limit reuse while being too specific, will not be added;
+
+- limited constraints; constraints are better defined at the application level layer.
+
+The following is an example of a ‘too heavy' ontological commitment:
+	
+Suppose there is a property with a name ‘identifier’ which has been assigned a class ‘Public Service’ as its domain. When this property ‘identifier’ is also used on an instance of a class ‘Membership’ – which is allowed since rdf properties are global and can be used everywhere – then this same ‘Membership’ instance would also become an instance of ‘Public Service’. This is not a desired outcome and even a wrong one if the respective classes have been defined as disjoint. And so, the semantics of this ‘identifier’ property result that it cannot be as widely used as possible.
+

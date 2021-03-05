@@ -1,0 +1,22 @@
+
+ifdef::env-github[]
+:base-wiki-dir: https://github.com/ecobosco/SEMICguidelines/wiki/
+:imagesdir: https://github.com/ecobosco/SEMICguidelines/blob/master/asciidoc/art/
+endif::[]
+
+Commonly an application profile focuses on defining constraints and should be covered with SHACL (see Figure 1 below). However, an additional RDFS/OWL file could be needed in two cases:
+
+. If the application profile wants to introduce additional classes and properties not available in the eGovernment Core Vocabulary or other application profile one is deriving from
+
+. If additional semantic constructs are needed for generating further derivations or inferences
+
+[#RDF_application_profiles]
+.Situating of Application Profiles in RDFS
+image::RDF_application_profiles.jpg[Situating of Application Profiles in RDFS,80%,80%,align="center"]
+{nbsp}
+
+Such an application profile follows the same rules as eGovernment Core Vocabularie; therefore, the identical guidelines apply:
+
+* link:{base-wiki-dir}vocabulary-annotations-in-rdfs[eGovernment Core Vocabularies Core annotations in RDFS]
+
+* link:{base-wiki-dir}vocabulary-semantics-in-rdfs-owl[eGovernment Core Vocabularies semantics in RDFS/OWL]

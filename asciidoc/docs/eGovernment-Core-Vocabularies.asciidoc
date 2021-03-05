@@ -1,0 +1,738 @@
+
+ifdef::env-github[]
+:base-wiki-dir: https://github.com/ecobosco/SEMICguidelines/wiki/
+:imagesdir: https://github.com/ecobosco/SEMICguidelines/blob/master/asciidoc/art/
+:guideline-number: 23
+endif::[]
+[#eGovernment-core-vocabularies]
+eGovernment Core Vocabularies can be considered generic domain models that capture the essential concepts (classes) in a domain together with the appropriate attributes and associations. This means that they stay at a rather abstract level and independent of a concrete application. The main aim is reducing them globally and helping in the interchange of data, primarily of data related to base registries managed by governments, such as base registries of businesses, addresses, parcels, and so on.
+
+The following image depicts the above:
+
+.Core vocabularies relation with external domain layers
+image::eGoverment-Core-Vocabularies.jpg[Core vocabularies relation with external domain layers, 60%, 60%, align="center"]
+
+{nbsp} +
+The following UML artefacts are covered in this section:
+
+[discrete]
+ * <<packages-core, Packages>> which group all modelling elements of a eGovernment Core Vocabulary and which translate into an owl:Ontology in the semantic world
+
+ * <<classes-core, Classes>>
+ * <<attributes-core, Attributes>>
+ * <<associations-core, Associations>>
+ * <<generalisations-core, Generalisations>>
+ * <<aggregations-core, Aggregations>>
+ * <<dataTypes-core, DataTypes>>
+
+'''
+[discrete]
+[#packages-core]
+===== _Packages_
+
+A package is a mechanism that allows grouping of modelling elements such as classes or data types, but can also contain other packages itself.
+The following guidelines describe the way a package must be created. +
+
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: One package per vocabulary**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: One package per vocabulary**::]
+{nbsp} **Summary**::
+A package SHALL exist for each vocabulary.
+
+{nbsp} **Description** ::
+Every vocabulary should be contained in its own container so that it can be 
+easily imported in other environments.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[#one_package_per_vocabulary]
+.Package name
+image::one_package_per_vocabulary.jpg[Package name, 40%, 40%, align="center"]
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Use PascalCase to name the package**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Use PascalCase to name the package**::]
+{nbsp} **Summary**::
+A package SHALL have a name in UpperCamelCase (or PascalCase). This can be the plural of the name of the main concept. For example: Agents, Organisations, Locations, AcademicEducations.
+
+{nbsp} **Description** ::
+UpperCamelCase is an established practice. The plural name reflects the containment of multiple elements.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[#use_PascalCase_to_name_the_package]
+.Diagram properties
+image::use_PascalCase_to_name_the_package.jpg[Diagram properties, 60%, 60%, align="center"]
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+:hash: &#35;
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Use package URI annotation**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Use package URI annotation**::]
+{nbsp} **Summary**::
+A package SHALL be annotated with the namespace identifier as discussed in Section link:{base-wiki-dir}artefacts[Artefact naming and versioning] at the URI property of the package.
+
+{nbsp} **Description** ::
+Every element needs to have a unique identifier.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[#use-package-URI-annotation]
+.Example of a package URI
+image::use-package-URI-annotation.jpg[Example of a package URI, 60%, 60%, align="center"]
+
+{nbsp}::
+It is assumed that this URI is the URI of the eGovernment Core Vocabulary, e.g. ontology and that this URI concatenated with "{hash}" constitutes the base URI.
+{empty}::
+Example: +
+Ontology URI: https://data.europe.eu/semanticassets/ns/cbv_v1.0.0 +
+Base URI: https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Import external packages**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Import external packages**::]
+{nbsp} **Summary**::
+Packages of external namespaces SHOULD be imported, if available.
+
+{nbsp} **Description** ::
+Importing external packages ensures the long-term availability thereof.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[#import_external_packages]
+.Example of an imported package
+image::import_external_packages.jpg[Example of an imported package, 40%, 40%, align="center"]
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+[discrete]
+[#classes-core]
+==== _Classes_
+
+A class represents a concept from one’s domain, and defines a set of ‘similar’ objects such as persons or cars. The symbol to represent a class is a rectangle with multiple compartments. +
+The guidelines below are related to the creation of a class in a UML diagram.
+{nbsp} +
+
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Use one class per domain concept**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Use one class per domain concept**::]
+{nbsp} **Summary**::
+Every domain concept SHALL be represented as a class.
+
+{nbsp} **Description** ::
+This is an established practice.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+The concept ‘Agent’ will be represented by a Class.
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Use singular nouns for naming classes**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Use singular nouns for naming classes**::]
+{nbsp} **Summary**::
+As common practice dictates, each class SHALL have a name in the form of a singular noun in UpperCamelCase (Pascal Case).
+
+{nbsp} **Description** ::
+A real name in the domain or a name that stakeholders already know and use, should be used. 
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[#use_singular_nouns_for_naming_classes]
+.Class name example
+image::use_singular_nouns_for_naming_classes.jpg[Class name example, 30%, 30%, align="center"]
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+[discrete]
+[#attributes-core]
+==== _Attributes_
+An attribute represents a structural feature (i.e. properties) of a class, for which each object in the class can have data values. Most often, there is only one data value (height, weight, id, etc.), but multiple values are also possible (e.g. phone numbers). Attributes are to be included in the second compartment of the class diagram. +
+The guidelines below describe how attributes need to be formulated within a class.
+{nbsp} +
+
+'''
+
+:!index:
+ifndef::backend-pdf[.**Guideline {counter:guideline-number:index:0}: Use one attribute per atomic value**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Use one attribute per atomic value**::]
+{nbsp} **Summary**::
+Every structural feature that has an **atomic value** (preferably using a built-in XML schema simple type) or an **enumeration type** SHALL be represented as an attribute.
+
+{nbsp} **Description** ::
+Every structural feature that has a **class** as data type shall **not** be represented as an attribute. Instead, this class and an association to the corresponding class will be included in the model. See the example below. One could consider adding an attribute "registeredAddress" of type Address to a class "LegalEntity". Instead, Address should be modelled as a class, and an association "registeredAddress" between LegalEntity and Address should be added.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[use_one_attribute_per_atomic_value_0{counter:index}]
+.Incorrect structural features representation
+image::use_one_attribute_per_atomic_value_0{index}.jpg[Incorrect structural features representation, 20%, 20%, align="center"]
+
+[#use_one_attribute_per_atomic_value_0{counter:index}]
+.Correct structural features representation
+image::use_one_attribute_per_atomic_value_0{index}.jpg[Correct structural features representation, 40%, 40%, align="center"]
+
+{empty}::
+Incorrect representation of structural features with a class as datatype (top), should be modelled as an association to the respective class instead of an attribute (bottom).
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Use lowerCamelCase and singular for attribute naming**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Use lowerCamelCase and singular for attribute naming**::]
+{nbsp} **Summary**::
+Each attribute SHALL have a name in the form of a singular noun in lowerCamelCase (or Dromedary Case).
+
+{nbsp} **Description** ::
+Use the real name in the domain or a name that stakeholders already know and use. This name appears in the second compartment of the rectangle.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+**Attribute name**: +
+firstName, lastName, primaryPhone
+
+[#use_lowerCamelCase_and_singular_for_attribute_naming]
+.Attribute name example
+image::use_lowerCamelCase_and_singular_for_attribute_naming.jpg[Attribute name example, 30%, 30%, align="center"]
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+:!index:
+ifndef::backend-pdf[.**Guideline {counter:guideline-number:index:0}: Specify XSD type**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Specify XSD type**::]
+{nbsp} **Summary**::
+The XSD type (or the enumeration type of the attribute) SHALL be indicated after its name followed by ‘:’.
+
+{nbsp} **Description** ::
+See <<dataTypes-core, DataTypes>> for more details on the data types allowed.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[#specify_XSD_type_0{counter:index}]
+.Attributes with simple data type (e.g. xsd:string)
+image::specify_XSD_type_0{index}.jpg[Attributes with simple data type (e.g. xsd:string), 30%, 30%, align="center"]
+
+[#specify_XSD_type_0{counter:index}]
+.XSD Type indication example
+image::specify_XSD_type_0{index}.jpg[XSD Type indication example, 40%, 40%, align="center"]
+
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+:!index:
+ifndef::backend-pdf[.**Guideline {counter:guideline-number:index:0}: Specify attribute multiplicity**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Specify attribute multiplicity**::]
+{nbsp} **Summary**::
+All attributes at the eGovernment Core Vocabulary level SHALL be indicated with the multiplicity of 0..* (with one exception, label, as noted in the next Guideline).
+
+{nbsp} **Description** ::
+See <<dataTypes-core, DataTypes>> for more details on the data types allowed.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+
+[#specify_attribute_multiplicity]
+.Multiplicity example
+image::specify_attribute_multiplicity.jpg[Multiplicity example, 60%, 60%, align="center"]
+
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Specify attribute label**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Specify attribute label**::]
+{nbsp} **Summary**::
+Every class SHALL have a label attribute attached (with the multiplicity of 1..*) with the following constraints: +
+ * There SHALL be one label in English; +
+ * There CAN be more rdfs:labels but only one per language; +
+ * This attribute needs to be annotated as belonging to the http://www.w3.org/2000/01/rdf-schema# namespace (`rdfs:label`).
+
+
+{nbsp} **Description** ::
+This is a fundamental usability requirement. Every instance of any class should have one rdfs:label. This rdfs:label will be used then when presenting the data as linked open data. The user gets a human-readable label instead of an unreadable URI.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[#specify_attribute_label]
+.Required label on every class
+image::specify_attribute_label.jpg[Required label on every class, 30%, 30%, align="center"]
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+[discrete]
+[#associations-core]
+==== _Associations_
+
+Associations model possible relationships between instances of the classes. In Semantic Web languages, such as RDF, an association is a binary relation: it is used to link two individuals.  Due to this nature we focus on binary associations in UML. This binary association also translates easily into an xml serialisation. +
+
+`<Subject id=”S1”><relatedTo><Object id=”O1”/></relatedTo></Subject>`
+
+In UML, by default, navigability in both directions is assumed. For translation to RDF, navigability should be explicitly specified, except in the case of inverse relationships.
+
+The following guidelines concern the association relationships between the two classes.
+
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Use solid lines for class associations**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Use solid lines for class associations**::]
+{nbsp} **Summary**::
+For the association relationships between the two classes:
+ * associations SHALL be drawn using a solid line between the classes involved;
+ * navigability SHALL be specified and illustrated with an open arrowhead pointing from source to target.
+
+{nbsp} **Description** ::
+The choice was made to make associations more explicit by drawing them as a line. Since RDF triples describe a binary relationship in 1 direction, this is already reflected in the UML class diagram.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[#use_solid_lines_for_class_associations]
+.Association between cccev:Requirement and cccev:Concept
+image::use_solid_lines_for_class_associations.jpg[Association between cccev:Requirement and cccev:Concept, 60%, 60%, align="center"]
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+:!index:
+ifndef::backend-pdf[.**Guideline {counter:guideline-number:index:0}: Use meaningful phrases for class associations**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Use meaningful phrases for class associations**::]
+{nbsp} **Summary**::
+The navigable association end SHALL be named as indicated below. +
+
+ * Using a verb phrase that is meaningful on its own and also creates a meaningful contextualised sentence following the (source)ClassName-verbPhrase-(target)ClassName format. See first image in the example below. +
+**Note**: A verb like ‘has’ on its own is not a meaningful verb phrase and therefore should not be used. +
+
+ * Using a noun that is meaningful on its own and in the context of the association qualifies the target Class name. See second image in the example below.
+
+{nbsp} **Description** ::
+This label needs to be readable and meaningful for the stakeholders to understand the association between the classes.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+
+[#use_meaningful_phrases_for_class_associations_0{counter:index}]
+.Association example named according to (source)ClassName-verbPhrase-(target)ClassName
+image::use_meaningful_phrases_for_class_associations_0{index}.jpg[Association example named according to (source)ClassName-verbPhrase-(target)ClassName, 60%, 60%, align="center"]
+
+[#use_meaningful_phrases_for_class_associations_0{counter:index}]
+.Association example named according to the qualification of target ClassName
+image::use_meaningful_phrases_for_class_associations_0{index}.jpg[Association example named according to the qualification of target ClassName, 60%, 60%, align="center"]
+
+[#use_meaningful_phrases_for_class_associations_0{counter:index}]
+.Association Example
+image::use_meaningful_phrases_for_class_associations_0{index}.jpg[Association Example, 60%, 60%, align="center"]
+
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Depict inverse class associations**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Depict inverse class associations**::]
+{nbsp} **Summary**::
+When an inverse association (relation in the other direction) represents the exact inverse of an already modelled relationship, this SHOULD NOT be drawn using a separate directed line. +
+{nbsp} +
+Instead, this SHOULD be indicated as an association with navigability in both directions. Both ends shall have an appropriate name.
+
+{nbsp} **Description** ::
+The readability of the association could be hindered by using two different lines to depict the relation.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[#depict_inverse_class_associations]
+.Inverse associations resulting from bi-directional navigability
+image::depict_inverse_class_associations.jpg[Inverse associations resulting from bi-directional navigability, 60%, 60%, align="center"]
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Specify association multiplicity**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Specify association multiplicity**::]
+{nbsp} **Summary**::
+All associations at the eGovernment Core Vocabulary level SHALL be indicated with the multiplicity of 0..*.
+
+{nbsp} **Description** ::
+The readability of the association could be hindered by using two different lines to depict the relation.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[#specify_association_multiplicit]
+.Multiplicities on associations
+image::specify_association_multiplicity.jpg[Multiplicities on associations, 60%, 60%, align="center"]
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+[discrete]
+[#generalisations-core]
+==== _Generalisations_
+
+Generalisation allows deriving more specific classes from existing classes as a result of this inheriting the attributes and the associations that are specified for the superclass. These are passed on to the subclasses. +
+
+The following guidelines below focus on the generalisation relationships between the two classes.
+
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Use generalisation notation for inheritance**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Use generalisation notation for inheritance**::]
+{nbsp} **Summary**::
+As it is an established practise, the generalisation notation SHALL be used to indicate inheritance and subclassing.
+
+{nbsp} **Description** ::
+The inheritance relation between two classes must be clear.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[#use_generalisation_notation_for_inheritance]
+.Generalisation example
+image::use_generalisation_notation_for_inheritance.jpg[Generalisation example, 40%, 40%, align="center"]
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+[discrete]
+[#aggregations-core]
+==== _Aggregations_
+
+An aggregation is a particular form of association used to express that instances of one class **are parts of** an instance of another class. +
+
+A distinction is made between two types:
+
+ . **Shared aggregation**: expresses a weak belonging of the parts to the whole, meaning that the parts can still exist if the whole is deleted. +
+ . **Composition**: expresses a strong belonging of the part to the whole; its existence depends on the presence of its container.
+
+A shared aggregation is indicated by a hollow diamond, while a composition is indicated by a solid diamond at the side of the containing class. +
+
+The UML semantics are however unclear, in particular for shared aggregation. The composition is more clearly defined, but mainly refers to the storage, namely "the composite object has responsibility for the existence and storage of the composed objects" footnote:aggregationKind[https://download.eclipse.org/modeling/mdt/uml2/javadoc/3.0.0/org/eclipse/uml2/uml/AggregationKind.html]. The degree of belonging (weak or strong) leads to different serialisations in the XML artefacts as explained in <<associations, Associations>>. The composition association can be used when such containing serialisation effects are desired.
+
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Use binary association**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Use binary association**::]
+{nbsp} **Summary**::
+The notion of shared aggregation SHALL NOT be used. Instead, a regular binary association shall be used. footnote:[Monique Snoeck, UML Class Diagrams for Software Engineering, edX, 2020]
+
+{nbsp} **Description** ::
+N/A
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+N/A
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Avoid Composite aggregation**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Avoid Composite aggregation**::]
+{nbsp} **Summary**::
+The notion of composite aggregation SHALL ONLY be used when a part has no own identifier and needs to be stored inside the whole.
+
+{nbsp} **Description** ::
+When no reference to an identifier is possible, the parts need to be contained in the whole. This also maps easily on XML containment.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+An OrderLine only exists as part of an Order and is identified using the Order.
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+[discrete]
+[#dataTypes-core]
+==== _DataTypes_
+
+UML makes a distinction between data types, primitive data types, and enumerations.
+
+ * Data Types are visualised in almost the same way as a class. One difference is that the name of the data type is annotated with the keyword `<< datatype >>`. Data Types can have an internal structure in the form of attributes. +
+ * Primitive data types `<< primitive >>` do not have an internal structure. +
+ * Enumerations `<< enumeration >>` are data types whose values are defined in a list. These values are literals. 
+
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Use XSD simple data types**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Use XSD simple data types**::]
+{nbsp} **Summary**::
+The UML class diagram SHOULD use the built-in XSD simple data types footnote:aggregationKind[] (similarly to their usage in XSD and RDFS).
+
+{nbsp} **Description** ::
+It is always good to consider if `<< enumeration >>` lists CAN be expressed as a `skos:ConceptScheme` with the list nodes as `skos:Concepts`.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+The “Type” in the image below:
+
+[#use_XSD_simple_data_types]
+.XSD Type indication example
+image::use_XSD_simple_data_types.jpg[XSD Type indication example, 60%, 70%, align="center"]
+
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====

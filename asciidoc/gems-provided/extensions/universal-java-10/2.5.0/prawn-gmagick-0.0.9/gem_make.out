@@ -1,0 +1,43 @@
+current directory: C:/Users/jrevenga/Documents/git/SEMIC/SEMICguidelines/asciidoc/gems-provided/gems/prawn-gmagick-0.0.9/ext/image
+java -cp ;c:\Users\jrevenga\Documents\git\SEMIC\SEMICguidelines\asciidoc\target\test-classes;c:\Users\jrevenga\Documents\git\SEMIC\SEMICguidelines\asciidoc\target\classes;C:\Users\jrevenga\.m2\repository\org\jruby\jruby-complete\9.2.9.0\jruby-complete-9.2.9.0.jar org.jruby.Main -r ./siteconf20200727-34648-1tglfpo.rb extconf.rb
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by com.headius.backport9.modules.Modules (file:/C:/Users/jrevenga/.m2/repository/org/jruby/jruby-complete/9.2.9.0/jruby-complete-9.2.9.0.jar) to method sun.nio.ch.NativeThread.signal(long)
+WARNING: Please consider reporting this to the maintainers of com.headius.backport9.modules.Modules
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+IOError: closed stream
+   each_line at org/jruby/RubyIO.java:3377
+        each at org/jruby/RubyEnumerator.java:401
+         map at org/jruby/RubyEnumerable.java:891
+  pkg_config at uri:classloader:/META-INF/jruby.home/lib/ruby/stdlib/mkmf.rb:1795
+        open at uri:classloader:/META-INF/jruby.home/lib/ruby/stdlib/mkmf.rb:320
+  pkg_config at uri:classloader:/META-INF/jruby.home/lib/ruby/stdlib/mkmf.rb:1795
+  pkg_config at uri:classloader:/META-INF/jruby.home/lib/ruby/stdlib/mkmf.rb:1813
+      <main> at extconf.rb:3
+*** extconf.rb failed ***
+Could not create Makefile due to some reason, probably lack of necessary
+libraries and/or headers.  Check the mkmf.log file for more details.  You may
+need configuration options.
+
+Provided configuration options:
+	--with-opt-dir
+	--without-opt-dir
+	--with-opt-include
+	--without-opt-include=${opt-dir}/include
+	--with-opt-lib
+	--without-opt-lib=${opt-dir}/lib
+	--with-make-prog
+	--without-make-prog
+	--srcdir=.
+	--curdir
+	--ruby=uri:classloader:/META-INF/jruby.home/bin/jruby
+	--with-GraphicsMagickWand-config
+	--without-GraphicsMagickWand-config
+	--with-pkg-config
+	--without-pkg-config
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  C:/Users/jrevenga/Documents/git/SEMIC/SEMICguidelines/asciidoc/gems-provided/extensions/universal-java-10/2.5.0/prawn-gmagick-0.0.9/mkmf.log
+
+extconf failed, exit code 1

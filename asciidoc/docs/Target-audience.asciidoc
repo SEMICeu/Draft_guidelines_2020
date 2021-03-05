@@ -1,0 +1,5 @@
+This document is mainly addressed to ICT developers involved in the definition, design, coordination, and delivery of the SEMIC standards and the application profiles themselves. A large number of these recommended guidelines have been collected in order to make naming, styling, and lay-out as consistent as possible.
+
+Additional to the developers, the second targeted audience is the users of these standards and application profiles. They, being supported by the Style Guides, should be able to read, understand, and implement the proposed data models.
+
+Finally to mention, policymakers as well as public administration officers at various governmental levels that need to build on the standards by further extending or refining the existing SEMIC ones can significantly benefit from this document.

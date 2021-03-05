@@ -1,0 +1,721 @@
+
+ifdef::env-github[]
+:guideline-number: 85
+:base-wiki-dir: https://github.com/ecobosco/SEMICguidelines/wiki/
+:imagesdir: https://github.com/ecobosco/SEMICguidelines/blob/master/asciidoc/art/
+endif::[]
+
+Classes contain attributes and have relationships. Each attribute and relationship contains occurrence indicators and constraints on the allowed values. These requirements are captured in SHACL PropertyShapes. The following guidelines describe how these PropertyShapes need to be formulated.
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: PropertyShape**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: PropertyShape**::]
+{nbsp} **Summary**::
+For every attribute and relationship related to a Class:
+-	A `+sh:property+` SHALL be added to the *NodeShape* pertaining to the Class;
+-	The value of this `+sh:property+` SHALL be a *PropertyShape* with a sh:path property having the respective attribute or relationship as value.
+
+
+{nbsp} **Description** ::
+These are examples of the essential constraints. For the full range of possibilities, please refer to the SHACL standard.footnote:[https://www.w3.org/TR/shacl/] and the book “Validating RDF data”.footnote:[https://book.validatingrdf.com/].
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+Starting from following UML Class diagram:
+
+.Example attribute and relationship
+image::shacl_example_attribute.jpg[Example attribute and relationship,300,300, align="center"]
+{empty}::
+An example of the translation for attribute legalIdentifier is given below:
+
+{empty}::
+[source,turtle]
+----
+cb-c:LegalEntityShape
+  a sh:NodeShape;
+  rdfs:comment "Shape for checking instances of the class Legal Entity"@en;
+  rdfs:label "Legal Entity Shape"@en;
+  sh:targetClass cb:LegalEntity;
+  sh:property cb-c:LegalEntity-legalIdentifier.
+
+cb-c:LegalEntity-legalIdenfifier
+  a sh:PropertyShape;
+  sh:path cb:legalIdentifier;.
+----
+{empty}::
+Once a path is indicated, additional constraints can be added.
+In the case of attributes, it is possible to indicate that the values must be of a specific data type.
+{empty}::
+[source,turtle]
+----
+cb-c:LegalEntity-legalIdenfifier
+  a sh:PropertyShape;
+  sh:path cb:legalIdentifier;
+  sh:datatype xsd:string;.
+----
+{empty}::
+An example that complies to this definition is given here.
+{empty}::
+[source,turtle]
+----
+:CompanyZ a cb:LegalEntity;
+ cb:legalIdentifier "Company Z SA";.
+----
+{empty}::
+In the case of relationships, it is possible to indicate that the values must be instances of the specific class.
+{empty}::
+[source,turtle]
+----
+cb-c:LegalEntity-registeredAddress
+  a sh:PropertyShape;
+  sh:path cb:registeredAddress;
+  sh:class cb:Address;.
+
+----
+{empty}::
+An example that complies to this definition is given here.
+{empty}::
+[source,turtle]
+----
+:CompanyZ a cb:LegalEntity;
+ cb:legalIdentifier "Company Z";
+ cb:registeredAddress :addres125.
+:addres125 a cb:Address.
+----
+
+ifndef::backend-pdf[]
+++++
+</details>
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[source,turtle]
+----
+@prefix cb-c: <https://data.europe.eu/semanticassets/ns/cbv-constraints_v1.0.0#> . <--4-->
+@prefix cb: <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<https://data.europe.eu/semanticassets/ns/cbv-constraints_v1.0.0> <--1-->
+  a owl:Ontology; <--1-->
+  owl:imports <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0>; <--2-->
+  dcterms:title "Business eGovernment Core Vocabulary constraint SHACL"@en; <--3-->
+  dcterms:description """The Core Business Vocabulary constraint SHACL provides the classes with their attributes and relationships, and the constraints on occurrences and values used."""@en; <--3-->
+  .
+cb-c:LegalEntityShape <--6-->
+  a sh:NodeShape; <--5-->
+  sh:targetClass cb:LegalEntity; <--5-->
+  rdfs:comment "Shape for checking instances of the class Legal Entity"@en; <--7-->
+  rdfs:label "Legal Entity Shape"@en; <--7-->
+  sh:property cb-c:LegalEntity-companyActivity; <--8-->
+  .
+
+cb-c:LegalEntity-companyActivity
+  a sh:PropertyShape; <--8-->
+  sh:path cb:companyActivity; <--8-->
+  sh:class <http://www.w3.org/2004/02/skos/core#Concept>;
+  sh:description """The activity of a company should be recorded using a controlled vocabulary expressed
+ as a SKOS concept scheme (see <a xmlns=\"https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#\" href=\"#skos:Concept\">Code</a>. Several such vocabularies exist, many of which map to the UN's ISIC codes. Where a particular controlled vocabulary is in use
+ within a given context, such as SIC codes in the UK, it is acceptable to use these, however, the preferred choice for European interoperability is NACE."""@en;
+  sh:name "company activity"@en;
+  sh:nodeKind sh:IRI;
+.
+----
+<1> Guideline 79
+<2> Guideline 80
+<3> Guideline 81
+<4> Guideline 82
+<5> Guideline 83
+<6> Guideline 84
+<7> Guideline 85
+<8> Guideline 86
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: PropertyShape II**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: PropertyShape II**::]
+{nbsp} **Summary**::
+Every class SHALL have in its template at least one `+rdfs:label+` with only one value per language tag.
+-	A class needs to have at least one rdfs:label in English.footnote:[This constraint is implemented in SHACL-SPARQL.]; 
+-	More are allowed for other languages, but only one `+rdfs:label+` per language.
+
+
+{nbsp} **Description** ::
+The guideline represents the formalisation of the general rule that every instance of a class shall have a `+rdfs:label+`. `+rdfs:label+` can be used in human-oriented presentations instead of the more opaque URI. In just this exceptional case, `+sh:minCount+` and `+sh:maxCount+` should be used.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[source, turtle]
+----
+:x    a sh:PropertyShape;
+      sh:path rdfs:label;
+      sh:datatype rdf:langString;
+      sh:name "required rdfs:label"@en;
+      sh:description "every instance of this class needs to have at least 1 label. Only one label per language is allowed."@en;
+      sh:message "At least one label is needed."@en;
+      sh:minCount 1;
+      sh:uniqueLang true;.
+----
+ifndef::backend-pdf[]
+++++
+</details>
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[source,turtle]
+----
+@prefix cb-c: <https://data.europe.eu/semanticassets/ns/cbv-constraints_v1.0.0#> . <--4-->
+@prefix cb: <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<https://data.europe.eu/semanticassets/ns/cbv-constraints_v1.0.0> <--1-->
+  a owl:Ontology; <--1-->
+  owl:imports <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0>; <--2-->
+  dcterms:title "Business eGovernment Core Vocabulary constraint SHACL"@en; <--3-->
+  dcterms:description """The Core Business Vocabulary constraint SHACL provides the classes with their attributes and relationships, and the constraints on occurrences and values used."""@en; <--3-->
+  .
+cb-c:LegalEntityShape <--6-->
+  a sh:NodeShape; <--5-->
+  sh:targetClass cb:LegalEntity; <--5-->
+  rdfs:comment "Shape for checking instances of the class Legal Entity"@en; <--7-->
+  rdfs:label "Legal Entity Shape"@en; <--7-->
+  sh:property cb-c:LegalEntity-companyActivity; <--8-->
+  .
+
+cb-c:LegalEntity-companyActivity
+  a sh:PropertyShape; <--8-->
+  sh:path cb:companyActivity; <--8-->
+  sh:class <http://www.w3.org/2004/02/skos/core#Concept>;
+  sh:description """The activity of a company should be recorded using a controlled vocabulary expressed
+ as a SKOS concept scheme (see <a xmlns=\"https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#\" href=\"#skos:Concept\">Code</a>. Several such vocabularies exist, many of which map to the UN's ISIC codes. Where a particular controlled vocabulary is in use
+ within a given context, such as SIC codes in the UK, it is acceptable to use these, however, the preferred choice for European interoperability is NACE."""@en;
+  sh:name "company activity"@en;
+  sh:nodeKind sh:IRI;
+.
+
+cb-c:rdfsLabel <--9-->
+  a sh:PropertyShape;
+  sh:path rdfs:label;
+----
+<1> Guideline 79
+<2> Guideline 80
+<3> Guideline 81
+<4> Guideline 82
+<5> Guideline 83
+<6> Guideline 84
+<7> Guideline 85
+<8> Guideline 86
+<9> Guideline 87
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: PropertyShape III**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: PropertyShape III**::]
+{nbsp} **Summary**::
+All property shapes SHALL have a URI, i.e. they may not be blank nodes.
+
+{nbsp} **Description** ::
+If the eGovernment Core Vocabulary SHACL file is imported into the constraints file of a deriving application profile, then additional or more restricted property constraints can be added to these identifiers.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[source,turtle]
+----
+  cb-c:LegalEntityShape
+  a sh:NodeShape;
+  sh:targetClass cb:LegalEntity;
+  rdfs:comment "Shape for checking instances of Legal Entity"@en;
+  rdfs:label "Legal entity shape"@en;
+  sh:property cb-c:LegalEntity-companyActivity;
+  .
+cb-c:LegalEntity-companyActivity
+  a sh:PropertyShape;
+  .
+----
+ifndef::backend-pdf[]
+++++
+</details>
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[source,turtle]
+----
+@prefix cb-c: <https://data.europe.eu/semanticassets/ns/cbv-constraints_v1.0.0#> . <--4-->
+@prefix cb: <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<https://data.europe.eu/semanticassets/ns/cbv-constraints_v1.0.0> <--1-->
+  a owl:Ontology; <--1-->
+  owl:imports <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0>; <--2-->
+  dcterms:title "Business eGovernment Core Vocabulary constraint SHACL"@en; <--3-->
+  dcterms:description """The Core Business Vocabulary constraint SHACL provides the classes with their attributes and relationships, and the constraints on occurrences and values used."""@en; <--3-->
+  .
+cb-c:LegalEntityShape <--6-->
+  a sh:NodeShape; <--5-->
+  sh:targetClass cb:LegalEntity; <--5-->
+  rdfs:comment "Shape for checking instances of the class Legal Entity"@en; <--7-->
+  rdfs:label "Legal Entity Shape"@en; <--7-->
+  sh:property cb-c:LegalEntity-companyActivity;<--8--><--10-->
+  sh:property cb-c:rdfsLabel;
+  .
+
+cb-c:LegalEntity-companyActivity
+  a sh:PropertyShape; <--8--><--10-->
+  sh:path cb:companyActivity;<--8-->
+  sh:class <http://www.w3.org/2004/02/skos/core#Concept>;
+  sh:description """The activity of a company should be recorded using a controlled vocabulary expressed
+ as a SKOS concept scheme (see <a xmlns=\"https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#\" href=\"#skos:Concept\">Code</a>. Several such vocabularies exist, many of which map to the UN's ISIC codes. Where a particular controlled vocabulary is in use
+ within a given context, such as SIC codes in the UK, it is acceptable to use these, however, the preferred choice for European interoperability is NACE."""@en;
+  sh:name "company activity"@en;
+  sh:nodeKind sh:IRI;
+.
+
+cb-c:rdfsLabel <--9-->
+  a sh:PropertyShape;
+  sh:path rdfs:label;
+.
+----
+<1> Guideline 79
+<2> Guideline 80
+<3> Guideline 81
+<4> Guideline 82
+<5> Guideline 83
+<6> Guideline 84
+<7> Guideline 85
+<8> Guideline 86
+<9> Guideline 87
+<10> Guideline 88
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: PropertyShape IV**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: PropertyShape IV**::]
+{nbsp} **Summary**::
+Each property SHALL have a `+sh:name+` (in the context of the target where it appears) to provide human-oriented labels. This is the preferred alternative to overwriting `+rdfs:labels+` coming from external foreign vocabularies to fit the context better. 
+
+{nbsp} **Description** ::
+This allows localised labels.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[source,turtle]
+----
+  cb-c:LegalEntity-dct_alternative
+  a sh:PropertyShape;
+  sh:path dct:alternative;
+  sh:name "alternative company name"@en;
+  sh:nodeKind sh:Literal;.
+
+----
+ifndef::backend-pdf[]
+++++
+</details>
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[source,turtle]
+----
+@prefix cb-c: <https://data.europe.eu/semanticassets/ns/cbv-constraints_v1.0.0#> . <--4-->
+@prefix cb: <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<https://data.europe.eu/semanticassets/ns/cbv-constraints_v1.0.0> <--1-->
+  a owl:Ontology; <--1-->
+  owl:imports <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0>; <--2-->
+  dcterms:title "Business eGovernment Core Vocabulary constraint SHACL"@en; <--3-->
+  dcterms:description """The Core Business Vocabulary constraint SHACL provides the classes with their attributes and relationships, and the constraints on occurrences and values used."""@en; <--3-->
+  .
+cb-c:LegalEntityShape <--6-->
+  a sh:NodeShape; <--5-->
+  sh:targetClass cb:LegalEntity; <--5-->
+  rdfs:comment "Shape for checking instances of the class Legal Entity"@en; <--7-->
+  rdfs:label "Legal Entity Shape"@en; <--7-->
+  sh:property cb-c:LegalEntity-companyActivity;<--8--><--10-->
+  sh:property cb-c:rdfsLabel;
+  .
+
+cb-c:LegalEntity-companyActivity
+  a sh:PropertyShape; <--8--><--10-->
+  sh:path cb:companyActivity;<--8-->
+  sh:class <http://www.w3.org/2004/02/skos/core#Concept>;
+  sh:description """The activity of a company should be recorded using a controlled vocabulary expressed
+ as a SKOS concept scheme (see <a xmlns=\"https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#\" href=\"#skos:Concept\">Code</a>. Several such vocabularies exist, many of which map to the UN's ISIC codes. Where a particular controlled vocabulary is in use
+ within a given context, such as SIC codes in the UK, it is acceptable to use these, however, the preferred choice for European interoperability is NACE."""@en;
+  sh:name "company activity"@en; <--11-->
+  sh:nodeKind sh:IRI;
+.
+
+cb-c:rdfsLabel <--9-->
+  a sh:PropertyShape;
+  sh:path rdfs:label;
+  sh:description "Every instance should get a  rdfs:label"@en;
+  sh:name "rdfs label"@en; <--11-->
+  sh:datatype rdf:langString;
+  sh:minCount 1;
+  sh:message "This instance of a clas does not have rdfs:label"@en;
+  sh:uniqueLanguage true.
+
+----
+<1> Guideline 79
+<2> Guideline 80
+<3> Guideline 81
+<4> Guideline 82
+<5> Guideline 83
+<6> Guideline 84
+<7> Guideline 85
+<8> Guideline 86
+<9> Guideline 87
+<10> Guideline 88
+<11> Guideline 89
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: PropertyShape V**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: PropertyShape V**::]
+{nbsp} **Summary**::
+Each property SHOULD have `+sh:description+` (in the context of the target where it appears) to provide further human-oriented details. This is the preferred solution over adding additional usage notes to fit the context.
+
+{nbsp} **Description** ::
+This allows localised definitions.
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[source,turtle]
+----
+  cb-c:LegalEntity-dct_alternative
+  a sh:PropertyShape;
+  sh:path dct:alternative;
+  sh:description "Some jurisdictions recognise concepts such as a trading name or alternative forms of a legal entity's name. The Alternative Name property can be used to record such names but should not be used to record translations of the primary legal name. Where more than one legal name exists and where they have equal standing but are expressed in different languages, identify the language used in each of the multiple legal names."@en;
+  sh:name "alternative company name"@en;
+  sh:nodeKind sh:Literal;.
+
+----
+ifndef::backend-pdf[]
+++++
+</details>
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[source,turtle]
+----
+@prefix cb-c: <https://data.europe.eu/semanticassets/ns/cbv-constraints_v1.0.0#> . <--4-->
+@prefix cb: <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<https://data.europe.eu/semanticassets/ns/cbv-constraints_v1.0.0> <--1-->
+  a owl:Ontology; <--1-->
+  owl:imports <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0>; <--2-->
+  dcterms:title "Business eGovernment Core Vocabulary constraint SHACL"@en; <--3-->
+  dcterms:description """The Core Business Vocabulary constraint SHACL provides the classes with their attributes and relationships, and the constraints on occurrences and values used."""@en; <--3-->
+  .
+cb-c:LegalEntityShape <--6-->
+  a sh:NodeShape; <--5-->
+  sh:targetClass cb:LegalEntity; <--5-->
+  rdfs:comment "Shape for checking instances of the class Legal Entity"@en; <--7-->
+  rdfs:label "Legal Entity Shape"@en; <--7-->
+  sh:property cb-c:LegalEntity-companyActivity;<--8--><--10-->
+  sh:property cb-c:rdfsLabel;
+  .
+
+cb-c:LegalEntity-companyActivity
+  a sh:PropertyShape; <--8--><--10-->
+  sh:path cb:companyActivity;<--8-->
+  sh:class <http://www.w3.org/2004/02/skos/core#Concept>;
+  sh:description """The activity of a company should be recorded using a controlled vocabulary expressed
+ as a SKOS concept scheme (see <a xmlns=\"https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#\" href=\"#skos:Concept\">Code</a>. Several such vocabularies exist, many of which map to the UN's ISIC codes. Where a particular controlled vocabulary is in use
+ within a given context, such as SIC codes in the UK, it is acceptable to use these, however, the preferred choice for European interoperability is NACE."""@en; <--12-->
+  sh:name "company activity"@en; <--11-->
+  sh:nodeKind sh:IRI;
+.
+
+cb-c:rdfsLabel <--9-->
+  a sh:PropertyShape;
+  sh:path rdfs:label;
+  sh:description "Every instance should get a  rdfs:label"@en; <--12-->
+  sh:name "rdfs label"@en; <--11-->
+  sh:datatype rdf:langString;
+  sh:minCount 1;
+  sh:message "This instance of a clas does not have rdfs:label"@en;
+  sh:uniqueLanguage true.
+
+----
+<1> Guideline 79
+<2> Guideline 80
+<3> Guideline 81
+<4> Guideline 82
+<5> Guideline 83
+<6> Guideline 84
+<7> Guideline 85
+<8> Guideline 86
+<9> Guideline 87
+<10> Guideline 88
+<11> Guideline 89
+<12> Guideline 90
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: PropertyShape VI**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: PropertyShape VI**::]
+{nbsp} **Summary**::
+`+sh:minCount+` and `+sh:maxCount+` SHOULD NOT be indicated . 
+If not stated, `+sh:minCount+` means 0 and `+sh:maxCount+` means no limit. These are the default values.
+
+
+{nbsp} **Description** ::
+As noted earlier, the occurrences are indicated on the level of the application profiles.
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+N/A
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: PropertyShape VII**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: PropertyShape VII**::]
+{nbsp} **Summary**::
+`+sh:message+` CAN be used to give the best possible error message in case the constraint is violated.
+
+{nbsp} **Description** ::
+Useful for generating more specific error messages.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[source,turtle]
+----
+  cb-c:rdfsLabel
+  a sh:PropertyShape;
+  sh:path rdfs:label;
+  sh:description "Every instance should get a rdfs:label"@en;
+  sh:name "rdfs label"@en;
+  sh:datatype rdf:langString;
+  sh:minCount 1;
+  sh:maxCount 1;
+  sh:uniqueLang true;
+  sh:targetClass rdfs:Class, owl:Class, rdf:Property, owl:DatatypeProperty, owl:ObjectProperty;
+  sh:message "This instance of a class does not have a rdfs:label"@en;
+.
+----
+ifndef::backend-pdf[]
+++++
+</details>
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[source,turtle]
+----
+@prefix cb-c: <https://data.europe.eu/semanticassets/ns/cbv-constraints_v1.0.0#> . <--4-->
+@prefix cb: <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<https://data.europe.eu/semanticassets/ns/cbv-constraints_v1.0.0> <--1-->
+  a owl:Ontology; <--1-->
+  owl:imports <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0>; <--2-->
+  dcterms:title "Business eGovernment Core Vocabulary constraint SHACL"@en; <--3-->
+  dcterms:description """The Core Business Vocabulary constraint SHACL provides the classes with their attributes and relationships, and the constraints on occurrences and values used."""@en; <--3-->
+  .
+cb-c:LegalEntityShape <--6-->
+  a sh:NodeShape; <--5-->
+  sh:targetClass cb:LegalEntity; <--5-->
+  rdfs:comment "Shape for checking instances of the class Legal Entity"@en; <--7-->
+  rdfs:label "Legal Entity Shape"@en; <--7-->
+  sh:property cb-c:LegalEntity-companyActivity;<--8--><--10-->
+  sh:property cb-c:rdfsLabel;
+  .
+
+cb-c:LegalEntity-companyActivity
+  a sh:PropertyShape; <--8--><--10-->
+  sh:path cb:companyActivity;<--8-->
+  sh:class <http://www.w3.org/2004/02/skos/core#Concept>;
+  sh:description """The activity of a company should be recorded using a controlled vocabulary expressed
+ as a SKOS concept scheme (see <a xmlns=\"https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#\" href=\"#skos:Concept\">Code</a>. Several such vocabularies exist, many of which map to the UN's ISIC codes. Where a particular controlled vocabulary is in use
+ within a given context, such as SIC codes in the UK, it is acceptable to use these, however, the preferred choice for European interoperability is NACE."""@en; <--12-->
+  sh:name "company activity"@en;  <--11-->
+  sh:nodeKind sh:IRI;
+.
+
+cb-c:rdfsLabel <--9-->
+  a sh:PropertyShape;
+  sh:path rdfs:label;
+  sh:description "Every instance should get a  rdfs:label"@en; <--12-->
+  sh:name "rdfs label"@en; <--11-->
+  sh:datatype rdf:langString;
+  sh:minCount 1;
+  sh:message "This instance of a clas does not have rdfs:label"@en; <--13-->
+  sh:uniqueLanguage true.
+----
+<1> Guideline 79
+<2> Guideline 80
+<3> Guideline 81
+<4> Guideline 82
+<5> Guideline 83
+<6> Guideline 84
+<7> Guideline 85
+<8> Guideline 86
+<9> Guideline 87
+<10> Guideline 88
+<11> Guideline 89
+<12> Guideline 90
+<13> Guideline 92
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''

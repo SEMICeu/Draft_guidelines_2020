@@ -1,0 +1,108 @@
+
+ifdef::env-github[]
+:base-wiki-dir: https://github.com/ecobosco/SEMICguidelines/wiki/
+:imagesdir: https://github.com/ecobosco/SEMICguidelines/blob/master/asciidoc/art/
+:guideline-number: 111
+endif::[]
+
+The focus of this section is to provide guidelines for XML Schemas at the level of Application Profile. 
+There are two possible ways to develop an XSD file for an application profile.
+
+ . By generating it automatically from the UML Class diagram model using the appropriate tooling. +
+ . By using the XSD 1.1 Override feature. It allows the definition of a new version of a schema component, with the same name, that replaces the original definitions in the schema.
+
+The following guidelines describes how restrictions in the Application profile should be formulated. +
+
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Externalise rules**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Externalise rules**::]
+{nbsp} **Summary**::
+
+Externalised rules are easier (and cheaper) to maintain than an XSD Schema. Modifying the XSD Schema may have deeper impacts on the existing software applications than the addition or modification of rules maintained externally to the XSD Schema, hence application profiles SHOULD externalise (i.e. separate from the eGovernment Core Vocabulary) the maximum possible the definition and validation of the restrictions.
+
+{nbsp} **Description** ::
+There are at least two ways of applying the guideline to the Application Profiles: +
+ * XSD Schema profiling: a new XSD Schema CAN be produced where the restrictions are applied, e.g. removal of elements that are not required by the application, restriction of the cardinalities, etc. +
+ * Semantic and technical validation: this SEMIC style guide recommends the use of ISO Schematron for the definition of validation rules for the control of cardinalities, format patterns, co-occurrence of elements (e.g. disjoints or union of elements), and other validation aspects that are not desired in the XSD Schema. +
+{nbsp} +
+The preferred option SHOULD be the second one (use of Schematron): the maintenance effort is lesser and can be applied to the original eGovernment Core Vocabulary without having to tamper with the conceptual model nor the XSD design.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+The following example shows that this application profile schema overrides the Core Criterion and Core Evidence Vocabulary and 1) requests always a weight for any given criterion, 2) does not use some properties defined in the original XSD Schema, and 3) requests always the specification of the type of weighing used. +
+The important aspect of the profile is that it does not contradict the original XSD definition. This implies that such a profile is also compatible with any other implementation that is conformant to the original Core Vocabulary. +
+
+[source, xml]
+----
+ <xsd:complexType name="CriterionType">
+  <xsd:complexContent>
+	<xsd:extension base="RequirementType">
+	  <xsd:sequence>
+		<xsd:element ref="weight"/>
+		<xsd:element ref="weightingType"/>
+  	  </xsd:sequence>
+	</xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+----
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[] 
+====
+'''
+
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Externalise restrictions**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Externalise restrictions**::]
+{nbsp} **Summary**::
+Externalised rules are easier (and cheaper) to maintain than an XSD Schema. Modifying the XSD Schema may have deeper impacts on the existing software applications than the addition or modification of rules maintained externally to the XSD Schema, hence the design of the Vocabulary SHOULD define the lesser restrictions possible and keep flexible. Restrictions SHOULD be defined and validated by means external to the XSD Schema.
+
+{nbsp} **Description** ::
+The design of the Vocabulary SHOULD define the lesser restrictions possible and keep flexible. Restrictions SHOULD be defined and validated by means external to the XSD Schema (see guideline on Application Profiles and Validation, below). +
+The main reason for this is that restrictions are to be imposed by specific domains and contexts of use. Otherwise the reusability and customisation of the ‘core’ vocabulary could be threatened. +
+Regarding restrictions, this style guide recommends the following principles when designing an eGovernment Core Vocabulary: +
+ * Keep the cardinality open and flexible: 0..1, 0..n SHOULD be the commonly used cardinalities. Clear exceptions CAN be done, e.g. the CCCEV states that an _EvidenceType_ cannot exist if it does not referred to in an _EvidenceTypeList_ (this cardinality normally defines a kind of ‘composition’ relationship: the life-cycle of an _EvidenceTypeType_ object depends on the life-cycle of the list(s) to which it belongs: when all lists are destroyed the types of evidence objects should be also destroyed) +
+ * Cardinality of identifiers: The cardinality of identifiers SHOULD be always 0..n. This allows for setting maps of identifiers defined by multiple agents or agencies, and/or using diverse identification schemes and assurance level values, methods, etc.. Restricting this cardinality to 1 or 0..1 SHOULD be the mission of an Application Profile +
+ * Cardinality of codes: Codes are used to classify concepts in different categories. A category is a synonym of ‘class’ in the sense that they define groups of concepts that share similar natures and for which there is no need of specifying the attributes of the concept. Two different situations need to be differentiated in relation to codes:
+  * When a code contributes to perfect the semantics of the class (i.e. to better explain the nature of the class), the cardinality SHOULD BE 0..1. In this case, there is no need of ‘qualifying’ the name assigned to the property pointing to the code. The property used for this purpose can be simply  cbc:type , since the class provides the context to understand that the type refers to the nature of the object of instantiated. The explanation for this cardinality is simple: an object cannot be of two or more different natures simultaneously. 
+  * There is an exception, though, to this rule: when the nature of an object is described by means of a taxonomy. In this case there may be the need of specifying the codes of the ‘parent’, ‘children branches’ and the ‘leaf’. 
+  * When a code contributes to explain the nature of a property, the cardinality MAY be multiple, and the name of the property pointing to a concept defined in a controlled vocabulary SHOULD be ‘qualified’, i.e. a prefix SHOULD be pre-pended to the work Type, e.g. _cccev:datasetType_ in the class _ccccev:EvidenceType_ +
+ * Cardinality of text-based properties: the cardinality of names, description and other text data types should be multiple. This allows for the expression of the text in multiple different languages. The _cbc:Text_ component provides attributes for this specific purpose +
+ * Reference to instance of classes: IdRef, Key and KeyRef SHOULD be avoided. The UML diagram, though, helps to see where references to object via unique identifiers could be necessary at XML instantiation time (stereotypes `<< reference >>` in the UML diagram). These restrictions should be left to Application Profiles and custom vocabularies +
+ * Choices: The XML built-in choice structure allows only one of the elements contained in the structure to be present within the containing element (it declares that all the elements within the structure are ‘disjoint’ amongst themselves, they cannot ‘co-occur’) +
+This style guide does not recommend the use of choices in the definition of an eGovernment Core Vocabulary, since the Core Vocabulary can be used for unknown purposes. Co-occurrence and disjointness SHOULD be defined and controlled externally, e.g. via rules specified in ISO Schematron schemata, in rules engines or _ad hoc_ software developments. 
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+See the CCCEV UML diagrams and XSD file for concrete examples: https://github.com/SEMICeu/CCCEV/tree/CV-2.0.0/cccev. +
+See also the XML example https://github.com/SEMICeu/CCCEV/blob/CV-2.0.0/use_cases/testing/Requirement-Polymorphism-example-KeyKeyRef.xml, provided to illustrate how to implement Key/KeyRef restrictions to control the assignment of identifiers to particular XML object instances. The example illustrates this case for ‘elements’ cbc:id, since this style guide does not recommend the use of element attributes ‘id’ (instance identifiers are not to be considered ‘metadata’ about the element, they may be ‘business domain-specific’ identifers).
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[] 
+====
+'''

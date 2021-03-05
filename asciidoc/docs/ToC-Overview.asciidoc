@@ -1,0 +1,66 @@
+
+ifdef::env-github[]
+:base-wiki-dir: https://github.com/ecobosco/SEMICguidelines/wiki/
+endif::[]
+
+== Introduction
+* {base-wiki-dir}Need[Need]
+* {base-wiki-dir}Objectives[Objectives]
+* {base-wiki-dir}Target-audience[Target Audience]
+* {base-wiki-dir}Design-approach[Design Approach]
+
+== Global Guidelines
+* {base-wiki-dir}naming-and-versioning[Naming and Versioning]
+* {base-wiki-dir}Reuse-of-external-vocabularies[Reuse of external vocabularies]
+
+== UML Modelling
+* {base-wiki-dir}General-guidelines[General guidelines]
+* {base-wiki-dir}eGovernment-Core-Vocabularies[eGovernment Core Vocabularies]
+* {base-wiki-dir}Application-Profiles-UML[Application Profiles]
+
+== RDF guidelines
+
+* {base-wiki-dir}Vocabulary-annotations-in-RDFS[Vocabulary annotations in RDFS]
+
+** {base-wiki-dir}Environment-Setup[Environment set up]
+
+**  {base-wiki-dir}Vocabulary[Vocabulary]
+
+**  {base-wiki-dir}Vocabulary-content[Vocabulary content]
+
+* {base-wiki-dir}Vocabulary-semantics-in-RDFS-OWL[Vocabulary semantics in RDFS/OWL]
+
+** {base-wiki-dir}Semantic-environment-Setup[Environment set up]
+
+** {base-wiki-dir}Semantic-vocabulary[Vocabulary]
+
+* {base-wiki-dir}Application-Profiles[Application Profiles]
+
+== SHACL guidelines
+* {base-wiki-dir}SHACL-approach[Approach]
+* {base-wiki-dir}SHACL-constraints[SHACL constraints]
+** {base-wiki-dir}Generic[Generic]
+** {base-wiki-dir}SHACL-level[SHACL level]
+** {base-wiki-dir}NodeShape[NodeShape]
+** {base-wiki-dir}PropertyShape[PropertyShape]
+* {base-wiki-dir}SHACL-and-Application-Profiles[SHACL and Application Profiles]
+** {base-wiki-dir}SHACL-level-AP[SHACL level Application Profile]
+** {base-wiki-dir}NodeShape-and-PropertyShape[NodeShape-and-PropertyShape]
+** {base-wiki-dir}PropertyShape-refinement[PropertyShape refinement]
+
+== XSD guidelines
+* {base-wiki-dir}XSD-design[XSD design]
+* {base-wiki-dir}Application-Profiles-XSD[Application Profiles]
+* {base-wiki-dir}XSD-annotations[XSD annotations]
+
+== Publishing
+* {base-wiki-dir}Artefacts[Artefacts]
+* {base-wiki-dir}LOD-resources[LOD resources]
+
+== Samples
+* {base-wiki-dir}Core-RDFS[Core RDFS]
+* {base-wiki-dir}SHACL[SHACL]
+* {base-wiki-dir}Semantics-RDFS[Semantics RDFS]
+* {base-wiki-dir}SHACL-Application-Profiles[SHACL Application Profiles]
+* https://github.com/SEMICeu/CCCEV/blob/CV-2.0.0/cccev/2.0.0/xml/xsd/cccev-2.0.0.xsd[XSD Vocabularies]
+* https://github.com/SEMICeu/CCCEV/tree/CV-2.0.0/cccev/2.0.0/uml[XSD Constraints and AP]

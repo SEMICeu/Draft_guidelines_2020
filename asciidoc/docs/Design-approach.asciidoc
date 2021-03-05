@@ -1,0 +1,44 @@
+ifdef::env-github[]
+:guideline-number: 0
+:imagesdir: https://github.com/ecobosco/SEMICguidelines/blob/master/asciidoc/art/
+endif::[]
+Based on the input gained in Step One and Two, as well as the considerations outlined in Step Three, the following modelling choice was established.
+
+The agreed starting points of eGovernment Core Vocabularies and APs is the formal representation using a conceptual model in the UML Class Diagram. Such UML can be translated automatically into other individual artefacts footnote:[As proven by work of the OSLO initiative (see 
+Error: Reference source not found)]. These unique artefacts must, in effect, cover the needs of open-world (inference model of LOD) as well as the closed world (constraint checking in application) to satisfy the needs of all stakeholders.
+
+The modelling choice is visualised in more detail below (Figure 2) and consists of the following parts.
+
+- Conceptual model represented in UML which serves as the "master" owner of the data model and may import existing External Assets.
+- Core Core (Human-oriented annotations), formalising the classes and properties with their human-oriented meaning.
+- Open World Inference, modelling aiming to generate additional facts/knowledge in the LOD.
+- Closed World Constraint Checking, modelling designed to validate data in the Object-Oriented applications.
+
+Both Open World and Closed World models can be further refined and extended in the context of the application profiles.
+
+&nbsp;
+
+[#modelling_approach]
+.Modelling Approach
+image::modelling_approach.jpg[Modelling Approach, width="60%",height="60%", align="center"]
+
+&nbsp;
+
+On a more concrete level, the UML model for controlled vocabularies is translated into the following expression.
+
+- An RDFS file with human-oriented semantics containing the classes and properties of the vocabulary with their labels, definitions and usage notes. This core model is a semantic asset.
+
+- (OPTIONAL) an RDFS/OWL file, importing and containing constructs explicitly aimed at inferring new facts. rdfs:domain and rdfs:range belong here and are created intentionally (not automatically derived from the closed model).
+
+- A SHACL file, importing and containing shape for every class from the vocabulary with the included attributes and relationships and their occurrence and value constraints. SHACL over ShEx is chosen since it is a W3C standard and has more mature tool support.
+
+For application profiles, since these are more focusing on constraints, the proposal is to use only a SHACL file, regularly importing the SHACL file from the eGovernment Core Vocabulary for extension and refinement, which itself imports the base vocabulary file with human-oriented information. Of course (optional) RDFS files are useful in the case when additional classes and properties are needed or if one wants to add machine semantics, e.g. inference.
+The goal in this context is that the base RDFS file and the SHACL file, at minimum, can be generated from the UML model.
+
+An example using actual filenames: +
+
+{nbsp} +
+
+[#different_modelling_artefacts_with_their_dependencies]
+.Different modelling artefacts with their dependencies
+image::different_modelling_artefacts_with_their_dependencies.jpg[Different modelling artefacts with their dependencies,width="60%",height="60%",align="center"]

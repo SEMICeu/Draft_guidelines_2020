@@ -1,0 +1,113 @@
+ifdef::env-github[]
+:base-wiki-dir: https://github.com/ecobosco/SEMICguidelines/wiki/
+endif::[]
+
+=== {base-wiki-dir}ToC-Overview[ToC Overview]
+
+=== {base-wiki-dir}Home[Home]
+
+=== https://github.com/ecobosco/SEMICguidelines/issues/new?template=issue_template.md[Create an issue]
+
+== Introduction
+{base-wiki-dir}Need[Need] +
+{nbsp} +
+{base-wiki-dir}Objectives[Objectives] +
+{nbsp} +
+{base-wiki-dir}Target-audience[Target Audience] +
+{nbsp} +
+{base-wiki-dir}Design-approach[Design Approach]
+
+== Global Guidelines
+{base-wiki-dir}naming-and-versioning[Naming and Versioning] +
+{nbsp} +
+{base-wiki-dir}Reuse-of-external-vocabularies[Reuse of external vocabularies]
+
+== UML Modelling
+{base-wiki-dir}General-guidelines[General guidelines] +
+{nbsp} +
+{base-wiki-dir}eGovernment-Core-Vocabularies[eGovernment Core Vocabularies] +
+{nbsp} +
+{base-wiki-dir}Application-Profiles-UML[Application Profiles]
+
+== RDF guidelines
+++++
+<details>
+    <summary><a href="https://github.com/ecobosco/SEMICguidelines/wiki/Vocabulary-annotations-in-RDFS">Vocabulary annotations in RDFS<a/></summary>
+++++
+* {base-wiki-dir}Environment-Setup[Environment Setup]
+
+* {base-wiki-dir}Vocabulary[Vocabulary]
+
+* {base-wiki-dir}Vocabulary-content[Vocabulary content]
+
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+
+++++
+<details>
+    <summary><a href="https://github.com/ecobosco/SEMICguidelines/wiki/Vocabulary-semantics-in-RDFS-OWL">Vocabulary semantics in RDFS/OWL<a/></summary>
+++++
+
+* {base-wiki-dir}Semantic-Environment-Setup[Environment Setup]
+
+* {base-wiki-dir}Semantic-vocabulary[Vocabulary]
+
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+
+{base-wiki-dir}Application-Profiles[Application Profiles]
+
+== SHACL guidelines
+{base-wiki-dir}SHACL-approach[Approach] +
+{nbsp} +
+++++
+<details>
+    <summary><a href="https://github.com/ecobosco/SEMICguidelines/wiki/SHACL-constraints">SHACL constraints<a/></summary>
+++++
+* {base-wiki-dir}Generic[Generic]
+* {base-wiki-dir}SHACL-level[SHACL level]
+* {base-wiki-dir}NodeShape[NodeShape]
+* {base-wiki-dir}PropertyShape[PropertyShape]
+++++
+</details>
+<details>
+    <summary><a href="https://github.com/ecobosco/SEMICguidelines/wiki/SHACL-and-Application-Profiles">SHACL and Application Profiles<a/></summary>
+++++
+** {base-wiki-dir}SHACL-Level-Application-Profile[SHACL Level Application Profile]
+** {base-wiki-dir}NodeShape-and-PropertyShape[NodeShape and PropertyShape]
+** {base-wiki-dir}PropertyShape-Refinement[PropertyShape Refinement]
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+== XSD guidelines
+{base-wiki-dir}XSD-Design[XSD Design] +
+{nbsp} +
+{base-wiki-dir}Application-Profiles-XSD[Application Profiles] +
+{nbsp} +
+{base-wiki-dir}XSD-Annotations[XSD Annotations]
+
+== Publishing
+{base-wiki-dir}Artefacts[Artefacts] +
+{nbsp} +
+{base-wiki-dir}LOD-Resources[LOD Resources] +
+
+== Samples
+{base-wiki-dir}Core-RDFS[Core RDFS] +
+{nbsp} +
+{base-wiki-dir}SHACL[SHACL] +
+{nbsp} +
+{base-wiki-dir}Semantics-RDFS[Semantics RDFS] +
+{nbsp} +
+{base-wiki-dir}SHACL-Application-Profiles[SHACL Application Profiles] +
+{nbsp} +
+https://github.com/SEMICeu/CCCEV/blob/CV-2.0.0/cccev/2.0.0/xml/xsd/cccev-2.0.0.xsd[XSD Vocabularies] +
+{nbsp} +
+https://github.com/SEMICeu/CCCEV/tree/CV-2.0.0/cccev/2.0.0/uml[XSD Constraints and AP]

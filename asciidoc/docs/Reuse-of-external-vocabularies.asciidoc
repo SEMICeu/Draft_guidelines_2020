@@ -1,0 +1,267 @@
+
+ifdef::env-github[]
+:imagesdir: https://github.com/ecobosco/SEMICguidelines/blob/master/asciidoc/art/
+:guideline-number: 5
+endif::[]
+
+:example-styles: verbatim,quotes, post_replacements
+
+Given the number of existing vocabularies available in the market, reusing them is considered good practice rather than creating their own or new definitions. For this to be done correctly, it is crucial to approach such reuse with consistency. 
+
+The guidelines below ensure such consistency is followed during the reuse process.
+
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Validate the semantics of reused constructs**] 
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Validate the semantics of reused constructs**::]
+{nbsp} **Summary**::
+The semantics of the constructs for reuse SHOULD be validated.
+
+{nbsp} **Description** ::
+Only use constructs with semantics (human and machine-readable) that support the use case or domain. A similar reflex needs to be considered by reusing properties and classes from other vocabularies. +
+{nbsp} +
+As a general rule, it is safe to reuse annotation properties since no reasoning (semantics) is done with those. +
+{nbsp} +
+If in doubt, define the class or property in an owned namespace. 
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+The property 'dcterms:title' footnote:dctermsTitle[http://purl.org/dc/terms/title] carries only limited semantics. It has a range of 'rdfs:Literal' which represents the set of all literals. While using 'dcterms:title' one adds a statement with 'dce:title' footnote:dceTitle[http://purl.org/dc/elements/1.1/title]  due to the sub-property relationship. +
+{nbsp} +
+On the contrary, 'dcterms:type' footnote:dctermsType[http://purl.org/dc/terms/type] has a range of 'rdfs:Class', which might be not what one wants if the intention is the use of a 'skos:Concept' footnote:skosConcept[ http://www.w3.org/2004/02/skos/core#Concept] as value for this attribute. +0.xsd.
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Prioritise maintained vocabularies**] 
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Prioritise maintained vocabularies**::]
+{nbsp} **Summary**::
+Quality of maintenance and governance SHOULD be reviewed before reuse. Preference SHOULD be given vocabularies that are well maintained and governed.
+
+{nbsp} **Description** ::
+N/A
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+The property 'dcterms:title' footnote:dctermsTitle[] carries only limited semantics. It has a range of 'rdfs:Literal' which represents the set of all literals. While using 'dcterms:title' one adds a statement with 'dce:title' footnote:dceTitle[] due to the sub-property relationship. +
+{nbsp} +
+On the contrary, 'dcterms:type' footnote:dctermsType[] has a range of 'rdfs:Class', which might not be what one wants if the intention is the use of a 'skos:Concept' footnote:skosConcept[] as value for this attribute. +0.xsd.
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Prioritise vocabularies with machine-readable versions**] 
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Prioritise vocabularies with machine-readable versions**::]
+{nbsp} **Summary**::
+Priority SHOULD be given to vocabularies with machine-readable versions.
+
+{nbsp} **Description**::
+Preference should go to external vocabularies of which the machine-readable version can be retrieved (dereferenced). +
+{empty}::
+The dereference-ability and continuous maintenance are cornerstones of the Linked Open Data vision and should be critically evaluated when deciding to reuse a vocabulary.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+A vocabulary which has problems with several of the guidelines is vann footnote:[http://purl.org/vocab/vann/]. The URI cannot be dereferenced, and the vocabulary appears not to be maintained anymore.
+
+[#prioritise-vocabularies-with-machine-readable-versions]
+.URI dereferencing
+image::prioritise-vocabularies-with-machine-readable-versions.jpg[URI dereferencing, 80%, 80%, align="center"]
+
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Import reused foreign vocabularies**] 
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Import reused foreign vocabularies**::]
+{nbsp} **Summary**::
+Foreign vocabularies SHOULD be reused using import.
+
+{nbsp} **Description**::
+When reusing parts of vocabulary, it is crucial to always import the foreign vocabulary in own vocabulary, not copy and paste (in the machine-readable files). +
+{nbsp} +
+Experience indicates that copying and pasting leads to copy, paste, and edit, often resulting in what is called semantic hijacking. Importing external vocabularies in a dedicated RDF editing environment makes the re-use of the foreign properties and classes secure and error-free. +
+{nbsp} +
+However, a potential caveat is that RDFS/OWL does not allow selective imports. This means that an import can be too heavy, importing many classes and properties (being the case when, e.g. importing the schema.org vocabulary) while only using a few. In these cases, importing the vocabulary is not advised.  +
+{nbsp} +
+When ‘do not copy and paste’ is mentioned here, it is meant in the machine-readable files. For obvious reasons of convenience, it is advised to copy the content into the human-oriented documentation. 
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+N/A
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Create subclasses in own namespace**] 
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Create subclasses in own namespace**::]
+{nbsp} **Summary**::
+Subclass SHOULD be created in own namespace.
+
+{nbsp} **Description**::
+If a class is reflecting a particular subset of items from a class coming from an external vocabulary, then make an explicit subclass in one’s namespace instead of reusing the URI of the external vocabulary.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+N/A
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+:!index:
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Respect meaning of foreign vocabulary**] 
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Respect meaning of foreign vocabulary**::]
+{nbsp} **Summary**::
+Meaning of the foreign vocabulary SHALL NOT be altered.
+
+{nbsp} **Description**::
+In case copy and paste is still done, do not change the information. Hijacking another vocabulary is considered bad practice. If there are more specific definitions, semantics, and usage notes, place them in classes and properties in their namespace. One could then still map these, even later on, to foreign constructs.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+According to the AAA principle, anything can be stated – e.g. that the label of dcterms:title is ‘placename’, but it is important to imagine what users see at a merged version of one’s vocabulary and the source vocabulary: 
+
+[#respect_meaning_of_foreign_vocabulary_0{counter:index}]
+.Merged Vocabularies
+image::respect_meaning_of_foreign_vocabulary_0{index}.jpg[Merged Vocabularies, 60%, 60%, align="center"]
+
+{empty} ::
+What needs to be achieved is the ability to supply the user with context-dependent tips. The issue is that in RDFS, properties are and stay global, meaning this is not the way to accomplish the ultimate legitimate goal. How to achieve this correctly is addressed later in this document.
+{empty} ::
+The same issue but with heavier semantics is presented in the following figure:
+
+[#respect_meaning_of_foreign_vocabulary_0{counter:index}]
+.Semantic Hijacking
+image::respect_meaning_of_foreign_vocabulary_0{index}.jpg[Semantic Hijacking, 60%, 60%, align="center"]
+
+{empty} ::
+The above is an example of misusing domain to attach this property to a class in its namespace. 
+
+{empty} ::
+In this context, the triples: +
+
+ :CompanyX a schema:Corporation; 
+          org:purpose :purpose1 .
+
+{empty}::
+lead to :CompanyX being a cv:PublicOrganisation.
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Prioritise widely re-used foreign vocabularies**] 
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Prioritise widely re-used foreign vocabularies**::]
+{nbsp} **Summary**::
+External vocabularies with proven usage SHOULD be prioritised.
+
+{nbsp} **Description**::
+In principle, there is nothing wrong with reusing a niche vocabulary that precisely matches one’s needs as in the end, this is the only way to enlarge vocabularies. However, it is vital to ensure that they fit with the rest of the guidelines mentioned in this chapter.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+There are many vocabularies available in the Linked Open Data web (697 known at the time of writing, being 12 February 2020) footnote:[https://lov.linkeddata.es/dataset/lov/vocabs], the most important being dcterms footnote:[http://purl.org/dc/terms/], dce footnote:[http://purl.org/dc/elements/1.1/], foaf footnote:[http://xmlns.com/foaf/0.1/], and skos footnote:[http://www.w3.org/2004/02/skos/core# ].
+
+[#prioritise_widely_re-used_foreign_vocabularies]
+.Linked Open Vocabularies and their usage
+image::prioritise_widely_re-used_foreign_vocabularies.jpg[Linked Open Vocabularies and their usage, 40%, 40%, align="center"]
+
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====

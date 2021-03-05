@@ -1,0 +1,137 @@
+
+ifdef::env-github[]
+:guideline-number: 50
+:base-wiki-dir: https://github.com/ecobosco/SEMICguidelines/wiki/
+endif::[]
+
+The guidelines for setting up the environment while creating an RDFS file are described below.
+
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Set up the environment**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Set up the environment**::]
+{nbsp} **Summary**::
+The namespace and the base URI of the vocabulary SHALL be defined according to the rules set in link:{base-wiki-dir}naming-and-versioning[Naming and versioning]. +
+Each vocabulary should be uniquely identifiable.
+
+{nbsp} **Description** ::
+Important components are the domain and the name of the vocabulary with sa(semantic asset)/cv(core vocabulary) in between.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+  Namespace: https://data.europe.eu/semanticassets/ns/cbv_v1.0.0
+{empty}::
+  Base URI: https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#
+ifndef::backend-pdf[]
+++++
+</details>
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated xample**::
+endif::[]
+[source,turtle]
+----
+@prefix cb: <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#> . <--1--> 
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+<https://data.europe.eu/semanticassets/ns/cbv_v1.0.0> <--1-->  
+  a owl:Ontology;.
+----
+<1> Guideline 50
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Set up the environment II**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Set up the environment II**::]
+{nbsp} **Summary**::
+Prefixes for all used vocabularies, including own one, SHALL be declared.
+
+{nbsp} **Description** ::
+The form of a prefix is followed by the base URI. Declaring the prefixes simplifies the reading of the vocabulary; otherwise, long URIs are exposed to the readers.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[source,turtle]
+----
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix cb: <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#> .
+
+----
+ifndef::backend-pdf[]
+++++
+</details>
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[source,turtle]
+----
+@prefix cb: <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#> . <--1-->  
+@prefix adms: <http://www.w3.org/ns/adms#> . <--2--> 
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix person: <http://www.w3.org/ns/person#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sioc: <http://rdfs.org/sioc/ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix wdrs: <http://www.w3.org/2007/05/powder-s#> .
+@prefix xhtm: <http://www.w3.org/1999/xhtml> .
+@prefix xhv: <http://www.w3.org/1999/xhtml/vocab#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://data.europe.eu/semanticassets/ns/cbv_v1.0.0>  <--1--> 
+  a owl:Ontology;.
+
+----
+<1> Guideline 50
+<2> Guideline 51
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''

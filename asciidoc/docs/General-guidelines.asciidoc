@@ -1,0 +1,345 @@
+ifdef::env-github[]
+:base-wiki-dir: https://github.com/ecobosco/SEMICguidelines/wiki/
+:imagesdir: https://github.com/ecobosco/SEMICguidelines/blob/master/asciidoc/art/
+:guideline-number: 12
+endif::[]
+
+UML diagrams should serve for human comprehension; therefore, they should be as readable as possible, i.e. their pragmatic quality should be ensured footnote:[Lindland, Odd & Sindre, Guttorm & Sølvberg, Arne. (1994). Understanding Quality in Conceptual Modelling. IEEE Software. 11. 42-49]. 
+
+To this end, below is an indication of high-level guidelines for UML diagrams footnote:[The Elements of UML 2.0 style, Scott W. Ambler, Cambridge University Press, 2005].
+
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Crossing lines**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Crossing lines**::]
+{nbsp} **Summary**::
+When lines cross, the diagram may be potentially misread. Hence, crossing lines SHOULD be avoided.
+
+{nbsp} **Description** ::
+The reader of the diagrams needs to have a clear understanding of the diagram content. If the diagram is well organised, and if associations between classes are well separated and run in parallel – i.e. lines never cross or the least possible – the diagram will gain clarity and will become less error-prone.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[#crossing_lines]
+.UML diagram example
+image::gl_013.jpg[UML diagram lines, 40%, 40%, align="center"]
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Diagonal lines**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Diagonal lines**::]
+{nbsp} **Summary**::
+Straight lines are more comfortable to follow, therefore diagonal or curved lines SHOULD be avoided.
+
+{nbsp} **Description** ::
+The reader of the diagrams needs to have a clear understanding of the diagram content. If the diagram is well organised, and if associations between classes are well separated and run in parallel – i.e. lines never cross or the least possible – the diagram will gain clarity and will become less error-prone.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[#diagonal_lines]
+.UML diagram example
+image::gl_013.jpg[UML diagram lines, 40%, 40%, align="center"]
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Leave space between lines**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Leave space between lines**::]
+{nbsp} **Summary**::
+Lines SHOULD have sufficient spacing in between them.
+
+{nbsp} **Description** ::
+The reader of the diagrams needs to have a clear understanding of the diagram content. If the diagram is well organised, and if associations between classes are well separated and run in parallel – i.e. lines never cross or the least possible – the diagram will gain clarity and will become less error-prone.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[#leave-space-between-lines]
+.UML diagram example
+image::gl_013.jpg[UML diagram lines, 40%, 40%, align="center"]
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Label alignment**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Label alignment**::]
+{nbsp} **Summary**::
+Text is easier to read in a horizontal fashion, labels SHOULD thus be aligned horizontally.
+
+{nbsp} **Description** ::
+The reader of the diagrams needs to have a clear understanding of the diagram content. If the diagram is well organised, and if associations between classes are well separated and run in parallel – i.e. lines never cross or the least possible – the diagram will gain clarity and will become less error-prone.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[#label_alignment]
+.UML diagram example
+image::gl_013.jpg[UML diagram example, 40%, 40%, align="center"]
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Symbol size**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Symbol size**::]
+{nbsp} **Summary**::
+Symbols SHOULD be of the same size (unless one wants to draw attention to a specific element), as nothing should draw more attention unless aimed.
+
+{nbsp} **Description** ::
+The reader of the diagrams needs to have a clear understanding of the diagram content. If the diagram is well organised, and if associations between classes are well separated and run in parallel – i.e. lines never cross or the least possible – the diagram will gain clarity and will become less error-prone.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[#symbol_size]
+.UML diagram example
+image::gl_013.jpg[UML diagram example, 40%, 40%, align="center"]
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Reading direction**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Reading direction**::]
+{nbsp} **Summary**::
+In Europe, people generally read left to right and top to bottom, hence diagrams SHOULD be organised left to right and top to bottom.
+
+{nbsp} **Description** ::
+The reader of the diagrams needs to have a clear understanding of the diagram content. If the diagram is not well organised and the associations between classes are not clear, the diagram becomes more error-prone.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+N/A
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Short and concise**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Short and concise**::]
+{nbsp} **Summary**::
+Too many details may diminish readability and understandability, thus diagrams SHOULD contain only the necessary level of detail.
+
+{nbsp} **Description** ::
+If the diagram offers the reader too much detailed information, it can overburden them and hinder their understanding of the diagram elements.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+N/A
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Notations use**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Notations use**::]
+{nbsp} **Summary**::
+More specialised symbols have the danger of not being broadly understood, therefore only well-known notations SHOULD be used.
+
+{nbsp} **Description** ::
+If symbols are used that are too specific for the reader to understand the diagram's content could be improperly conveyed the potentially less knowledgeable readers.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+N/A
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Control diagrams size**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Control diagrams size**::]
+{nbsp} **Summary**::
+Larger diagrams can be difficult to read, thus they CAN be split into multiple smaller ones.
+
+{nbsp} **Description** ::
+The reader of the diagram needs to have a clear understanding of the diagram's content. If the diagram lines are too long to be comfortably followed the diagram will become more error-prone.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+N/A
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: One-page diagrams are preferred**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: One-page diagrams are preferred**::]
+{nbsp} **Summary**::
+As they are more comfortable to read, one-page diagrams SHOULD be used when possible.
+
+{nbsp} **Description** ::
+The reader of the diagrams needs to have a clear understanding of the diagram's content. If the diagram is divided into many small versions, the reading effort is higher, becoming more error-prone.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+N/A
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Element metadata**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Element metadata**::]
+{nbsp} **Summary**::
+Each UML element SHALL be annotated with the following metadata: +
+ * there SHALL be one rdfs:label containing the human-oriented label in English; +
+ * there CAN be more rdfs:label but only one per language; +
+ * there SHALL be one rdfs:comment in English (1..1) containing the concept’s intention, being the definition of the element (the class, the attribute, the association); +
+ * skos:altLabel (0..n) CAN be used to indicate synonyms; +
+ * skos:scopeNote in English (0..1) CAN be used to clarify how, where and when to use the UML element.
+
+{nbsp} **Description** ::
+To ensure a minimum content richness, certain metadata should be added to the UML elements.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+N/A
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''

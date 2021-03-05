@@ -1,0 +1,234 @@
+
+ifdef::env-github[]
+:guideline-number: 82
+:base-wiki-dir: https://github.com/ecobosco/SEMICguidelines/wiki/
+:imagesdir: https://github.com/ecobosco/SEMICguidelines/blob/master/asciidoc/art/
+endif::[]
+
+Every Class in UML translates in a SHACL NodeShape that describes the structure of the class and its constraints. The following guidelines explain how this NodeShape need to be formulated.
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: NodeShape**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: NodeShape**::]
+{nbsp} **Summary**::
+Every Class SHALL have a corresponding NodeShape with sh:targetClass as the respective Class identifier.
+
+{nbsp} **Description** ::
+The choice has been made not to use implicit class targets since they conflate the concept of shape and class as the same.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+For the class `+LegalEntity+` a corresponding node shape is defined with name `+LegalEntityShape+`. Both are connected by the `+sh:targetClass+` property on the NodeShape.
+
+.Example class
+image::nodeshape.jpg[Example class,300,200, align="center"]
+
+{empty}::
+[source,turtle]
+----
+cb-c:LegalEntityShape
+  a sh:NodeShape;
+  *sh:targetClass cb:LegalEntity;.*
+----
+ifndef::backend-pdf[]
+++++
+</details>
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[source,turtle]
+----
+@prefix cb-c: <https://data.europe.eu/semanticassets/ns/cbv-constraints_v1.0.0#> . <--4-->
+@prefix cb: <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<https://data.europe.eu/semanticassets/ns/cbv-constraints_v1.0.0> <--1-->
+  a owl:Ontology; <--1-->
+  owl:imports <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0>; <--2-->
+  dcterms:title "Business eGovernment Core Vocabulary constraint SHACL"@en; <--3-->
+  dcterms:description """The Core Business Vocabulary constraint SHACL provides the classes with their attributes and relationships, and the constraints on occurrences and values used."""@en; <--3-->
+  .
+cb-c:LegalEntityShape
+  a sh:NodeShape; <--5-->
+  sh:targetClass cb:LegalEntity; <--5-->
+  .
+----
+<1> Guideline 79
+<2> Guideline 80
+<3> Guideline 81
+<4> Guideline 82
+<5> Guideline 83
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: NodeShape II**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: NodeShape II**::]
+{nbsp} **Summary**::
+The local name of the NodeShape SHALL be the ClassName + Shape.
+
+{nbsp} **Description** ::
+The choice has been made not to use implicit class targets since they conflate the concept of shape and class as the same.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+Classname= `+‘LegalEntity’+`
+NodeShapename= `+’LegalEntityShape’+`
+ifndef::backend-pdf[]
+++++
+</details>
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[source,turtle]
+----
+@prefix cb-c: <https://data.europe.eu/semanticassets/ns/cbv-constraints_v1.0.0#> . <--4-->
+@prefix cb: <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<https://data.europe.eu/semanticassets/ns/cbv-constraints_v1.0.0> <--1-->
+  a owl:Ontology; <--1-->
+  owl:imports <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0>; <--2-->
+  dcterms:title "Business eGovernment Core Vocabulary constraint SHACL"@en; <--3-->
+  dcterms:description """The Core Business Vocabulary constraint SHACL provides the classes with their attributes and relationships, and the constraints on occurrences and values used."""@en; <--3-->
+  .
+cb-c:LegalEntityShape <--6-->
+  a sh:NodeShape; <--5-->
+  sh:targetClass cb:LegalEntity; <--5-->
+  .
+----
+<1> Guideline 79
+<2> Guideline 80
+<3> Guideline 81
+<4> Guideline 82
+<5> Guideline 83
+<6> Guideline 84
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: NodeShape III**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: NodeShape III**::]
+{nbsp} **Summary**::
+Every NodeShape SHOULD contain `+rdfs:label+` and `+rdfs:comment+`, and they SHOULD only have one value per language tag.
+
+{nbsp} **Description** ::
+Human-oriented documentation is of importance.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[source,turtle]
+----
+  cb-c:LegalEntityShape
+  a sh:NodeShape;
+  rdfs:comment "Shape for checking instances of the class Legal Entity"@en;
+  rdfs:label "Legal Entity Shape"@en;
+  sh:targetClass cb:LegalEntity;.
+
+----
+ifndef::backend-pdf[]
+++++
+</details>
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[source,turtle]
+----
+@prefix cb-c: <https://data.europe.eu/semanticassets/ns/cbv-constraints_v1.0.0#> . <--4-->
+@prefix cb: <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<https://data.europe.eu/semanticassets/ns/cbv-constraints_v1.0.0> <--1-->
+  a owl:Ontology; <--1-->
+  owl:imports <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0>; <--2-->
+  dcterms:title "Business eGovernment Core Vocabulary constraint SHACL"@en; <--3-->
+  dcterms:description """The Core Business Vocabulary constraint SHACL provides the classes with their attributes and relationships, and the constraints on occurrences and values used."""@en; <--3-->
+  .
+cb-c:LegalEntityShape <--6-->
+  a sh:NodeShape; <--5-->
+  sh:targetClass cb:LegalEntity; <--5-->
+  rdfs:comment "Shape for checking instances of the class Legal Entity"@en; <--7-->
+  rdfs:label "Legal Entity Shape"@en; <--7-->
+  .
+----
+<1> Guideline 79
+<2> Guideline 80
+<3> Guideline 81
+<4> Guideline 82
+<5> Guideline 83
+<6> Guideline 84
+<7> Guideline 85
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''

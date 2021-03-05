@@ -1,0 +1,40 @@
+[source,turtle]
+----
+@prefix cb-ap: <https://data.europe.eu/semanticassets/ns/cbv-ap_v1.0.0#> . 
+@prefix cb-c: <https://data.europe.eu/semanticassets/ns/cbv-constraints_v1.0.0#> .
+@prefix cb: <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<https://data.europe.eu/semanticassets/ns/cbv-ap_v1.0.0>
+  a owl:Ontology;
+  owl:imports <https://data.europe.eu/semanticassets/ns/cbv-constraints_v1.0.0>;
+  dcterms:title "Business eGovernment Core Vocabulary constraint SHACL AP"@en;
+  dcterms:description """The Core Business Vocabulary constraint SHACL Application Profile provides the classes with their attributes and relationships, and the constraints on occurrences and values used."""@en;  
+.
+cb-c:LegalEntity-companyActivity
+  sh:description "Use the belgian NACE codes at <a href=\"https://vocab.belgif.be/auth/nace2008\">https://vocab.belgif.be/auth/nace2008</a>."@en;
+  sh:pattern "^http://vocab.belgif.be/auth/nace2008/.*";
+.
+cb-c:LegalEntity-companyStatus
+  sh:in (
+  	<http://vocab.belgif.be/auth/companyStatus/active>
+  	<http://vocab.belgif.be/auth/companyStatus/defaulted>
+  	<http://vocab.belgif.be/auth/companyStatus/stopped>
+	);
+  sh:minCount 1;
+  sh:maxCount 1;   
+.
+cb-c:LegalEntity-companyType
+  sh:pattern "^http://vocab.belgif.be/auth/cbe-org1800/.+";
+.
+cb-c:LegalEntity-legalIdentifier
+  sh:description "In Belgium use the KBO number as legal identifier."@en;
+  sh:pattern "^0\\d{3}\\.\\d{3}\\.\\d{3}";
+.
+----

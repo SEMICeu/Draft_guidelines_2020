@@ -1,0 +1,306 @@
+
+ifdef::env-github[]
+:base-wiki-dir: https://github.com/ecobosco/SEMICguidelines/wiki/
+:imagesdir: https://github.com/ecobosco/SEMICguidelines/blob/master/asciidoc/art/
+:guideline-number: 43
+endif::[]
+[#application-profiles-uml]
+Application profiles define a data model to be used in a more specific context or application. For this reason additional constraints and rules are expected to be added to the more generic models as supplied by the eGovernment Core Vocabularies. The focus of this section is to provide the guidelines for the artefacts used in the Application Profiles of the eGovernment Core Vocabularies.
+ 
+ * <<packages, Packages>> that group all modelling elements of a eGovernment Core Vocabulary, and that translate into an owl:Ontology in the semantic world.
+ * <<classes-AP, Classes>>
+ * <<attributes, Attributes>>
+ * <<associations, Associations>>
+ * <<generalisations, Generalisations>>
+ * <<aggregations, Aggregations>>
+ * <<dataTypes-AP, DataTypes>>
+
+'''
+[discrete]
+===== _Packages_
+
+A package is a mechanism that allows for the grouping of modelling elements such as classes or data types, but which can also contain other packages itself. The guidelines that follow describe the way a package has to be created. +
+
+
+'''
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: One package per vocabulary**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: One package per vocabulary**::]
+{nbsp} **Summary**::
+A package SHALL exist for each vocabulary.
+
+{nbsp} **Description** ::
+Every vocabulary should be contained in its own container so that it can be 
+easily imported in other environments.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+
+.Agents package example
+image::one_package_per_vocabulary.jpg[Agents package example, 60%, 60%, align="center"]
+
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Naming the package**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Naming the package**::]
+{nbsp} **Summary**::
+A package SHALL have a name in UpperCamelCase (or PascalCase). This can be the plural of the name of the main concept. For example: Agents, Organisations, Locations, AcademicEducations.
+
+{nbsp} **Description** ::
+UpperCamelCase is an established practice. The plural name reflects the containment of multiple elements.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+Package Name: Agents, Organisations, Locations. 
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Package URI annotation**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Package URI annotation**::]
+{nbsp} **Summary**::
+A package SHALL be annotated with the namespace identifier as discussed in Section link:{base-wiki-dir}naming-and-versioning[Naming and versioning] at the URI property of the package. 
+
+{nbsp} **Description** ::
+Every element needs to have a unique identifier.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[#package_URI_annotation]
+.Namespace example
+image::package_URI_annotation.jpg[Namespace example, 60%, 60%, align="center"]
+
+{empty}::
+Ontology URI: https://data.europe.eu/semanticassets/ns/cbv-ap_v2.1.0 +
+Base URI:  https://data.europe.eu/semanticassets/ns/cbv-ap_v2.1.0#
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+[discrete]
+[#classes-AP]
+===== _Classes_
+
+The guidelines formulated for the eGovernment Core Vocabularies link:{base-wiki-dir}eGovernment-Core-Vocabularies#Classes[Classes] can be followed here as well. With an additional optional guideline.
+{nbsp} +
+
+'''
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Specify use**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Specify use**::]
+{nbsp} **Summary**::
+A class CAN contain an annotation that denominates whether it is the following:
+
+ * **Mandatory**: a receiver of data SHALL be able to process information about instances of the class; a sender of data SHALL provide information about instances of the class.
+ * **Recommended**: a sender of data SHOULD give information about instances of the class; a sender of data SHALL provide information about instances of the class if such information is available; a receiver of data SHALL be able to process information about instances of the class if such information is available.
+ * **Optional**: a receiver SHALL be able to process information about instances of the class if such information is available; a sender MAY provide the information but is not obliged to do so.
+
+{nbsp} **Description** ::
+This is an established practice.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+
+[#specify_use]
+.Use annotation example
+image::specify_use.jpg[Use annotation example, 60%, 60%, align="center"]
+
+{empty}::
+**Note:** this annotation has been implemented as a tag with name ‘use’ with the tree allowed values enumerated on a stereotype with name “AP element”.
+
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+[discrete]
+===== _Attributes_
+The guidelines formulated for the eGovernment Core Vocabularies link:{base-wiki-dir}eGovernment-Core-Vocabularies#Attributes[Attributes] can be followed here as well. With an additional optional guideline.
+{nbsp} +
+
+'''
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Specify attribute multiplicity and use**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Specify attribute multiplicity and use**::]
+{nbsp} **Summary**::
+All attributes SHALL contain a multiplicity indication. +
+In addition, any association CAN contain an annotation that denominates whether it is: +
+ * **Mandatory**: a receiver SHALL be able to process the information for that property; a sender SHALL provide the information for that property. This is aligned with multiplicities (1..1 or 1..*). +
+ * **Recommended**: a receiver SHALL be able to process the information for that property; a sender SHOULD provide the information for that property if it is available. This is aligned with multiplicities (0..1, 0..*). +
+ * **Optional**: a receiver SHALL be able to process the information for that property; a sender MAY provide the information for that property but is not obliged to do so. This is aligned with multiplicities (0..1, 0..*).
+{empty}::
+**Note:** multiplicity needs to be explicitly set since this is not done at the eGovernment Core Vocabulary level.
+
+{nbsp} **Description** ::
+The eGovernment Core Vocabularies leave the multiplicities completely open [0..*]; while the application profiles need to be precise.
+In any case, one can optionally add the annotation if the attribute is considered Mandatory, Recommended, or Optional. These annotations must be aligned with the multiplicity indicators defined above.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[#specify_attribute_multiplicity_and_use]
+.Example of attribute multiplicity
+image::specify_attribute_multiplicity_and_use.jpg[Example of legal entity multiplicity, 40%, 50%, align="center"]
+
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+
+====
+'''
+[discrete]
+===== _Associations_
+The guidelines formulated for the eGovernment Core Vocabularies link:{base-wiki-dir}eGovernment-Core-Vocabularies#Associations[Associations] can be followed here as well. With an additional optional guideline.
+{nbsp} +
+
+'''
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Specify association multiplicity and use**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Specify association multiplicity and use**::]
+{nbsp} **Summary**::
+All associations SHALL contain a multiplicity indication. +
+In addition, any association CAN contain an annotation that denominates whether it is: +
+ * **Mandatory**: a receiver SHALL be able to process the information for that property; a sender SHALL provide the information for that property. This is aligned with multiplicities (1..1 or 1..*). +
+ * **Recommended**: a receiver SHALL be able to process the information for that property; a sender SHOULD provide the information for that property if it is available. This is aligned with multiplicities (0..1, 0..*). +
+ * **Optional**: a receiver SHALL be able to process the information for that property; a sender MAY provide the information for that property but is not obliged to do so. This is aligned with multiplicities (0..1, 0..*). +
+
+{empty}::
+**Note:** multiplicity needs to be explicitly set since this is not done at the eGovernment Core Vocabulary level.
+
+{nbsp} **Description** ::
+The eGovernment Core Vocabularies leave the multiplicities completely open [0..*]; while the application profiles need to be precise.
+Besides, one can optionally add the annotation if the attribute is considered Mandatory, Recommended or Optional. These annotations must be aligned with the multiplicity indicators defined above.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[#specify_association_multiplicity_and_use]
+.Example of legal entity association use with otherName
+image::specify_association_multiplicity_and_use.jpg[Example of legal entity association use with otherName, 60%, 60%, align="center"]
+
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+[discrete]
+===== _Generalisations_
+
+The guidelines formulated for the eGovernment Core Vocabularies link:{base-wiki-dir}eGovernment-Core-Vocabularies#Generalisations[Generalisations] can be followed here as well. 
+
+'''
+[discrete]
+===== _Aggregations_
+
+The guidelines formulated for the eGovernment Core Vocabularies link:{base-wiki-dir}eGovernment-Core-Vocabularies#Aggregations[Aggregations] can be followed here as well. With an additional guideline listed below.
+
+'''
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Specify composition multiplicity**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Specify composition multiplicity**::]
+{nbsp} **Summary**::
+As multiplicity is not specified at the eGovernment Core Vocabulary level, all compositions SHALL contain a multiplicity indication.
+
+{nbsp} **Description** ::
+The eGovernment Core Vocabularies leave the multiplicities completely open [0..*]; while the application profiles need to be precise. Compositions follow the same rules as for associations.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+N/A
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+[discrete]
+[#dataTypes-AP]
+===== _DataTypes_
+
+The guidelines formulated for the eGovernment Core Vocabularies link:{base-wiki-dir}eGovernment-Core-Vocabularies#DataTypes[DataTypes] can be followed here as well.
+
+'''

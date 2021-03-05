@@ -1,0 +1,1222 @@
+
+ifdef::env-github[]
+:imagesdir: https://github.com/ecobosco/SEMICguidelines/blob/master/asciidoc/art/
+:base-wiki-dir: https://github.com/ecobosco/SEMICguidelines/wiki/
+:guideline-number: 98
+endif::[]
+
+:example-styles: verbatim,quotes, post_replacements
+
+W3C XML Schema Definition commonly referred to as ‘XSD’ is the means to check the validity of the structure and the vocabulary of an XML document. Transitioning from UML class diagrams (see link:{base-wiki-dir}eGovernment-Core-Vocabularies#Classes[Class Diagrams Style Guide]). +
+
+An XSD captures the object-oriented aspects of the modelling (similarly to SHACL). It establishes element/attribute declarations and simple/complex types to express a set of rules to which XML documents must conform footnote:[Source consulted: https://www.unece.org/fileadmin/DAM/cefact/xml/XML-Naming-And-Design-Rules-V2_1.pdf]. For illustration purposes, these subsections use the Core Criterion and Core Evidence Vocabulary v2.0.0 artefacts available in the ‘branch CV-2.0.0’ of the SEMIC GitHub CCCEV repository footnote:[See folder ‘cccev’ in the CCCEV GitHub repository: https://github.com/SEMICeu/CCCEV/tree/CV-2.0.0.]. +
+
+The figure below shows how the general architecture approach proposed to the development of an XSD file defining an eGovernment Core Vocabulary: +
+
+{nbsp}
+
+.General architecture approach proposed
+image::xsd_design_01.jpg[General architecture approach proposed,80%,80%, align="center"]
+
+{nbsp}
+
+Based on the general architecture approach, the following guidelines describe how the setup environment needs to be formulated while creating XSD files, following the modelling approach described throughout this document.
+
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Specify version and encoding**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Specify version and encoding**::]
+{nbsp} **Summary**::
+As it is an XML requirement, versions and related encoding SHALL be identified.
+
+{nbsp} **Description** ::
+All XSD Schemas defining an eGovernment vocabulary or a library of information elements (e.g. common reusable components) SHALL identify the version of the XML specification and the encoding used. This piece of XML code SHALL be the first line of the file. Global comments, too, SHALL be located after this element.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[source,xml]
+----
+ <?xml version="1.0" encoding="UTF-8"?>
+  <!--  Global comments SHALL go here  --->
+  <xsd:schema xmlns="https://semic.org/sa/cv/cccev-2.0.0#" 
+  …
+ </xsd:schema>
+----
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+++++
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[source,xml]
+[subs="{example-styles}"] 
+----
+ <?xml version="1.0" encoding="UTF-8"?> <--1-->
+ <!-- This is an example XSD --> <--1-->
+ <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="https://semic.org/sa/cv/cccev-2.0.0#
+	targetNamespace="https://semic.org/sa/cv/cccev-2.0.0#" 
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified" 
+	version="2.0.0">
+ </xsd:schema>
+----
+<1> Guideline 99
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Specify namespace and version**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Specify namespace and version**::]
+{nbsp} **Summary**::
+The root element of the XSD Schema SHALL specify default namespace, targetNamespace and version. This is a basic common XSD design practice, also compatible with other standard designs (e.g. UN/CEFACT, UBL, HR-Open Standards).
+
+{nbsp} **Description** ::
+The root element of the XSD Schema SHALL specify the following attributes:
+ * the default and target Namespaces SHALL be specified. Both, default and target namespaces SHALL be identical;
+ * the attributeFormDefault CAN be “unqualified”;
+ * the attribute version SHALL be used to identify the version of the vocabulary;
+ * a prefix SHALL be specified to identify any element imported from other external vocabularies and libraries of commonly reused components.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[subs="{example-styles}"] 
+[source,xml]
+----
+ <xsd:schema xmlns="https://semic.org/sa/cv/cccev-2.0.0#" 
+	xmlns:dcat-ap="http://data.europa.eu/r5r/"
+	xmlns:cac="https://semic.org/sa/cv/common/cac-2.0.0#"
+	xmlns:cbc="https://semic.org/sa/cv/common/cbc-2.0.0#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:foaf="http://xmlns.com/foaf/0.1/"
+	targetNamespace="https://semic.org/sa/cv/cccev-2.0.0#" elementFormDefault="qualified"
+	attributeFormDefault="unqualified" version="2.0.0">
+ …
+ </xsd:schema>
+----
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+++++
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[subs="{example-styles}"] 
+[source,xml]
+----
+ <?xml version="1.0" encoding="UTF-8"?><--1-->
+ <!-- This is an example XSD --><--1-->
+ <xsd:schema xmlns="https://semic.org/sa/cv/cccev-2.0.0#" <--2-->
+	xmlns:dcat-ap="http://data.europa.eu/r5r/" <--2-->
+	xmlns:cac="https://semic.org/sa/cv/common/cac-2.0.0#"
+	xmlns:cbc="https://semic.org/sa/cv/common/cbc-2.0.0#"
+	xmlns:ccts="urn:un:unece:uncefact:data:specification:CoreComponentTypeSchemaModule:2"
+	xmlns:an="https://semic.org/sa/cv/common/semic-annot-2.0.0#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:foaf="http://xmlns.com/foaf/0.1/"	targetNamespace="https://semic.org/sa/cv/cccev-2.0.0#" <--2-->	
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified" 
+	version="2.0.0"> <--2-->
+ </xsd:schema>
+----
+<1> Guideline 99
+<2> Guideline 100
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Re-use external vocabularies**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Re-use external vocabularies**::]
+{nbsp} **Summary**::
+Any vocabulary defined by SEMIC or by other authorities CAN be reused provided that they were defined as W3C XSD Schemas. This encompasses the reuse of both properties and classes.
+
+{nbsp} **Description** ::
+The recommendation is to reuse vocabularies defined by SEMIC or ISA. If there is the need of reusing other vocabularies defined externally to ISA which were never implemented as XSD (e.g. DCAT-AP, FOAF, SPDX, etc.), the recommendation is that the XSD implementation SHOULD be developed according to SEMIC style guide (this document). +
+{nbsp} +
+The definition of new XSD vocabularies or libraries of components SHALL define their own namespace. If the vocabulary was already designed using another modelling paradigm and syntax (e.g. RDF and Turtle), the namespace for the XSD implementation SHOULD use the namespace used for that serialisation. +
+These reused vocabularies SHALL be ‘imported’, never ‘included’. For this, the schema location SHALL be provided, either as a URL or as file path and name. If the URL is provided, the resource (the imported XSD) must be available and accessible when using the Core Vocabulary that imports it. If the resource is imported from a file system, the path CAN (strongly encouraged) be ‘relative’ to the location of the Core Vocabulary that imports the reused XSD. +
+{nbsp} +
+The imported vocabularies SHALL be also assigned to a prefix in the root element. Each element of the Core Vocabulary referring to one of those elements SHALL then use the prefix to unambiguously specify that the element belongs to a specific namespace.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[subs="{example-styles}"] 
+[source,xml]
+----
+ <xsd:schema xmlns="https://semic.org/sa/cv/cccev-2.0.0#" 
+	xmlns:dcat-ap="http://data.europa.eu/r5r/"	xmlns:cac="https://semic.org/sa/cv/common/cac-2.0.0#"
+	xmlns:cbc="https://semic.org/sa/cv/common/cbc-2.0.0#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:foaf="http://xmlns.com/foaf/0.1/"
+	targetNamespace=https://semic.org/sa/cv/cccev-2.0.0# elementFormDefault="qualified"
+	attributeFormDefault="unqualified" version="2.0.0"> +
+	<xsd:import namespace="https://semic.org/sa/cv/common/cac-2.0.0#"
+		schemaLocation="../../../../common/2.0.0/xml/xsdrt/CV-CommonAggregateComponents.xsd"/>
+	<xsd:import namespace="https://semic.org/sa/cv/common/cbc-2.0.0#"
+		schemaLocation="../../../../common/2.0.0/xml/xsdrt/CV-CommonBasicComponents.xsd"/>
+	<xsd:import namespace="http://data.europa.eu/r5r/"
+		schemaLocation="../../../../dcat-ap/2.0.0/xml/dcat-ap.xsd"/>
+	<xsd:import namespace="http://xmlns.com/foaf/0.1/"
+		schemaLocation="../../../../foaf/xml/foaf.xsd"/>
+	<xsd:import namespace="http://www.w3.org/2002/07/owl#"
+		schemaLocation="../../../../owl/2.0.0/xml/owl.xsd"/>
+----
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+++++
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[subs="{example-styles}"] 
+[source,xml]
+----
+ <?xml version="1.0" encoding="UTF-8"?><--1-->
+ <!-- This is an example XSD --><--1-->
+ <xsd:schema xmlns="https://semic.org/sa/cv/cccev-2.0.0#" <--2-->
+	xmlns:dcat-ap="http://data.europa.eu/r5r/" <--2-->
+	xmlns:cac="https://semic.org/sa/cv/common/cac-2.0.0#"
+	xmlns:cbc="https://semic.org/sa/cv/common/cbc-2.0.0#"
+	xmlns:ccts="urn:un:unece:uncefact:data:specification:CoreComponentTypeSchemaModule:2"
+	xmlns:an="https://semic.org/sa/cv/common/semic-annot-2.0.0#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:foaf="http://xmlns.com/foaf/0.1/"	targetNamespace="https://semic.org/sa/cv/cccev-2.0.0#" <--2-->	
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified" 
+	version="2.0.0"> <--2-->
+	<xsd:import namespace="https://semic.org/sa/cv/common/cac-2.0.0#" 
+		schemaLocation="../../../../common/2.0.0/xml/xsd/CV-CommonAggregateComponents.xsd"/> <--3-->
+	<xsd:import namespace="https://semic.org/sa/cv/common/cbc-2.0.0#"
+		schemaLocation="../../../../common/2.0.0/xml/xsd/CV-CommonBasicComponents.xsd"/>
+	<xsd:import namespace="urn:un:unece:uncefact:data:specification:CoreComponentTypeSchemaModule:2"
+		schemaLocation="../../../../common/2.0.0/xml/xsd/CCTS_CCT_SchemaModule-2.3.xsd"/>
+	<xsd:import namespace="http://data.europa.eu/r5r/"
+		schemaLocation="../../../../dcat-ap/2.0.0/xml/dcat-ap.xsd"/>
+	<xsd:import namespace="http://www.w3.org/2002/07/owl#"
+		schemaLocation="../../../../owl/2.0.0/xml/owl.xsd"/> <--3-->
+	<xsd:import namespace="http://xmlns.com/foaf/0.1/"
+		schemaLocation="../../../../foaf/xml/foaf.xsd"/>
+ </xsd:schema>
+----
+<1> Guideline 99
+<2> Guideline 100
+<3> Guideline 101
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Define UML classes as complex types**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Define UML classes as complex types**::]
+{nbsp} **Summary**::
+In order to increase the semantic and technical interoperability by always using the same information elements from the same namespaces, all classes from UML SHALL be defined as complex element types.
+
+{nbsp} **Description** ::
+The following requirements are to be observed:
+ * xsd:sequence SHALL be used for the contained elements (do not use xsd:all);
+ * Class ‘attributes’: attributes SHOULD be reserved only for metadata about the element, not as value placeholders. For values use sequence and/or groups of elements inside the class.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[subs="{example-styles}"] 
+[source,xml]
+----
+ <xsd:complexType name="ConceptType">
+  <xsd:complexContent>
+   <xsd:extension base="owl:ThingType">
+    <xsd:sequence>
+     <xsd:element ref="cbc:id" minOccurs="0" maxOccurs="unbounded"> </xsd:element>
+     <xsd:element ref="cbc:name" minOccurs="0" maxOccurs="1"> </xsd:element>
+     <xsd:element ref="cbc:description" minOccurs="0" maxOccurs="unbounded"> </xsd:element>
+     <xsd:element ref="cbc:type" minOccurs="0" maxOccurs="1"> </xsd:element>
+     <xsd:element ref="cbc:qName" minOccurs="0" maxOccurs="unbounded"> </xsd:element>
+     <xsd:element ref="constraint" minOccurs="0" maxOccurs="unbounded"> </xsd:element>
+     <xsd:element ref="value" minOccurs="0" maxOccurs="unbounded">
+      <!--we have two predicates that are the same with different domain/range-->
+     </xsd:element>
+     <xsd:element ref="concept" minOccurs="0" maxOccurs="unbounded"> </xsd:element>
+    </xsd:sequence>
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+----
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+++++
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[subs="{example-styles}"] 
+[source,xml]
+----
+ <?xml version="1.0" encoding="UTF-8"?> <!-- guideline 99 -->
+ <!-- This is an example XSD --><--1-->
+ <xsd:schema xmlns="https://semic.org/sa/cv/cccev-2.0.0#" <--2-->
+	xmlns:dcat-ap="http://data.europa.eu/r5r/" <--2-->
+	xmlns:cac="https://semic.org/sa/cv/common/cac-2.0.0#"
+	xmlns:cbc="https://semic.org/sa/cv/common/cbc-2.0.0#"
+	xmlns:ccts="urn:un:unece:uncefact:data:specification:CoreComponentTypeSchemaModule:2"
+	xmlns:an="https://semic.org/sa/cv/common/semic-annot-2.0.0#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:foaf="http://xmlns.com/foaf/0.1/"	targetNamespace="https://semic.org/sa/cv/cccev-2.0.0#" <--2-->	
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified" 
+	version="2.0.0"> <--2-->
+	<xsd:import namespace="https://semic.org/sa/cv/common/cac-2.0.0#" 
+		schemaLocation="../../../../common/2.0.0/xml/xsd/CV-CommonAggregateComponents.xsd"/> <--3-->
+	<xsd:import namespace="https://semic.org/sa/cv/common/cbc-2.0.0#"
+		schemaLocation="../../../../common/2.0.0/xml/xsd/CV-CommonBasicComponents.xsd"/>
+	<xsd:import namespace="urn:un:unece:uncefact:data:specification:CoreComponentTypeSchemaModule:2"
+		schemaLocation="../../../../common/2.0.0/xml/xsd/CCTS_CCT_SchemaModule-2.3.xsd"/>
+	<xsd:import namespace="http://data.europa.eu/r5r/"
+		schemaLocation="../../../../dcat-ap/2.0.0/xml/dcat-ap.xsd"/>
+	<xsd:import namespace="http://www.w3.org/2002/07/owl#"
+		schemaLocation="../../../../owl/2.0.0/xml/owl.xsd"/> <--3-->
+	<xsd:import namespace="http://xmlns.com/foaf/0.1/"
+		schemaLocation="../../../../foaf/xml/foaf.xsd"/> +
+  <!-- Declaration of elements --> +
+  <!-- Data properties declarations --> 
+  <xsd:element name="associatedRoleType" type="cbc:CodeType"/>
+  <!-- Object properties --> 
+  <xsd:element name="concept" type="ConceptType"/>
+  <!-- Class declarations --> 
+  <xsd:element name="Concept" type="ConceptType"/>
+  <!-- Element definition -->
+  <xsd:complexType name="ConceptType"> <--4-->
+    <xsd:complexContent>
+      <xsd:extension base="owl:ThingType"> <--3-->
+        <xsd:sequence> <--4-->
+          <xsd:element ref="cbc:id" minOccurs="0" maxOccurs="unbounded"> </xsd:element>
+          <xsd:element ref="cbc:name" minOccurs="0" maxOccurs="1"> </xsd:element>
+          <xsd:element ref="cbc:description" minOccurs="0" maxOccurs="unbounded"> </xsd:element>
+          <xsd:element ref="cbc:type" minOccurs="0" maxOccurs="1"> </xsd:element>
+          <xsd:element ref="cbc:qName" minOccurs="0" maxOccurs="unbounded"> </xsd:element>
+          <xsd:element ref="constraint" minOccurs="0" maxOccurs="unbounded"> </xsd:element>
+          <xsd:element ref="value" minOccurs="0" maxOccurs="unbounded">
+            <!--we have two predicates that are the same with different domain/range-->
+          </xsd:element>
+          <xsd:element ref="concept" minOccurs="0" maxOccurs="unbounded"> </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+   </xsd:complexType>
+ </xsd:schema>
+----
+<1> Guideline 99
+<2> Guideline 100
+<3> Guideline 101
+<4> Guideline 102
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Facilitate reusing elements**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Facilitate reusing elements**::]
+{nbsp} **Summary**::
+Any mechanism that facilitates the modularisation and reuse of properties and classes defined SHOULD be used. +
+The main rationale behind this guideline can be summarised in the following:
+ * prevention of design errors by concentrating the definition in one single point of maintenance, e.g. avoid data definition duplicity and data-typing inconsistency;
+ * modularisation for reuse;
+ * simplification of the documentation;
+ * disambiguation of the semantics of specialised concepts;
+ * application of sound design principles.
+
+{nbsp} **Description** ::
+
+The reusability of properties and classes is mainly based on the inheritance types, as briefly described in the following:
+ * **Inheritance**: The use of generic and specialised classes SHOULD be considered always when defining eGovernment Core Vocabularies. A good example for this is the definition of the (quite abstract) class ‘Requirement’ in the CCCEV. All classes defined in an eGovernment Core Vocabulary SHOULD inherit the _owl:Thing class_. This is not always possible, e.g. when the defined class inherits from another class defined in an external (reused) vocabulary.
+
+ * **Multiple inheritance**: Since multiple inheritance is not possible in XML, two approaches CAN be used to ‘simulate’ some aspects which are characteristic in the multiple inheritance it: 
+ ** **Groups of elements and attributes**: one CAN define groups of attributes or of elements and include the group in every class that needs to use the same attributes or elements. An example of this can be seen in the library of data-types defined for its reuse by any SEMIC vocabulary, where each data type, treated as a class (a complex element), reuses the Assurance Level attributes defined for eIDAS and similar contexts of uses .
+ ** **Indirect inheritance**: one CAN design hierarchies of classes and subclasses where the bottom classes inherit all the properties of the parent super-classes. This is an “incremental” and coherent way of expressing multiple concepts that are related in their nature but with slight nuances (properties) amongst themselves. 
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+Example I: groups of attributes:
+[subs="{example-styles}"] 
+[source,xml]
+----
+ <xsd:complexType name="IdentifierType">
+      <xsd:simpleContent>
+         <xsd:extension base="udt:IdentifierType">
+            <xsd:attributeGroup ref="AssuranceLevelAttributes"/>
+         </xsd:extension>
+      </xsd:simpleContent>
+   </xsd:complexType>
+----
+{empty}::
+Example II: ‘cascaded’ inheritance:
+
+[#facilitate_reusing_elements]
+.General architecture approach proposed
+image::facilitate_reusing_elements.jpg[General architecture approach proposed,600,400]
+{empty}::
+[subs="{example-styles}"] 
+[source,xml]
+----
+ <xsd:complexType name="EDMType">
+    <xsd:complexContent>
+      <xsd:extension base="dcat-ap:DatasetType">
+        <xsd:sequence>
+ …
+ <xsd:complexType name="TOOPRequestType">
+    <xsd:complexContent>
+      <xsd:extension base="EDMType">
+        <xsd:sequence>
+ …
+ <xsd:complexType name="TOOPResponseType">
+    <xsd:complexContent>
+      <xsd:extension base="EDMType">
+        <xsd:sequence>
+ …
+----
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+++++
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[subs="{example-styles}"] 
+[source,xml]
+----
+ <?xml version="1.0" encoding="UTF-8"?><--1-->
+ <!-- This is an example XSD --><--1-->
+ <xsd:schema xmlns="https://semic.org/sa/cv/cccev-2.0.0#" <--2-->
+	xmlns:dcat-ap="http://data.europa.eu/r5r/" <--2-->
+	xmlns:cac="https://semic.org/sa/cv/common/cac-2.0.0#"
+	xmlns:cbc="https://semic.org/sa/cv/common/cbc-2.0.0#"
+	xmlns:ccts="urn:un:unece:uncefact:data:specification:CoreComponentTypeSchemaModule:2"
+	xmlns:an="https://semic.org/sa/cv/common/semic-annot-2.0.0#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:foaf="http://xmlns.com/foaf/0.1/"	targetNamespace="https://semic.org/sa/cv/cccev-2.0.0#" <--2-->
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified" 
+	version="2.0.0"> <--2-->
+	<xsd:import namespace="https://semic.org/sa/cv/common/cac-2.0.0#" 
+		schemaLocation="../../../../common/2.0.0/xml/xsd/CV-CommonAggregateComponents.xsd"/> <--3-->
+	<xsd:import namespace="https://semic.org/sa/cv/common/cbc-2.0.0#"
+		schemaLocation="../../../../common/2.0.0/xml/xsd/CV-CommonBasicComponents.xsd"/>
+	<xsd:import namespace="urn:un:unece:uncefact:data:specification:CoreComponentTypeSchemaModule:2"
+		schemaLocation="../../../../common/2.0.0/xml/xsd/CCTS_CCT_SchemaModule-2.3.xsd"/>
+	<xsd:import namespace="http://data.europa.eu/r5r/"
+		schemaLocation="../../../../dcat-ap/2.0.0/xml/dcat-ap.xsd"/> 
+	<xsd:import namespace="http://www.w3.org/2002/07/owl#"
+		schemaLocation="../../../../owl/2.0.0/xml/owl.xsd"/> <--3-->
+	<xsd:import namespace="http://xmlns.com/foaf/0.1/"
+		schemaLocation="../../../../foaf/xml/foaf.xsd"/> +
+  <!-- Declaration of elements --> +
+  <!-- Data properties declarations --> 
+  <xsd:element name="associatedRoleType" type="cbc:CodeType"/>
+  <!-- Object properties --> 
+  <xsd:element name="concept" type="ConceptType"/>
+  <!-- Class declarations --> 
+  <xsd:element name="Concept" type="ConceptType"/>
+  <!-- Element definition -->
+  <xsd:complexType name="ConceptType"> <--4-->
+    <xsd:complexContent>
+    <xsd:extension base="owl:ThingType"> <--3--> <--5-->
+      <xsd:sequence> <--4-->
+        <xsd:element ref="cbc:id" minOccurs="0" maxOccurs="unbounded"> </xsd:element>
+        <xsd:element ref="cbc:name" minOccurs="0" maxOccurs="1"> </xsd:element>
+        <xsd:element ref="cbc:description" minOccurs="0" maxOccurs="unbounded"> </xsd:element>
+        <xsd:element ref="cbc:type" minOccurs="0" maxOccurs="1"> </xsd:element>
+        <xsd:element ref="cbc:qName" minOccurs="0" maxOccurs="unbounded"> </xsd:element>
+        <xsd:element ref="constraint" minOccurs="0" maxOccurs="unbounded"> </xsd:element>
+        <xsd:element ref="value" minOccurs="0" maxOccurs="unbounded">
+        <!--we have two predicates that are the same with different domain/range-->
+        </xsd:element>
+        <xsd:element ref="concept" minOccurs="0" maxOccurs="unbounded"> </xsd:element>
+      </xsd:sequence>
+    </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+ </xsd:schema>
+----
+<1> Guideline 99
+<2> Guideline 100
+<3> Guideline 101
+<4> Guideline 102
+<5> Guideline 103
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Use Core Component Types for CBC definition**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Use Core Component Types for CBC definition**::]
+{nbsp} **Summary**::
+Known standard business languages use the ISO 15000 Core Component Types (CCT) Specification: open standards such as UN/CEFACT, OASIS UBL, HR-Open Standards, other not-so-open specifications used in the private sector. This facilitates the mapping and conversion of data among these standards and the SEMIC eGovernment Core Vocabularies. Therefore, CCT for the definition of cross-vocabulary reusable Common Basic Components (CBC) SHOULD be used
+
+{nbsp} **Description** ::
+
+This style guide proposes the use of the CCT with two main goals: +
+ * **SEMIC eGovernment Core Vocabularies library of Common Basic Components**: The CCT SHOULD be used as a basis for its extension with particular EU attributes (e.g. eIDAS Assurance Level attributes). The goal is to build a library of commonly used ‘basic’ components that are regularly needed in any other vocabulary. See examples below. +
+Such a ‘library‘ of common basic components was started when developing the CCCEV, and is available footnote:[See the file ‘CV-CommonBasicComponents.xsd’ in the the branch v2.0.0 of the CCCEV Github folder ‘common’: https://github.com/SEMICeu/CCCEV/tree/CV-2.0.0/common/2.0.0/xml/xsd.] for its consideration and reuse by any other vocabulary. +
+ * **Vocabulary-specific CBC**: This ‘CBC library’ SHOULD NOT include basic components that are particular of a Core Vocabulary. These basic components SHOULD be defined in the XSD of the Core Vocabulary. The fact that the other Core Vocabulary basic component start to be reused by several other vocabularies would indicate that the component does not contribute to define the true nature of the concepts of the Core Vocabulary where it was originally defined (and would need to be moved into the common CBC library.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+Example I: SEMIC CBC:
+
+ cbc:alias, cbc:identifier, cbc:code, cbc:amount, cbc:quantity, cbc:measure, cbc:name, cbc:description, etc.
+
+{empty}::
+Example II: Vocabulary-specific CBC:
+
+ cccev:bias or cccev:weight (data property of cccev:CriterionType), cccev:confidentialityLevel (data property of the cccev:EvidenceType), etc.
+
+ifndef::backend-pdf[]
+++++
+</details>
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[subs="{example-styles}"] 
+[source,xml]
+----
+ <?xml version="1.0" encoding="UTF-8"?><--1-->
+ <!-- This is an example XSD --><--1-->
+ <xsd:schema xmlns="https://semic.org/sa/cv/cccev-2.0.0#" <--2-->
+	xmlns:dcat-ap="http://data.europa.eu/r5r/" <--2-->
+	xmlns:cac="https://semic.org/sa/cv/common/cac-2.0.0#"
+	xmlns:cbc="https://semic.org/sa/cv/common/cbc-2.0.0#"
+	xmlns:ccts="urn:un:unece:uncefact:data:specification:CoreComponentTypeSchemaModule:2"
+	xmlns:an="https://semic.org/sa/cv/common/semic-annot-2.0.0#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:foaf="http://xmlns.com/foaf/0.1/"	targetNamespace="https://semic.org/sa/cv/cccev-2.0.0#" <--2-->
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified" 
+	version="2.0.0"> <--2-->
+	<xsd:import namespace="https://semic.org/sa/cv/common/cac-2.0.0#" 
+		schemaLocation="../../../../common/2.0.0/xml/xsd/CV-CommonAggregateComponents.xsd"/> <--3-->
+	<xsd:import namespace="https://semic.org/sa/cv/common/cbc-2.0.0#"
+		schemaLocation="../../../../common/2.0.0/xml/xsd/CV-CommonBasicComponents.xsd"/> <--6-->
+	<xsd:import namespace="urn:un:unece:uncefact:data:specification:CoreComponentTypeSchemaModule:2"
+		schemaLocation="../../../../common/2.0.0/xml/xsd/CCTS_CCT_SchemaModule-2.3.xsd"/>
+	<xsd:import namespace="http://data.europa.eu/r5r/"
+		schemaLocation="../../../../dcat-ap/2.0.0/xml/dcat-ap.xsd"/>
+	<xsd:import namespace="http://www.w3.org/2002/07/owl#"
+		schemaLocation="../../../../owl/2.0.0/xml/owl.xsd"/> <--3-->
+	<xsd:import namespace="http://xmlns.com/foaf/0.1/"
+		schemaLocation="../../../../foaf/xml/foaf.xsd"/> +
+  <!-- Declaration of elements --> +
+  <!-- Data properties declarations -->
+  <xsd:element name="associatedRoleType" type="cbc:CodeType"/> <--6--> +
+  <!-- Object properties --> 
+  <xsd:element name="concept" type="ConceptType"/>
+  <!-- Class declarations --> 
+  <xsd:element name="Concept" type="ConceptType"/>
+  <!-- Element definition -->
+  <xsd:complexType name="ConceptType"> <--4-->
+    <xsd:complexContent>
+    <xsd:extension base="owl:ThingType"> <--3--> <--5-->
+      <xsd:sequence> <-- 4 -->
+        <xsd:element ref="cbc:id" minOccurs="0" maxOccurs="unbounded"> </xsd:element>
+        <xsd:element ref="cbc:name" minOccurs="0" maxOccurs="1"> </xsd:element>
+        <xsd:element ref="cbc:description" minOccurs="0" maxOccurs="unbounded"> </xsd:element>
+        <xsd:element ref="cbc:type" minOccurs="0" maxOccurs="1"> </xsd:element>
+        <xsd:element ref="cbc:qName" minOccurs="0" maxOccurs="unbounded"> </xsd:element>
+        <xsd:element ref="constraint" minOccurs="0" maxOccurs="unbounded"> </xsd:element>
+        <xsd:element ref="value" minOccurs="0" maxOccurs="unbounded">
+        <!--we have two predicates that are the same with different domain/range-->
+        </xsd:element>
+        <xsd:element ref="concept" minOccurs="0" maxOccurs="unbounded"> </xsd:element>
+      </xsd:sequence>
+    </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+ </xsd:schema>
+----
+<1> Guideline 99
+<2> Guideline 100
+<3> Guideline 101
+<4> Guideline 102
+<5> Guideline 103
+<6> Guideline 105
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Use CCT to identify external resource locations**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Use CCT to identify external resource locations**::]
+{nbsp} **Summary**::
+
+Note that:
+ * Data type and data validation coherence: dissimilar data types require different design, implementation and validation approaches +
+ * Respect of the original specification: If the XSD version of the vocabulary does not exist, the argument that by using the SEMIC CBC the original definition is not respected does not stand soundly, provided that the primitive data type and/or the specification of the identifier and location of the resource are functionally equivalent.
+{empty}::
+Therefore, The CCT attributes to identify the resource location SHOULD be used when mapping external vocabularies.
+
+{nbsp} **Description** ::
+
+One of the problems of reusing vocabularies defined in external namespaces is that they use naming, design, and implementation rules different to the ones established in this SEMIC style guide. This leads inevitably to situations that require additional technical and governance decisions. Consider, for an example, the reuse of DCAT-AP within the CCCEV and the situations hereby described: +
+ * **Choice of the appropriate primitive data types**: vocabularies modelled based on RDF and Linked Open Data principles approach the use of primitive data differently to what is usual in XML designs. Thus, for example, in RDF identifiers are usually modelled as _xsd:string_ or _xsd:normalizedString_. In RDF, controlled vocabularies use SKOS. The RDF world also leaves the possibility open to not indicate the type of resource a class is associated to (for which the rdfs:resource element is used, thus pointing to any type of date presumably available at a URL from which both data and metadata may be obtained). +
+Inspired by the development of the CCCEV ways of solving this situation when the external vocabulary being has not been implemented yet as an XSD Schema, are being presented in the following: +
+Respecting the original definition and mapping the primitive data types SHOULD be in place. 
+A work-around of the definition of ‘nearly-XML primitive’ data types SHOULD be in place. For example, use _xsd:anyURI_ or _xsd:anyType_ as possible equivalent data types for the _rdfs:resource_. +
+A mapping of each primitive (or nearly-primitive) data type to one of the proposed SEMIC Common Basic Component (CBC) is recommended. +
+The third option are the recommendations found within this style guide document. + 
+
+ * **Development of vocabulary-specific supplementary software**: The RDF paradigm allows to model more “open worlds” than the XML designs, which are more focused on the data types, formats and constraints. This means that when converting an RDF-based vocabulary into an XSD artefact, specific data types should be selected. This is one of the reasons why the use of xsd:anyType to map the rdfs:resource SHOULD NOT be considered.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+The CCCEV development provides a SEMIC CBC-based implementation of the DCAT-AP XSD vocabulary (and of every vocabulary it imports). See the file ‘dcat-ap_semic-cbc.xsd’ under the branch v2.0.0 of the CCCEV GitHub: https://github.com/SEMICeu/CCCEV/tree/CV-2.0.0/dcat-ap/2.0.0/xml.
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Make use of Common Aggregate Components library**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Make use of Common Aggregate Components library**::]
+{nbsp} **Summary**::
+
+Highly reusable classes SHOULD be defined in a separated Common Aggregate Components (CAC) library, as this ensures the cross-vocabulary and cross-domain semantic interoperability and complies with sharing and reuse principle.
+
+{nbsp} **Description** ::
+
+This is the case, for example of the classes Period or Address, which are frequently needed in many different situations. However, when reusing these classes, attention needs to be given in the following: +
+ * The prefix ‘cac’ (standing for Common Aggregate Components’) CAN be used in order to identify the classes defined in the CAC SEMIC XSD file. This facilitates the identification and use of the imported classes and properties +
+ * Definition of properties in the ‘cac:’ namespace that are particular to Core Vocabulary or Application Profile SHOULD NOT take place. For example, a property named ‘certificateValidityPeriod’ SHOULD NOT be defined in the namespace represented with the ‘cac:’ prefix. 
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[subs="{example-styles}"] 
+[source,xml]
+----
+ <xsd:element name="DatumValue" type="cac:ValueType"/>
+ <xsd:element name="PeriodValue" type="cac:PeriodType"/>
+----
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Represent the central concept as abstract class**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Represent the central concept as abstract class**::]
+{nbsp} **Summary**::
+
+The concept of ‘abstract’ class CAN be applied for the representation of the central concept of any Vocabulary, as it ensures the following:
+ * Usage of the extensibility principle +
+ * Ability to be cross-syntax compatible +
+ * Enablement of cross-domain interoperability +
+ * Flexibility in design and implementation. 
+
+{nbsp} **Description** ::
+
+This recommendation is tightly related to the concept of ‘core’. Being ‘core’ implies that the vocabulary is domain-agnostic, and therefore the central concept being defined therein is abstract enough so it can be further on specialised for domain-specific needs. It also implies that the ‘abstract’ class is the one that carry the majority of the properties that is truly ‘core’.
+The design and instantiation of ‘abstract’ classes poses the challenges that are described below, along with recommendations on how to address them: +
+ * Classes in XML can be declared abstract, however they SHOULD NOT be declared abstract in an eGovernment Core Vocabulary. Declaring classes as ‘abstract’ would impose a restriction that could be inconvenient at XML instance production time. 
+ * How to specify that a requirement inside a requirement is of a specific subclass type. The solution to this is to specify it at XML instantiation-time, using the _xsi:type_ attribute of any XML object (‘xsi’ stands for XML Schema Instance). See the example below (taken from the CCCEV XSD). This case is encompassed under the notion of ‘polymorphism’ because one class declaration is used for multiple different sub-class instantiations footnote:[See the example XML files provided for the ESPD use case for a better understanding of the use of the xsi:type: https://github.com/SEMICeu/CCCEV/tree/CV-2.0.0/use_cases/espd-cv.].
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+Example I: Subclassing of ‘pseudo-abstract’ classes +
+
+[#represent_the_central_concept_as_abstract_class]
+.CCCEV:Requirement as 'pseudo-abstract'
+image::represent_the_central_concept_as_abstract_class.jpg[CCCEV:Requirement as 'pseudo-abstract', 80%, 80% align="center"]
+
+{empty}::
+Example II: Use of xsi:type +
+[subs="{example-styles}"] 
+[source,xml]
+----
+ Requirement xsi:type="cccev:CriterionType" xmlns:espd-voc="http://semic.eu/sa/espd/voc#" xmlns:espd-pi="http://semic.eu/sa/espd/pi">
+    <cbc:id schemeID="ESPD" schemeVersionID="2.1.1">005eb9ed-1347-4ca3-bb29-9bc0db64e1ab</cbc:id>
+    <cbc:name languageID="en">Participation in a criminal organisation</cbc:name>
+    <cbc:description languageID="eng">Has the economic operator …</cbc:description>
+    <cbc:type AssuranceLevelValue="High" listID="CriteriaTypeCode" listAgencyID="EU-COM-GROW" 
+    listVersionID="2.1.1">CRITERION.EXCLUSION.CONVICTIONS.PARTICIPATION_IN_CRIMINAL_ORGANISATION</cbc:type>
+    <cccev:requirement xsi:type="cccev:InformationRequirementType">
+      <cbc:id>7c637c0c-7703-4389-ba52-02997a055bd7</cbc:id>
+----
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Keep file names brief and concise**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Keep file names brief and concise**::]
+{nbsp} **Summary**::
+
+File names SHOULD be brief, self-contained, unambiguously and uniquely identifiable, hence when naming XSD files, abbreviations, hyphens and identifiers CAN be used.
+
+{nbsp} **Description** ::
+
+The name of the file used to define the XSD Schema CAN be composed of: +
+ * The abbreviated name of the vocabulary, e.g. ‘cccev’ +
+ * A hyphen, ‘-‘ +
+ * The version identifier, e.g. ‘v2.0.0’ +
+ * The extension of the W3C file, i.e. ‘.xsd’
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+cccev-v2.0.0.xsd
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Use lowerCamelBack for attributes and predicates**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Use lowerCamelBack for attributes and predicates**::]
+{nbsp} **Summary**::
+UML attributes and predicates SHALL use the lowerCamelBack syntax and avoid appending the word Type at the end (except for a code), as this ensures: +
+ * The facilitation of the distinction between properties and classes +
+ * That data properties are easily differentiated from the object properties based on the prefix and the naming rule (e.g. codes and identifiers) +
+ * Coherence with the UML and RDF and JSON serialisations, while trying to preserve the XML user/developer experience
+
+{nbsp} **Description** ::
+
+The basic rules for the naming of the UML class attributes and predicates, are described in the following: +
+ * The name of any property SHALL follow the lowerCamelBack syntax +
+ * The name of a property SHALL NOT append the word Type at the end, except if it is a code +
+ * Any data property CAN start with verb (but it is not recommended). This naming is classic in XSD design, contrary to the naming of property in RDF. Codes defining the nature of a class SHOULD reuse the component _cbc:Type_. Otherwise the property name SHOULD be qualified with a prepended noun or adjective. If the appendix ‘Type’, added to a qualified property pointing to a code, causes confusion or ambiguity, then the word ‘Classification’ to the qualifier SHOULD be appended (as in _cccev:evidenceTypeClassification_, instead of _cccev:EvidenceTypeType_, for example).
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[subs="{example-styles}"] 
+[source,xml]
+----
+ <!-- Data properties declarations -->
+  <xsd:element name="associatedRoleType" type="cbc:CodeType"/> +
+  <!-- Object properties --> 
+  <xsd:element name="concept" type="ConceptType"/>
+----
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+++++
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[subs="{example-styles}"] 
+[source,xml]
+----
+ <?xml version="1.0" encoding="UTF-8"?><--1-->
+ <!-- This is an example XSD --><--1-->
+ <xsd:schema xmlns="https://semic.org/sa/cv/cccev-2.0.0#" <--2-->
+	xmlns:dcat-ap="http://data.europa.eu/r5r/" <--2-->
+	xmlns:cac="https://semic.org/sa/cv/common/cac-2.0.0#"
+	xmlns:cbc="https://semic.org/sa/cv/common/cbc-2.0.0#"
+	xmlns:ccts="urn:un:unece:uncefact:data:specification:CoreComponentTypeSchemaModule:2"
+	xmlns:an="https://semic.org/sa/cv/common/semic-annot-2.0.0#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:foaf="http://xmlns.com/foaf/0.1/"	targetNamespace="https://semic.org/sa/cv/cccev-2.0.0#" <--2-->
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified" 
+	version="2.0.0"> <--2-->
+	<xsd:import namespace="https://semic.org/sa/cv/common/cac-2.0.0#" 
+		schemaLocation="../../../../common/2.0.0/xml/xsd/CV-CommonAggregateComponents.xsd"/> <--3-->
+	<xsd:import namespace="https://semic.org/sa/cv/common/cbc-2.0.0#"
+		schemaLocation="../../../../common/2.0.0/xml/xsd/CV-CommonBasicComponents.xsd"/>
+	<xsd:import namespace="urn:un:unece:uncefact:data:specification:CoreComponentTypeSchemaModule:2"
+		schemaLocation="../../../../common/2.0.0/xml/xsd/CCTS_CCT_SchemaModule-2.3.xsd"/>
+	<xsd:import namespace="http://data.europa.eu/r5r/"
+		schemaLocation="../../../../dcat-ap/2.0.0/xml/dcat-ap.xsd"/>
+	<xsd:import namespace="http://www.w3.org/2002/07/owl#"
+		schemaLocation="../../../../owl/2.0.0/xml/owl.xsd"/> <-- 3 -->
+	<xsd:import namespace="http://xmlns.com/foaf/0.1/"
+		schemaLocation="../../../../foaf/xml/foaf.xsd"/> +
+  <!-- Declaration of elements --> +
+  <!-- Data properties declarations -->
+  <xsd:element name="associatedRoleType" type="cbc:CodeType"/><--6--><--7-->
+  <!-- Object properties --> 
+  <xsd:element name="concept" type="ConceptType"/> <--7-->
+  <!-- Class declarations --> 
+  <xsd:element name="Concept" type="ConceptType"/>
+  <!-- Element definition -->
+  <xsd:complexType name="ConceptType"> <--4-->
+    <xsd:complexContent>
+    <xsd:extension base="owl:ThingType"> <--3--> <--5-->
+      <xsd:sequence> <--4-->
+        <xsd:element ref="cbc:id" minOccurs="0" maxOccurs="unbounded"> </xsd:element>
+        <xsd:element ref="cbc:name" minOccurs="0" maxOccurs="1"> </xsd:element>
+        <xsd:element ref="cbc:description" minOccurs="0" maxOccurs="unbounded"> </xsd:element>
+        <xsd:element ref="cbc:type" minOccurs="0" maxOccurs="1"> </xsd:element>
+        <xsd:element ref="cbc:qName" minOccurs="0" maxOccurs="unbounded"> </xsd:element>
+        <xsd:element ref="constraint" minOccurs="0" maxOccurs="unbounded"> </xsd:element>
+        <xsd:element ref="value" minOccurs="0" maxOccurs="unbounded">
+        <!--we have two predicates that are the same with different domain/range-->
+        </xsd:element>
+        <xsd:element ref="concept" minOccurs="0" maxOccurs="unbounded"> </xsd:element>
+      </xsd:sequence>
+    </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+ </xsd:schema>
+----
+<1> Guideline 99
+<2> Guideline 100
+<3> Guideline 101
+<4> Guideline 102
+<5> Guideline 103
+<6> Guideline 105
+<7> Guideline 109
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Use UpperCamelBack plus type for classes**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Use UpperCamelBack plus type for classes**::]
+{nbsp} **Summary**::
+UML classes SHALL use UpperCamelBack syntax and the word “Type” at the end of the term. This ensures: +
+ * Facilitation of the distinction between properties and classes +
+ * Coherence with the UML and RDF and JSON serialisations, while trying to preserve the XML user/developer experience as much as possible.
+
+{nbsp} **Description** ::
+
+The rules for the naming of the UML classes when defined as XML simple of complex element types, are described in the following : +
+ * The name of any class defined in the vocabulary (simple or complex element) SHALL follow the UpperCamelBack syntax +
+ * All classes SHALL append the word “Type” at the end of the term used in its definition (e.g. ‘CriterionType’, ‘InformationRequirementType, ConstraintType’, etc.) +
+ * No spaces or non-ASCII codes are allowed in the name of a Class, either in the UML representation nor in the XSD implementation. Only ASCII letters, numbers, SHOULD be used +
+ * The use of the characters ‘-‘ and ‘_‘ SHOULD NOT be used. An exception to this rule CAN be the use of middle-hyphen when the hyphen is currently used in the language used to term the class (e.g. Latin words normally use in English, like Ex-AnteDeclaration).
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[subs="{example-styles}"] 
+[source,xml]
+----
+  <!-- Class declarations --> 
+  <xsd:element name="Concept" type="ConceptType"/>
+----
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+++++
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[subs="{example-styles}"] 
+[source,xml]
+----
+ <?xml version="1.0" encoding="UTF-8"?><--1-->
+ <!-- This is an example XSD --><--1-->
+ <xsd:schema xmlns="https://semic.org/sa/cv/cccev-2.0.0#" <--2-->
+	xmlns:dcat-ap="http://data.europa.eu/r5r/" <--2-->
+	xmlns:cac="https://semic.org/sa/cv/common/cac-2.0.0#"
+	xmlns:cbc="https://semic.org/sa/cv/common/cbc-2.0.0#"
+	xmlns:ccts="urn:un:unece:uncefact:data:specification:CoreComponentTypeSchemaModule:2"
+	xmlns:an="https://semic.org/sa/cv/common/semic-annot-2.0.0#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:foaf="http://xmlns.com/foaf/0.1/"	targetNamespace="https://semic.org/sa/cv/cccev-2.0.0#" <--2-->
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified" 
+	version="2.0.0"> <--2-->
+	<xsd:import namespace="https://semic.org/sa/cv/common/cac-2.0.0#" 
+		schemaLocation="../../../../common/2.0.0/xml/xsd/CV-CommonAggregateComponents.xsd"/> <--3-->
+	<xsd:import namespace="https://semic.org/sa/cv/common/cbc-2.0.0#"
+		schemaLocation="../../../../common/2.0.0/xml/xsd/CV-CommonBasicComponents.xsd"/>
+	<xsd:import namespace="urn:un:unece:uncefact:data:specification:CoreComponentTypeSchemaModule:2"
+		schemaLocation="../../../../common/2.0.0/xml/xsd/CCTS_CCT_SchemaModule-2.3.xsd"/>
+	<xsd:import namespace="http://data.europa.eu/r5r/"
+		schemaLocation="../../../../dcat-ap/2.0.0/xml/dcat-ap.xsd"/>
+	<xsd:import namespace="http://www.w3.org/2002/07/owl#"
+		schemaLocation="../../../../owl/2.0.0/xml/owl.xsd"/> <--3-->
+	<xsd:import namespace="http://xmlns.com/foaf/0.1/"
+		schemaLocation="../../../../foaf/xml/foaf.xsd"/> +
+  <!-- Declaration of elements --> +
+  <!-- Data properties declarations -->
+  <xsd:element name="associatedRoleType" type="cbc:CodeType"/><--6--><--7-->
+  <!-- Object properties --> 
+  <xsd:element name="concept" type="ConceptType"/> <--7-->
+  <!-- Class declarations --> 
+  <xsd:element name="Concept" type="ConceptType"/> <--8-->
+  <!-- Element definition -->
+  <xsd:complexType name="ConceptType"> <--4-->
+    <xsd:complexContent>
+    <xsd:extension base="owl:ThingType"> <--3--> <--5-->
+      <xsd:sequence> <--4-->
+        <xsd:element ref="cbc:id" minOccurs="0" maxOccurs="unbounded"> </xsd:element>
+        <xsd:element ref="cbc:name" minOccurs="0" maxOccurs="1"> </xsd:element>
+        <xsd:element ref="cbc:description" minOccurs="0" maxOccurs="unbounded"> </xsd:element>
+        <xsd:element ref="cbc:type" minOccurs="0" maxOccurs="1"> </xsd:element>
+        <xsd:element ref="cbc:qName" minOccurs="0" maxOccurs="unbounded"> </xsd:element>
+        <xsd:element ref="constraint" minOccurs="0" maxOccurs="unbounded"> </xsd:element>
+        <xsd:element ref="value" minOccurs="0" maxOccurs="unbounded">
+        <!--we have two predicates that are the same with different domain/range-->
+        </xsd:element>
+        <xsd:element ref="concept" minOccurs="0" maxOccurs="unbounded"> </xsd:element>
+      </xsd:sequence>
+    </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+ </xsd:schema>
+----
+<1> Guideline 99
+<2> Guideline 100
+<3> Guideline 101
+<4> Guideline 102
+<5> Guideline 103
+<6> Guideline 105
+<7> Guideline 109
+<8> Guideline 110
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Provide the XSD manifestation**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Provide the XSD manifestation**::]
+{nbsp} **Summary**::
+Any eGovernment Core Vocabulary XSD Schema SHOULD provide a manifestation of the XSD (i.e. a copy of the XSD file) where each property and class SHOULD be documented. This ensures: +
+ * Human readability and understanding of the semantics and usage of the elements +
+ * Registration and population of properties and classes in registry/repository services for the automated discoverability, sharing and reuse (e.g OASIS RegRep-compliant registries of components) +
+ * Automated processing of the elements based on the annotations, e.g. for the production of supporting human-readable documentation +
+ Note that the practice of providing a manifestation is based on well-established standards, like UN/CEFACT and OASIS UBL, which provide two different sets of XSD files: a run-time copy and a fully documented version footnote:[See folders ‘xsd’ and ‘xsdrt’ in the branch v2.0.0 of the CCCEV GitHub repository: https://github.com/SEMICeu/CCCEV/tree/CV-2.0.0/cccev/2.0.0/xml].
+
+{nbsp} **Description** ::
+
+This SEMIC style guide recommends that the use of the _xsd:annotation_ element jointly with the CCCTS components defined in the UN/CEFACT CCT-CCTS 1.1 specification footnote:[See the UN/CEFACT CCT-CCTS specification used by the CCCEV: https://github.com/SEMICeu/CCCEV/blob/CV-2.0.0/common/2.0.0/xml/xsd/CCTS_CCT_SchemaModule-2.3.xsd], SHOULD be followed as much as possible. +
+The development of the CCCEV showed that the SEMIC vocabularies implementing this SEMIC style guide SHOULD reuse a set of additional elements for the documentation of the elements (both properties and classes) of an eGovernment Core Vocabulary footnote:[This proposal is implemented in the file https://github.com/SEMICeu/CCCEV/blob/CV-2.0.0/common/2.0.0/xml/xsd/CCCEV-Annotation.xsd].
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[subs="{example-styles}"] 
+[source,xml]
+----
+  <xsd:annotation>
+     <xsd:documentation>
+      <an:Class>
+       <ccts:ComponentType>Class</ccts:ComponentType>
+       <ccts:DictionaryEntryName>cccev:Concept. Details</ccts:DictionaryEntryName>
+       <ccts:Definition>
+        A reference to an entity, i.e. a class or a property, which is defined in a known ontology or vocabulary.
+        Additional information:
+        A concept defined in the context of a Requirement must be unambiguous so there is no possibility of misinterpretation. Hence the use of qualified names (a pair {namespace, local name} is strongly recommended for the identification of the entity being referred to.
+       </ccts:Definition>
+       <ccts:ObjectClass>cccev:Concept</ccts:ObjectClass>
+       <PrimitiveClass>owl:ThingType</PrimitiveClass>
+      </an:Class>
+     </xsd:documentation>
+    </xsd:annotation>
+----
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+++++
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[subs="{example-styles}"] 
+[source,xml]
+----
+ <?xml version="1.0" encoding="UTF-8"?><--1-->
+ <!-- This is an example XSD --><--1-->
+ <xsd:schema xmlns="https://semic.org/sa/cv/cccev-2.0.0#" <--2-->
+	xmlns:dcat-ap="http://data.europa.eu/r5r/" <--2-->
+	xmlns:cac="https://semic.org/sa/cv/common/cac-2.0.0#"
+	xmlns:cbc="https://semic.org/sa/cv/common/cbc-2.0.0#"
+	xmlns:ccts="urn:un:unece:uncefact:data:specification:CoreComponentTypeSchemaModule:2"
+	xmlns:an="https://semic.org/sa/cv/common/semic-annot-2.0.0#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:foaf="http://xmlns.com/foaf/0.1/"	targetNamespace="https://semic.org/sa/cv/cccev-2.0.0#" <--2-->
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified" 
+	version="2.0.0"> <--2-->
+	<xsd:import namespace="https://semic.org/sa/cv/common/cac-2.0.0#" 
+		schemaLocation="../../../../common/2.0.0/xml/xsd/CV-CommonAggregateComponents.xsd"/> <--3-->
+	<xsd:import namespace="https://semic.org/sa/cv/common/cbc-2.0.0#"
+		schemaLocation="../../../../common/2.0.0/xml/xsd/CV-CommonBasicComponents.xsd"/>
+	<xsd:import namespace="urn:un:unece:uncefact:data:specification:CoreComponentTypeSchemaModule:2"
+		schemaLocation="../../../../common/2.0.0/xml/xsd/CCTS_CCT_SchemaModule-2.3.xsd"/>
+	<xsd:import namespace="http://data.europa.eu/r5r/"
+		schemaLocation="../../../../dcat-ap/2.0.0/xml/dcat-ap.xsd"/>
+	<xsd:import namespace="http://www.w3.org/2002/07/owl#"
+		schemaLocation="../../../../owl/2.0.0/xml/owl.xsd"/> <--3-->
+	<xsd:import namespace="http://xmlns.com/foaf/0.1/"
+		schemaLocation="../../../../foaf/xml/foaf.xsd"/> +
+  <!-- Declaration of elements --> +
+  <!-- Data properties declarations -->
+  <xsd:element name="associatedRoleType" type="cbc:CodeType"/><--6--><--7-->
+  <!-- Object properties --> 
+  <xsd:element name="concept" type="ConceptType"/> <--7-->
+  <!-- Class declarations --> 
+  <xsd:element name="Concept" type="ConceptType"/> <--8-->
+  <!-- Element definition -->
+  <xsd:complexType name="ConceptType"> <--4-->
+    <xsd:complexContent>
+    <xsd:extension base="owl:ThingType"> <--3--><--5-->
+    <xsd:annotation> <--9-->
+     <xsd:documentation>
+      <an:Class>
+       <ccts:ComponentType>Class</ccts:ComponentType>
+       <ccts:DictionaryEntryName>cccev:Concept. Details</ccts:DictionaryEntryName>
+       <ccts:Definition>
+        A reference to an entity, i.e. a class or a property, which is defined in a known ontology or vocabulary.
+        Additional information:
+        …strongly recommended for the identification of the entity being referred to.
+       </ccts:Definition>
+       <ccts:ObjectClass>cccev:Concept</ccts:ObjectClass>
+       <PrimitiveClass>owl:ThingType</PrimitiveClass>
+      </an:Class>
+     </xsd:documentation>
+    </xsd:annotation>
+      <xsd:sequence> <--4-->
+        <xsd:element ref="cbc:id" minOccurs="0" maxOccurs="unbounded"> </xsd:element>
+        <xsd:element ref="cbc:name" minOccurs="0" maxOccurs="1"> </xsd:element>
+        <xsd:element ref="cbc:description" minOccurs="0" maxOccurs="unbounded"> </xsd:element>
+        <xsd:element ref="cbc:type" minOccurs="0" maxOccurs="1"> </xsd:element>
+        <xsd:element ref="cbc:qName" minOccurs="0" maxOccurs="unbounded"> </xsd:element>
+        <xsd:element ref="constraint" minOccurs="0" maxOccurs="unbounded"> </xsd:element>
+        <xsd:element ref="value" minOccurs="0" maxOccurs="unbounded">
+        <!--we have two predicates that are the same with different domain/range-->
+        </xsd:element>
+        <xsd:element ref="concept" minOccurs="0" maxOccurs="unbounded"> </xsd:element>
+      </xsd:sequence>
+    </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+</xsd:schema>
+----
+<1> Guideline 99
+<2> Guideline 100
+<3> Guideline 101
+<4> Guideline 102
+<5> Guideline 103
+<6> Guideline 105
+<7> Guideline 109
+<8> Guideline 110
+<9> Guideline 111
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====

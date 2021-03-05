@@ -1,0 +1,25 @@
+
+ifdef::env-github[]
+:base-wiki-dir: https://github.com/ecobosco/SEMICguidelines/wiki/
+:imagesdir: https://github.com/ecobosco/SEMICguidelines/blob/master/asciidoc/art/
+endif::[]
+
+To solve the closed and open world mismatch, the proposal is made to separate the different concerns into different files:
+
+* An RDFS file (required) with human-oriented semantics containing labels, definitions, scope and usage note that will serve two other models
+
+* One (optional) in RDFS/OWL, aimed at inferring new facts
+
+* One in SHACL (required) that defines the classes with their attributes and relationships, and the constraints on occurrences and values used
+
+The focus of this section is on providing guidelines for core source RDFS files with human-oriented semantics (see Figure 1 below). 
+
+._Situating RDFS for human consumption_
+image::RDFS_core_annotations.jpg[Situating RDFS for human consumption,600,400, align="center"]
+{nbsp}
+
+The subsections below are a breakdown of the RDFS file and contain detailed related guidelines.
+
+* link:{base-wiki-dir}environment-setup[Environment set up]: the guidelines for setting up the environment while creating an RDFS file
+
+* link:{base-wiki-dir}vocabulary[Vocabulary]: the guidelines for vocabularies such as declaring the namespaces, appropriately importing the other vocabularies and adding metadata in an RDFS file

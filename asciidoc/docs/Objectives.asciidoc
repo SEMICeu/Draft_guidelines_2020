@@ -1,0 +1,9 @@
+This document’s objective can be summarised as the following:
+
+- Provide a brief background on Semantic Interoperability along with the technological means to materialise this interoperability by using the SEMIC specifications;
+
+- Develop and suggest a set of human-oriented guidelines and recommendations for the conceptual representation, design and implementation of the SEMIC specifications (i.e. the reusable ontologies and the eGovernment Core Vocabularies;
+
+- Develop and suggest a collection of reference artefacts footnote:[Within the context of this document, semantic assets are distinguished from reference artefacts. The former includes all types of assets that materialise the Semantic Interoperability (like ontologies, taxonomies, vocabularies, application profiles) while the latter are related to the modelling choice and the respective model presented in subsection Step four: Modelling choice made] for the formal representation, implementation and validation of SEMIC’s specifications;
+
+- Develop and propose an initial set of naming and design rules for approaching the automated generation of the ontologies and eGovernment Core Vocabularies in different syntax languages (RDF, XML, JSON), and from one single point of maintenance (the conceptual representation).

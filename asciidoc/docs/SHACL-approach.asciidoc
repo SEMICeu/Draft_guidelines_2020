@@ -1,0 +1,12 @@
+
+ifdef::env-github[]
+:base-wiki-dir: https://github.com/ecobosco/SEMICguidelines/wiki/
+endif::[]
+
+A SHACL file captures the object-oriented aspects of data modelling. It contains the constraints of the model (relations, values, classes, etc.) in the form of “shapes”. This section provides guidelines on the proper formulation of the SHACL files.
+
+Transitioning from UML class diagrams (see UML Class Diagrams Style Guide), this section provides guidelines on the proper formulation of the SHACL files. 
+To make the guidelines more specific, a distinction is made between two different constraints files, and they are:
+
+* link:{base-wiki-dir}shacl-constraints[eGovernment Core Vocabularies constraints in SHACL]: provide guidelines for expressing the constraints of the model at the level of eGovernment Core Vocabularies;
+* link:{base-wiki-dir}shacl-and-application-profiles[Application Profiles in SHACL]: offer guidelines for defining additional or more specific constraints at the level of application profiles.

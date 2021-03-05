@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<!-- saved from url=(0074)file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html -->
+<html lang="en-GB"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><style>span.example-title{text-transform:none}aside.example,div.example,div.illegal-example{padding:.5em;margin:1em 0;position:relative;clear:both}div.illegal-example{color:red}div.illegal-example p{color:#000}aside.example,div.example{padding:.5em;border-left-width:.5em;border-left-style:solid;border-color:#e0cb52;background:#fcfaee}aside.example div.example{border-left-width:.1em;border-color:#999;background:#fff}aside.example div.example span.example-title{color:#999}</style><style>.issue-label{text-transform:initial}.warning>p:first-child{margin-top:0}.warning{padding:.5em;border-left-width:.5em;border-left-style:solid}span.warning{padding:.1em .5em .15em}.issue.closed span.issue-number{text-decoration:line-through}.warning{border-color:#f11;border-width:.2em;border-style:solid;background:#fbe9e9}.warning-title:before{content:"⚠";font-size:1.3em;float:left;padding-right:.3em;margin-top:-.3em}li.task-list-item{list-style:none}input.task-list-item-checkbox{margin:0 .35em .25em -1.6em;vertical-align:middle}.issue a.respec-gh-label{padding:5px;margin:0 2px 0 2px;font-size:10px;text-transform:none;text-decoration:none;font-weight:700;border-radius:4px;position:relative;bottom:2px;border:none;display:inline-block}</style><style class="removeOnSave">dfn{cursor:pointer}.dfn-panel{--fill:#fff;position:absolute;left:var(--left);top:var(--top);z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font:small Helvetica Neue,sans-serif,Droid Sans Fallback;background:var(--fill);color:#000;box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);border-radius:2px}.dfn-panel:not(.docked)::after,.dfn-panel:not(.docked)::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:9px solid #a2a9b1;top:-9px;left:calc(var(--caret-offset,0px) + .75em)}.dfn-panel:not(.docked)::after{border-bottom:10px solid var(--fill)}.dfn-panel *{margin:0}.dfn-panel>b{display:block}.dfn-panel ul a[href]{color:#333}.dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}.dfn-panel a[href]:hover{border-bottom-width:1px}.dfn-panel>b+b{margin-top:.25em}.dfn-panel ul{padding:0}.dfn-panel li{margin-left:1em}.dfn-panel.docked{display:inline-block;position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}</style><link rel="preconnect" crossorigin="anonymous" href="https://www.w3.org/" class="removeOnSave"><link rel="preload" as="script" href="./Documentation_AP_TExample_files/fixup.js.download" class="removeOnSave"><link rel="preload" as="style" href="./Documentation_AP_TExample_files/base.css" class="removeOnSave"><link rel="preload" as="image" href="./Documentation_AP_TExample_files/W3C" class="removeOnSave"><link rel="stylesheet" href="./Documentation_AP_TExample_files/base.css" class="removeOnSave">
+
+  <title>Example Documentation</title>
+  
+
+
+  <link rel="dns-prefetch" crossorigin="anonymous" href="https://specref.herokuapp.com/" class="removeOnSave"><link rel="preconnect" crossorigin="anonymous" href="https://respec.org/" class="removeOnSave"><link rel="preload" as="script" href="https://www.w3.org/Tools/respec/respec-highlight.js" class="removeOnSave"><style id="respec-ui-styles" class="removeOnSave">.respec-modal .close-button{position:absolute;z-index:inherit;padding:.2em;font-weight:700;cursor:pointer;margin-left:5px;border:none;background:0 0}#respec-ui{position:fixed;display:flex;flex-direction:row-reverse;top:20px;right:20px;width:202px;text-align:right;z-index:9000}#respec-pill,.respec-info-button{background:#fff;height:2.5em;color:#787878;border:1px solid #ccc;box-shadow:1px 1px 8px 0 rgba(100,100,100,.5)}.respec-info-button{border:none;opacity:.75;border-radius:2em;margin-right:1em;min-width:3.5em}.respec-info-button:focus,.respec-info-button:hover{opacity:1;transition:opacity .2s}#respec-pill:disabled{font-size:2.8px;text-indent:-9999em;border-top:1.1em solid rgba(40,40,40,.2);border-right:1.1em solid rgba(40,40,40,.2);border-bottom:1.1em solid rgba(40,40,40,.2);border-left:1.1em solid #fff;transform:translateZ(0);animation:respec-spin .5s infinite linear;box-shadow:none}#respec-pill:disabled,#respec-pill:disabled:after{border-radius:50%;width:10em;height:10em}@keyframes respec-spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}.respec-hidden{visibility:hidden;opacity:0;transition:visibility 0s .2s,opacity .2s linear}.respec-visible{visibility:visible;opacity:1;transition:opacity .2s linear}#respec-pill:focus,#respec-pill:hover{color:#000;background-color:#f5f5f5;transition:color .2s}#respec-menu{position:absolute;margin:0;padding:0;font-family:sans-serif;background:#fff;box-shadow:1px 1px 8px 0 rgba(100,100,100,.5);width:200px;display:none;text-align:left;margin-top:32px;font-size:.8em}#respec-menu:not([hidden]){display:block}#respec-menu li{list-style-type:none;margin:0;padding:0}.respec-save-buttons{display:grid;grid-template-columns:repeat(auto-fill,minmax(47%,2fr));grid-gap:.5cm;padding:.5cm}.respec-save-button:link{padding-top:16px;color:#f0f0f0;background:#2a5aa8;justify-self:stretch;height:1cm;text-decoration:none;text-align:center;font-size:inherit;border:none;border-radius:.2cm}.respec-save-button:link:hover{color:#fff;background:#2a5aa8;padding:0;margin:0;border:0;padding-top:16px}.respec-save-button:link:focus{background:#193766}#respec-pill:focus,#respec-ui button:focus,.respec-option:focus{outline:0;outline-style:none}#respec-pill-error{background-color:red;color:#fff}#respec-pill-warning{background-color:orange;color:#fff}.respec-error-list,.respec-warning-list{margin:0;padding:0;list-style:none;font-family:sans-serif;background-color:#fffbe6;font-size:.85em}.respec-error-list>li,.respec-warning-list>li{padding:.4em .7em}.respec-warning-list>li::before{content:"⚠️";padding-right:.5em}.respec-error-list p,.respec-warning-list p{padding:0;margin:0}.respec-warning-list li{color:#5c3b00;border-bottom:thin solid #fff5c2}.respec-error-list,.respec-error-list li{background-color:#fff0f0}.respec-error-list li::before{content:"💥";padding-right:.5em}.respec-error-list li{padding:.4em .7em;color:#5c3b00;border-bottom:thin solid #ffd7d7}.respec-error-list li>p{margin:0;padding:0;display:inline-block}.respec-error-list li>p:first-child,.respec-warning-list li>p:first-child{display:inline}.respec-error-list>li li,.respec-warning-list>li li{margin:0;list-style:disc}#respec-overlay{display:block;position:fixed;z-index:10000;top:0;left:0;height:100%;width:100%;background:#000}.respec-show-overlay{transition:opacity .2s linear;opacity:.5}.respec-hide-overlay{transition:opacity .2s linear;opacity:0}.respec-modal{display:block;position:fixed;z-index:11000;margin:auto;top:10%;background:#fff;border:5px solid #666;min-width:20%;width:79%;padding:0;max-height:80%;overflow-y:auto;margin:0 -.5cm}@media screen and (min-width:78em){.respec-modal{width:62%}}.respec-modal h3{margin:0;padding:.2em;text-align:center;color:#000;background:linear-gradient(to bottom,#eee 0,#eee 50%,#ccc 100%);font-size:1em}.respec-modal .inside div p{padding-left:1cm}#respec-menu button.respec-option{background:#fff;padding:0 .2cm;border:none;width:100%;text-align:left;font-size:inherit;padding:1.2em 1.2em}#respec-menu button.respec-option:hover,#respec-menu button:focus{background-color:#eee}.respec-cmd-icon{padding-right:.5em}#respec-ui button.respec-option:last-child{border:none;border-radius:inherit}.respec-button-copy-paste{position:absolute;height:28px;width:40px;cursor:pointer;background-image:linear-gradient(#fcfcfc,#eee);border:1px solid #90b8de;border-left:0;border-radius:0 0 3px 0;-webkit-user-select:none;user-select:none;-webkit-appearance:none;top:0;left:127px}#specref-ui{margin:0 2%;margin-bottom:.5cm}#specref-ui header{font-size:.7em;background-color:#eee;text-align:center;padding:.2cm;margin-bottom:.5cm;border-radius:0 0 .2cm .2cm}#specref-ui header h1{padding:0;margin:0;color:#000}#specref-ui p{padding:0;margin:0;font-size:.8em;text-align:center}#specref-ui p.state{margin:1cm}#specref-ui .searchcomponent{font-size:16px;display:grid;grid-template-columns:auto 2cm}#specref-ui button,#specref-ui input{border:0;padding:6px 12px}#specref-ui label{font-size:.6em;grid-column-end:3;text-align:right;grid-column-start:1}#specref-ui input[type=search]{-webkit-appearance:none;font-size:16px;border-radius:.1cm 0 0 .1cm;border:1px solid #ccc}#specref-ui button[type=submit]{color:#fff;border-radius:0 .1cm .1cm 0;background-color:#337ab7}#specref-ui button[type=submit]:hover{background-color:#286090;border-color:#204d74}#specref-ui .result-stats{margin:0;padding:0;color:grey;font-size:.7em;font-weight:700}#specref-ui .specref-results{font-size:.8em}#specref-ui .specref-results dd+dt{margin-top:.51cm}#specref-ui .specref-results a{text-transform:capitalize}#specref-ui .specref-results .authors{display:block;color:#006621}@media print{#respec-ui{display:none}}#xref-ui{width:100%;min-height:550px;height:100%;overflow:hidden;padding:0;margin:0;border:0}#xref-ui:not(.ready){background:url(https://respec.org/xref/loader.gif) no-repeat center}.respec-dfn-list .dfn-status{margin-left:.5em;padding:.1em;text-align:center;white-space:nowrap;font-size:90%;border-radius:.2em}.respec-dfn-list .exported{background:#d1edfd;color:#040b1c;box-shadow:0 0 0 .125em #1ca5f940}.respec-dfn-list .unused{background:#fde0e6;color:#9d0c29;box-shadow:0 0 0 .125em #f1466840}#xref-ui+a[href]{font-size:.9rem;float:right;margin:0 .5em .5em;border-bottom-width:1px}</style><style id="respec-mainstyle">@keyframes pop{0%{transform:scale(1,1)}25%{transform:scale(1.25,1.25);opacity:.75}100%{transform:scale(1,1)}}.hljs{background:0 0!important}a abbr,h1 abbr,h2 abbr,h3 abbr,h4 abbr,h5 abbr,h6 abbr{border:none}dfn{font-weight:700}a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}a.bibref{text-decoration:none}.respec-offending-element:target{animation:pop .25s ease-in-out 0s 1}.respec-offending-element,a[href].respec-offending-element{text-decoration:red wavy underline}@supports not (text-decoration:red wavy underline){.respec-offending-element:not(pre){display:inline-block}.respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}}#references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}cite .bibref{font-style:normal}code{color:#c63501}th code{color:inherit}a[href].orcid{padding-left:4px;padding-right:4px}a[href].orcid>svg{margin-bottom:-2px}.toc a,.tof a{text-decoration:none}a .figno,a .secno{color:#000}ol.tof,ul.tof{list-style:none outside none}.caption{margin-top:.5em;font-style:italic}table.simple{border-spacing:0;border-collapse:collapse;border-bottom:3px solid #005a9c}.simple th{background:#005a9c;color:#fff;padding:3px 5px;text-align:left}.simple th a{color:#fff;padding:3px 5px;text-align:left}.simple th[scope=row]{background:inherit;color:inherit;border-top:1px solid #ddd}.simple td{padding:3px 10px;border-top:1px solid #ddd}.simple tr:nth-child(even){background:#f0f6ff}.section dd>p:first-child{margin-top:0}.section dd>p:last-child{margin-bottom:0}.section dd{margin-bottom:1em}.section dl.attrs dd,.section dl.eldef dd{margin-bottom:0}#issue-summary>ul,.respec-dfn-list{column-count:2}#issue-summary li,.respec-dfn-list li{list-style:none}details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}details.respec-tests-details>*{padding-right:2em}details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}details.respec-tests-details[open]>summary{border-bottom:thin solid #cad3e2;padding-left:1em;margin-bottom:1em;line-height:2em}details.respec-tests-details>ul{width:100%;margin-top:-.3em}details.respec-tests-details>li{padding-left:1em}a[href].self-link:hover{opacity:1;text-decoration:none;background-color:transparent}h2,h3,h4,h5,h6{position:relative}aside.example .marker>a.self-link{color:inherit}h2>a.self-link,h3>a.self-link,h4>a.self-link,h5>a.self-link,h6>a.self-link{border:none;color:inherit;font-size:83%;height:2em;left:-1.6em;opacity:.5;position:absolute;text-align:center;text-decoration:none;top:0;transition:opacity .2s;width:2em}h2>a.self-link::before,h3>a.self-link::before,h4>a.self-link::before,h5>a.self-link::before,h6>a.self-link::before{content:"§";display:block}@media (max-width:767px){dd{margin-left:0}h2>a.self-link,h3>a.self-link,h4>a.self-link,h5>a.self-link,h6>a.self-link{left:auto;top:auto}}@media print{.removeOnSave{display:none}}</style>
+  
+  <style>
+    table {
+      width: 100%;
+    }
+
+    table.definition th {
+      width: 20%
+    }
+
+    table.definition td {
+      width: 80%
+    }
+
+    table.small {
+      font-size: small;
+    }
+
+    .disclaimer {
+      font-size: .9em;
+    }
+
+    .disclaimer:before {
+      content: "\2605\00a0 Disclaimer: ";
+      font-weight: bold;
+    }
+
+    .scope {
+      font-variant: small-caps;
+    }
+
+    table code,
+    table pre {
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      word-break: break-all;
+    }
+
+    .code {
+      margin: 1em auto;
+      padding: .5em;
+      border: .5em;
+      border-left-style: solid;
+      page-break-inside: avoid;
+      border-color: #52E052;
+      background: #E9FBE9;
+      overflow: auto;
+    }
+  </style>
+
+  
+<link rel="stylesheet" href="./Documentation_AP_TExample_files/W3C-UD"><meta name="description" content="This is required."><style>.hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;background:#fafafa}.hljs-comment,.hljs-quote{color:#717277;font-style:italic}.hljs-doctag,.hljs-formula,.hljs-keyword{color:#a626a4}.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#ca4706;font-weight:700}.hljs-literal{color:#0b76c5}.hljs-addition,.hljs-attribute,.hljs-meta-string,.hljs-regexp,.hljs-string{color:#42803c}.hljs-built_in,.hljs-class .hljs-title{color:#9a6a01}.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#986801}.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#336ae3}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}.hljs-link{text-decoration:underline}</style><style class="removeOnSave">var:hover{text-decoration:underline;cursor:pointer}var.respec-hl{color:var(--color,#000);background-color:var(--bg-color);box-shadow:0 0 0 2px var(--bg-color)}var.respec-hl-c1{--bg-color:#f4d200}var.respec-hl-c2{--bg-color:#ff87a2}var.respec-hl-c3{--bg-color:#96e885}var.respec-hl-c4{--bg-color:#3eeed2}var.respec-hl-c5{--bg-color:#eacfb6}var.respec-hl-c6{--bg-color:#82ddff}var.respec-hl-c7{--bg-color:#ffbcf2}@media print{var.respec-hl{background:0 0;color:#000;box-shadow:unset}}</style><style>var{position:relative;cursor:pointer}var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px;opacity:0;transition:opacity .4s;pointer-events:none}var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6px 0 6px;border-style:solid;border-color:transparent;border-top-color:#000}var[data-type]::after{content:attr(data-type);transform:translateX(-50%) translateY(-100%);background:#000;text-align:center;font-family:"Dank Mono","Fira Code",monospace;font-style:normal;padding:6px;border-radius:3px;color:#daca88;text-indent:0;font-weight:400}var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}</style><script id="initialUserConfig" type="application/json">{
+  "specStatus": "unofficial",
+  "editors": [
+    {
+      "name": "SEMIC",
+      "url": "https://your-site.com"
+    }
+  ],
+  "authors": [
+    {
+      "name": "A"
+    },
+    {
+      "name": "B"
+    }
+  ],
+  "github": "https://github.com/w3c/some-API/",
+  "publishISODate": "2020-07-10T00:00:00.000Z",
+  "generatedSubtitle": "Unofficial Draft 10 July 2020"
+}</script></head>
+
+<body class="h-entry toc-sidebar"><p id="toc-nav"><a id="toc-jump" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#toc"><span aria-hidden="true">↑</span> <span>Jump to Table of Contents</span></a><a id="toc-toggle" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#toc"><span aria-hidden="true">←</span> <span>Collapse Sidebar</span></a></p><div id="respec-ui" class="removeOnSave"><button id="respec-pill" aria-controls="respec-menu" aria-expanded="false" aria-haspopup="true" aria-label="ReSpec Menu">ReSpec</button><ul id="respec-menu" role="menu" aria-labelledby="respec-pill" hidden=""><li role="menuitem"><button class="respec-option" id="respec-button-export" title="Ctrl+Shift+Alt+S">
+      <span class="respec-cmd-icon" aria-hidden="true">💾<!---0.615718%--></span> Export<!---0.615718%-->…
+    </button><!---0.615718%--></li><li role="menuitem"><button class="respec-option" id="respec-button-search-specref" title="Ctrl+Shift+Alt+space">
+      <span class="respec-cmd-icon" aria-hidden="true">🔎<!---0.615718%--></span> Search Specref<!---0.615718%-->…
+    </button><!---0.615718%--></li><li role="menuitem"><button class="respec-option" id="respec-button-definitions" title="Ctrl+Shift+Alt+D">
+      <span class="respec-cmd-icon" aria-hidden="true">📔<!---0.615718%--></span> Definitions<!---0.615718%-->…
+    </button><!---0.615718%--></li><li role="menuitem"><button class="respec-option" id="respec-button-about-25.6.0" title="Ctrl+Shift+Alt+A">
+      <span class="respec-cmd-icon" aria-hidden="true">ℹ️<!---0.615718%--></span> About 25.6.0<!---0.615718%-->…
+    </button><!---0.615718%--></li></ul><button class="respec-info-button" id="respec-pill-error" aria-expanded="false" aria-haspopup="true" aria-controls="respec-pill-error-modal" aria-label="5 ReSpec Errors">5</button><button class="respec-info-button" id="respec-pill-warning" aria-expanded="false" aria-haspopup="true" aria-controls="respec-pill-warning-modal" aria-label="1 ReSpec Warning">1</button></div><div class="head">
+    <a class="logo" href="https://www.w3.org/"><img alt="W3C" width="72" height="48" src="./Documentation_AP_TExample_files/W3C"></a><!---0.615718%--> <h1 id="title" class="title">Example Documentation</h1><!---0.615718%-->
+    <!---0.615718%-->
+    <h2>
+      <!---0.615718%-->Unofficial Draft<!---0.615718%-->
+      <time class="dt-published" datetime="2020-07-10">10 July 2020<!---0.615718%--></time><!---0.615718%-->
+    </h2>
+    <dl>
+      <!---0.615718%-->
+      <dt>Latest editor's draft:<!---0.615718%--></dt><dd><a href="https://w3c.github.io/some-API/">https://w3c.github.io/some-API/<!---0.615718%--></a></dd><!---0.615718%-->
+      <!---0.615718%-->
+      <!---0.615718%-->
+      <!---0.615718%-->
+      <!---0.615718%-->
+      <!---0.615718%-->
+      <dt>Editor:<!---0.615718%--></dt>
+      <dd class="p-author h-card vcard"><a class="u-url url p-name fn" href="https://your-site.com/">SEMIC<!---0.615718%--></a><!---0.615718%--></dd><!---0.615718%-->
+      <!---0.615718%-->
+      <dt>
+              Authors:<!---0.615718%-->
+            </dt><dd class="p-author h-card vcard"><span class="p-name fn">A<!---0.615718%--></span><!---0.615718%--></dd><dd class="p-author h-card vcard"><span class="p-name fn">B<!---0.615718%--></span><!---0.615718%--></dd><!---0.615718%--><!---0.615718%-->
+      <dt>Participate<!---0.615718%-->:</dt><dd>
+    <a href="https://github.com/w3c/some-API/">GitHub w3c/some-API<!---0.615718%--></a><!---0.615718%-->
+  </dd><dd>
+    <a href="https://github.com/w3c/some-API/issues/">File a bug<!---0.615718%--></a><!---0.615718%-->
+  </dd><dd>
+    <a href="https://github.com/w3c/some-API/commits/gh-pages">Commit history<!---0.615718%--></a><!---0.615718%-->
+  </dd><dd>
+    <a href="https://github.com/w3c/some-API/pulls/">Pull requests<!---0.615718%--></a><!---0.615718%-->
+  </dd><!---0.615718%--><!---0.615718%-->
+    </dl>
+    <!---0.615718%-->
+    <!---0.615718%-->
+    <!---0.615718%-->
+    <p class="copyright">
+          This document is licensed under a
+          <a rel="license" href="https://creativecommons.org/licenses/by/4.0/" class="subfoot">Creative Commons Attribution 4.0 License<!---0.615718%--></a><!---0.615718%-->.
+        </p><!---0.615718%-->
+    <hr title="Separator for header">
+  </div>
+  <aside id="disclaimer" class="disclaimer">
+    The views expressed are purely those of the author and may not in any circumstances be regarded as stating an
+    official position of the European Commission.
+  </aside>
+
+  <section id="abstract" class="introductory"><h2>Abstract</h2>
+    <p>This is required.</p>
+    <p>Give the summary of the content of this document.</p>
+    <p>You can also provide 'Editors Note' to the readers</p>
+    <div class="note" id="issue-container-generatedID"><div role="heading" class="ednote-title marker" id="h-ednote" aria-level="3"><span>Editor's note</span><!---0.615718%--></div><aside class="">
+      <p>
+        xxx
+      </p>
+    </aside></div>
+  </section>
+
+  <section id="sotd" class="introductory"><h2>Status of This Document<!---0.615718%--></h2><!---0.615718%--><p>
+      This document is draft of a potential specification. It has no official
+      standing of any kind and does not represent the support or consensus of
+      any standards organization.
+    </p>
+    <p>This is required.</p>
+    <!-- This section is filled automatically by ReSpec. -->
+
+  <!---0.615718%--><!---0.615718%--><!---0.615718%--><!---0.615718%--></section>
+  <nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents<!---0.615718%--></h2><ol class="toc"><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#Introduction"><bdi class="secno">1.<!---0.615718%--> </bdi>
+      Introduction
+    </a><!---0.615718%--><ol class="toc"><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#scope"><bdi class="secno">1.1<!---0.615718%--> </bdi>
+        Scope
+      </a><!---0.615718%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#Structure"><bdi class="secno">1.2<!---0.615718%--> </bdi>
+
+        Structure of the document
+      </a><!---0.615718%--></li></ol></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#terminologies-used-in-this-document"><bdi class="secno">2.<!---0.615718%--> </bdi>
+      Terminologies used in this document.
+    </a><!---0.615718%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#use-cases"><bdi class="secno">3.<!---0.615718%--> </bdi> Use Cases </a><!---0.615718%--><ol class="toc"><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#use-case-1-finding-information-about-public-services-more-easily"><bdi class="secno">3.1<!---0.615718%--> </bdi>Use Case 1 – Finding information about public services more easily</a><!---0.615718%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#use-case-2-building-user-centric-catalogues-of-public-services-at-all-levels-from-regional-to-a-european-federated-catalogue"><bdi class="secno">3.2<!---0.615718%--> </bdi>Use Case 2 – Building user-centric catalogues of public services at all levels from regional to a European
+        federated catalogue</a><!---0.615718%--></li></ol></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#application-profile"><bdi class="secno">4.<!---0.615718%--> </bdi>
+      Application Profile
+    </a><!---0.615718%--><ol class="toc"><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#background"><bdi class="secno">4.1<!---0.615718%--> </bdi>
+        Background
+      </a><!---0.615718%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#context"><bdi class="secno">4.2<!---0.615718%--> </bdi>
+        Context
+      </a><!---0.615718%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#vocabulary-overview"><bdi class="secno">4.3<!---0.615718%--> </bdi>
+        Vocabulary Overview
+      </a><!---0.615718%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#vocabulary-specificatons"><bdi class="secno">4.4<!---0.615718%--> </bdi>
+        Vocabulary specificatons
+      </a><!---0.615718%--></li></ol></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#namespaces-and-prefixes"><bdi class="secno">5.<!---0.615718%--> </bdi> Namespaces and prefixes </a><!---0.615718%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#classes"><bdi class="secno">6.<!---0.615718%--> </bdi> Classes </a><!---0.615718%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#mandatory-classes"><bdi class="secno">7.<!---0.615718%--> </bdi> Mandatory Classes </a><!---0.615718%--><ol class="toc"><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#class-public-services"><bdi class="secno">7.1<!---0.615718%--> </bdi>Class:Public Services</a><!---0.615718%--><ol class="toc"><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#catalogue-name"><bdi class="secno">7.1.1<!---0.615718%--> </bdi>Property: name</a><!---0.615718%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#catalogue-description"><bdi class="secno">7.1.2<!---0.615718%--> </bdi>Property: description</a><!---0.615718%--></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#recommended-classes"><bdi class="secno">8.<!---0.615718%--> </bdi> Recommended Classes </a><!---0.615718%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#optional-classes"><bdi class="secno">9.<!---0.615718%--> </bdi> Optional Classes </a><!---0.615718%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#ref-code-lists"><bdi class="secno">A.<!---0.615718%--> </bdi> Reference Code list </a><!---0.615718%--><ol class="toc"><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#identifier-schemes"><bdi class="secno">A.1<!---0.615718%--> </bdi>Identifier schemes</a><!---0.615718%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#access-schemes"><bdi class="secno">A.2<!---0.615718%--> </bdi>Access schemes</a><!---0.615718%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#metadata-schemes"><bdi class="secno">A.3<!---0.615718%--> </bdi>Metadata schemes</a><!---0.615718%--></li></ol></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#identifiers-as-uris"><bdi class="secno">B.<!---0.615718%--> </bdi> Identifiers as URIs </a><!---0.615718%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#mapping"><bdi class="secno">C.<!---0.615718%--> </bdi> Schema.org Mapping </a><!---0.615718%--><ol class="toc"><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#mapping%20clases"><bdi class="secno">C.1<!---0.615718%--> </bdi> Mapping Classes </a><!---0.615718%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#schema-org-mapping-properties"><bdi class="secno">C.2<!---0.615718%--> </bdi>Mapped properties</a><!---0.615718%--><ol class="toc"><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#schema-org-mapping-properties-catalogue"><bdi class="secno">C.2.1<!---0.615718%--> </bdi>Catalogue</a><!---0.615718%--></li></ol></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#schema-org-mapping-example"><bdi class="secno">C.3<!---0.615718%--> </bdi>Example</a><!---0.615718%--></li></ol></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#accessibility-and-multilingual-aspects"><bdi class="secno">D.<!---0.615718%--> </bdi> Accessibility and multilingual aspects </a><!---0.615718%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#conformance"><bdi class="secno">E.<!---0.615718%--> </bdi>Conformance<!---0.615718%--></a><!---0.615718%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#acknowledgements"><bdi class="secno">F.<!---0.615718%--> </bdi> Acknowledgements </a><!---0.615718%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#namespaces-prefixes"><bdi class="secno">G.<!---0.615718%--> </bdi>
+      Namespaces+ prefixes
+    </a><!---0.615718%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#quick-reference-of-classes-and-properties"><bdi class="secno">H.<!---0.615718%--> </bdi>Quick reference of classes and properties</a><!---0.615718%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#key-concepts-and-definition"><bdi class="secno">I.<!---0.615718%--> </bdi>Key concepts and definition</a><!---0.615718%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#glossary"><bdi class="secno">J.<!---0.615718%--> </bdi>Glossary</a><!---0.615718%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#list-of-abbreviations"><bdi class="secno">K.<!---0.615718%--> </bdi>List of abbreviations</a><!---0.615718%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#references"><bdi class="secno">L.<!---0.615718%--> </bdi>References<!---0.615718%--></a><!---0.615718%--><ol class="toc"><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#normative-references"><bdi class="secno">L.1<!---0.615718%--> </bdi>
+        Normative references<!---0.615718%-->
+      </a><!---0.615718%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#informative-references"><bdi class="secno">L.2<!---0.615718%--> </bdi>
+        Informative references<!---0.615718%-->
+      </a><!---0.615718%--></li></ol></li></ol></nav>
+  <section id="Introduction" class="informative">
+    <!--OddPage--><h2 id="x1-introduction"><bdi class="secno">1.<!---0.615718%--> </bdi>
+      Introduction
+    <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#Introduction"></a></h2><p><em>This section is non-normative.<!---0.615718%--></em></p>
+    <p> This document defines an update to the Core Public Service Vocabulary Application Profile version 2.1 (CPSV-AP
+      v2.2 ). The update finds its motivation in the experience of implementing version 2.1 of the CPSV-AP by different
+      MSs and stakeholders and consequent requests received from them in GitHub or during webinars and the workshop
+      organised in Sofia .
+    </p>
+
+
+    <section id="scope" class="informative">
+      <h3 id="x1-1-scope"><bdi class="secno">1.1<!---0.615718%--> </bdi>
+        Scope
+      <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#scope"></a></h3><p><em>This section is non-normative.<!---0.615718%--></em></p>
+      <p>Since the publication of the CPSV-AP, several Member States and European projects started to reuse and extend
+        the data model for their own needs. The usage of this data model in national or regional contexts, has led to
+        the identification of potential areas of improvement and extension. In undertaking to respond to the feedback
+        received, version 2.2 is updating the previous version of the specifications by aligning with ELI, updating ways
+        for classifying the public services and corresponding properties and fixing some bugs.
+
+        This work also keeps into account the current implementations of the CPSV-AP by different entities, trying to
+        keep the specifications as stable as possible.
+      </p>
+    </section>
+    <section id="Structure" class="informative">
+      <h3 id="x1-2-structure-of-the-document"><bdi class="secno">1.2<!---0.615718%--> </bdi>
+
+        Structure of the document
+      <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#Structure"></a></h3><p><em>This section is non-normative.<!---0.615718%--></em></p>
+      <p>This document consists of the following sections.</p>
+      <ul>
+        <li>Section 2 defines the main use cases that drive the specification of the Application Profile;</li>
+        <li>The classes and properties defined for the Application Profile are identified in section 3;</li>
+        <li>In section 4, controlled vocabularies are proposed for use as value sets for a number of properties;</li>
+        <li>An example, helping to show how the CPSV-AP can be used in practice for describing a public service, is
+          being described in section 5;</li>
+        <li>......</li>
+
+      </ul>
+    </section>
+  </section>
+
+  <section id="terminologies-used-in-this-document">
+    <!--OddPage--><h2 id="x2-terminologies-used-in-this-document"><bdi class="secno">2.<!---0.615718%--> </bdi>
+      Terminologies used in this document.
+    <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#terminologies-used-in-this-document"></a></h2>
+    <p>Descriptions of the general terms such as 'Application Profile', 'Dataset' etc. to help to
+      understand the document better.
+    </p>
+  </section>
+
+  <section id="use-cases">
+    <!--OddPage--><h2 id="x3-use-cases"><bdi class="secno">3.<!---0.615718%--> </bdi> Use Cases <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#use-cases"></a></h2>
+    <p>The CPSV-AP is designed to meet the use cases described below. These are modified versions of the use cases that
+      motivated the development of the original CPSV-AP, taking into account citizens' life events as well as business
+      events. Although the core motivation remains the same, the scope is wider than the original set.</p>
+    <section id="use-case-1-finding-information-about-public-services-more-easily">
+      <h3 id="x3-1-use-case-1-finding-information-about-public-services-more-easily"><bdi class="secno">3.1<!---0.615718%--> </bdi>Use Case 1 – Finding information about public services more easily<a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#use-case-1-finding-information-about-public-services-more-easily"></a></h3>
+      <p>In several countries (e.g. Austria, Spain, Germany, Belgium…) different local and regional electronic Points of
+        Single Contact (PSCs) and eGovernment portals may exist. These national, regional or local one–stop-shops for
+        public services may have different ways for making information about public services and the business or life
+        event they correspond to, available.
+
+        Information on public services is often structured according to the organisational structure of public
+        administration within a Member State or organised by service providers. Businesses, however, expect to find
+        information organised according to their needs or based on the business lifecycle, and thus structured according
+        to business events. This gap makes the discovery of relevant information on the PSCs harder for businesses.
+
+        The same is true for individuals seeking services relevant to life events. A citizen is unlikely to begin his or
+        her search by examining the organisational structure of the local public administrations. Much more likely it is
+        a search based on a change in their immediate situation, such as a birth, a child approaching school age,
+        planning a home extension, etc.
+
+        A common data model for describing public services and making it possible to group them logically into business
+        and life events, such as the CPSV-AP, would assist public authorities in providing high-quality descriptions of
+        public services from a user-centric perspective. In this way, businesses and citizens can find the relevant
+        information on public services to be executed in the context of a particular event or context, without having to
+        know how the public administration is organised.
+
+        In the light of these, it is useful to have a single digital gateway for information on events and related
+        public services, especially in the context of cross-border service delivery. A common data model for business
+        events, life events and public services, such as the CPSV-AP, enables the flexible exchange and integration of
+        the different public service descriptions and facilitates the publication of this information on the single
+        digital gateway.
+      </p>
+    </section>
+    <section id="use-case-2-building-user-centric-catalogues-of-public-services-at-all-levels-from-regional-to-a-european-federated-catalogue">
+      <h3 id="x3-2-use-case-2-building-user-centric-catalogues-of-public-services-at-all-levels-from-regional-to-a-european-federated-catalogue"><bdi class="secno">3.2<!---0.615718%--> </bdi>Use Case 2 – Building user-centric catalogues of public services at all levels from regional to a European
+        federated catalogue<a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#use-case-2-building-user-centric-catalogues-of-public-services-at-all-levels-from-regional-to-a-european-federated-catalogue"></a></h3>
+      <p>A prerequisite of the EU Single Market is the free movement of goods, services and capital across the EU. In
+        this context, the Services Directive foresees simplification measures, such as the PSCs and eGovernment portals,
+        to increase transparency for businesses and citizens when they want to provide or use services in the single
+        market.
+        .....
+      </p>
+    </section>
+  </section>
+
+  <section id="application-profile">
+    <!--OddPage--><h2 id="x4-application-profile"><bdi class="secno">4.<!---0.615718%--> </bdi>
+      Application Profile
+    <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#application-profile"></a></h2>
+    <section id="background">
+      <h3 id="x4-1-background"><bdi class="secno">4.1<!---0.615718%--> </bdi>
+        Background
+      <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#background"></a></h3>
+
+      <p>CPSV-AP 2.1 is developed under the responsibility of the European Commission's ISA2 Programme and the chairs of
+        the Working Group. ...</p>
+    </section>
+    <section id="context">
+      <h3 id="x4-2-context"><bdi class="secno">4.2<!---0.615718%--> </bdi>
+        Context
+      <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#context"></a></h3>
+      <p>The original CPSV-AP was prepared in the context of Action 2016.29 – Accessing Member State information
+        resources at European level – Catalogue of Services of the European Commission’s Interoperability for European
+        Public Administrations (ISA) programme . The CPSV-AP has been seen as a first step for creating a model for
+        describing public services related to business and life events, to facilitate the set-up of catalogues of
+        services oriented to businesses and citizens.
+
+      </p>
+    </section>
+    <section id="vocabulary-overview">
+      <h3 id="x4-3-vocabulary-overview"><bdi class="secno">4.3<!---0.615718%--> </bdi>
+        Vocabulary Overview
+      <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#vocabulary-overview"></a></h3>
+      <p>The specification of the Core Public Service Vocabulary Application Profile is represented in a UML class
+        diagram. Figure 1 shows the full profile which includes:</p>
+      <figure id="fig-uml-example">
+        <img src="file:///C:/Users/jrevenga/AppData/Local/Temp/img/uml_example.jpg" alt="Graphical representation uml example">
+        <figcaption>Figure <bdi class="figno">1<!---0.615718%--></bdi> <span class="fig-title">Graphical representation of the relationships between the classes and properties of the full Core
+          Public Service Vocabulary Application Profile</span></figcaption>
+      </figure>
+
+    </section>
+    <section id="vocabulary-specificatons">
+      <h3 id="x4-4-vocabulary-specificatons"><bdi class="secno">4.4<!---0.615718%--> </bdi>
+        Vocabulary specificatons
+      <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#vocabulary-specificatons"></a></h3>
+      <p>To indicate the minimum requirements to comply with the CPSV-AP, the classes and properties are being
+        classified as being mandatory or optional. A minimal implementation of the CPSV-AP at least provides information
+        on the mandatory properties of the mandatory classes. Optional classes can still have mandatory properties for
+        which information should be provided when the particular class is used in the description of the public services
+        and the business events.
+
+        The terms mandatory class, mandatory if applicable class, recommended class, optional class, mandatory property
+        and optional property have the following meaning:
+      </p>
+      <ul>
+        <li><dfn data-dfn-type="dfn" id="dfn-mandatory-class">Mandatory class:</dfn> a receiver of data <em class="rfc2119" title="MUST">MUST<!---0.615718%--></em> be able to process information about instances of the
+          class; a sender of data <em class="rfc2119" title="MUST">MUST<!---0.615718%--></em> provide information about instances of the class.</li>
+        <li><dfn data-dfn-type="dfn" id="dfn-mandatory-if-applicable-class">Mandatory if applicable class:</dfn> ......</li>
+        <li><dfn data-dfn-type="dfn" id="dfn-recommended-class">Recommended class:</dfn> .....</li>
+        <li><dfn data-dfn-type="dfn" id="dfn-optional-class">Optional class:</dfn> a receiver <em class="rfc2119" title="MUST">MUST<!---0.615718%--></em> be able to process information about instances of the class; a
+          sender <em class="rfc2119" title="MAY">MAY<!---0.615718%--></em> provide the information but is not obliged to do so.</li>
+
+        <li><dfn data-dfn-type="dfn" id="dfn-mandatory-property">Mandatory property:</dfn> a receiver <em class="rfc2119" title="MUST">MUST<!---0.615718%--></em> be able to process the information for that property; a
+          sender <em class="rfc2119" title="MAY">MAY<!---0.615718%--></em> provide the information for that property if it is available.</li>
+        <li><dfn data-dfn-type="dfn" id="dfn-optional-property">Optional property:</dfn>a receiver <em class="rfc2119" title="MUST">MUST<!---0.615718%--></em> be able to process the information for that property; a sender
+          <em class="rfc2119" title="MAY">MAY<!---0.615718%--></em> provide the information for that property if it is available.</li>
+
+
+    </ul></section>
+  </section>
+
+  <section id="namespaces-and-prefixes">
+    <!--OddPage--><h2 id="x5-namespaces-and-prefixes"><bdi class="secno">5.<!---0.615718%--> </bdi> Namespaces and prefixes <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#namespaces-and-prefixes"></a></h2>
+
+    <p>The table below indicates the full list of namespaces and prefixes of the vocabularies and specification.</p>
+
+    <table class="simple">
+      <thead>
+        <tr>
+          <th>Prefix</th>
+          <th>Namespace URI</th>
+          <th>Specification</th>
+          <!--
+<th>Schema &amp; documentation</th>
+-->
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>adms</code></td>
+          <td><a href="http://www.w3.org/ns/adms#"><code>http://www.w3.org/ns/adms#</code></a></td>
+          <td>[<cite><a class="bibref" data-link-type="biblio" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#bib-vocab-adms" title="Asset Description Metadata Schema (ADMS)">VOCAB-ADMS<!---0.615718%--></a></cite><!---0.615718%-->]</td>
+          <!--
+<td>Asset Description Metadata Schema [[!VOCAB-ADMS]]</td>
+-->
+        </tr>
+        <!--
+<tr>
+<td><code>cnt</code></td>
+<td><a href="http://www.w3.org/2011/content#"><code>http://www.w3.org/2011/content#</code></a></td>
+<td>Representing Content in RDF 1.0 [[!Content-in-RDF]]</td>
+</tr>
+-->
+        <tr>
+          <td><code>dc</code></td>
+          <td><a href="http://purl.org/dc/elements/1.1/"><code>http://purl.org/dc/elements/1.1/</code></a></td>
+          <td>[<cite><a class="bibref" data-link-type="biblio" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#bib-dc11" title="Dublin Core Metadata Element Set, Version 1.1">DC11<!---0.615718%--></a></cite><!---0.615718%-->]</td>
+          <!--
+<td>Dublin Core Metadata Element Set, Version 1.1 [[!DC11]]</td>
+-->
+        </tr>
+        <tr>
+          <td><code>dcat</code></td>
+          <td><a href="http://www.w3.org/ns/dcat#"><code>http://www.w3.org/ns/dcat#</code></a></td>
+          <td>[<cite><a class="bibref" data-link-type="biblio" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#bib-vocab-dcat" title="Data Catalog Vocabulary (DCAT)">VOCAB-DCAT<!---0.615718%--></a></cite><!---0.615718%-->]</td>
+          <!--
+<td>Data Catalog Vocabulary [[!VOCAB-DCAT]]</td>
+-->
+        </tr>
+        <tr>
+          <td><code>dct</code></td>
+          <td><a href="http://purl.org/dc/terms/"><code>http://purl.org/dc/terms/</code></a></td>
+          <td>[<cite><a class="bibref" data-link-type="biblio" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#bib-dcterms" title="DCMI Metadata Terms">DCTERMS<!---0.615718%--></a></cite><!---0.615718%-->]</td>
+          <!--
+<td>DCMI Metadata Terms [[!DCTERMS]]</td>
+-->
+        </tr>
+        <tr>
+          <td><code>dctype</code></td>
+          <td><a href="http://purl.org/dc/dcmitype/"><code>http://purl.org/dc/dcmitype/</code></a></td>
+          <td>[<cite><a class="bibref" data-link-type="biblio" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#bib-dcterms" title="DCMI Metadata Terms">DCTERMS<!---0.615718%--></a></cite><!---0.615718%-->]</td>
+          <!--
+<td>DCMI Type Vocabulary [[!DCTERMS]]</td>
+-->
+        </tr>
+        <!--
+<tr>
+<td><code>dqv</code></td>
+<td><a href="http://www.w3.org/ns/dqv#"><code>http://www.w3.org/ns/dqv#</code></a></td>
+<td>Data Quality Vocabulary [[VOCAB-DQV]]</td>
+</tr>
+-->
+        <tr>
+          <td><code>foaf</code></td>
+          <td><a href="http://xmlns.com/foaf/0.1/"><code>http://xmlns.com/foaf/0.1/</code></a></td>
+          <td>[<cite><a class="bibref" data-link-type="biblio" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#bib-foaf" title="FOAF Vocabulary Specification 0.99 (Paddington Edition)">FOAF<!---0.615718%--></a></cite><!---0.615718%-->]</td>
+          <!--
+<td>FOAF Vocabulary [[!FOAF]]</td>
+-->
+        </tr>
+        <tr>
+          <td><code>gsp</code></td>
+          <td><a href="http://www.opengis.net/ont/geosparql#"><code>http://www.opengis.net/ont/geosparql#</code></a>
+          </td>
+          <td>[<cite><a class="bibref" data-link-type="biblio" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#bib-geosparql" title="GeoSPARQL - A Geographic Query Language for RDF Data">GeoSPARQL<!---0.615718%--></a></cite><!---0.615718%-->]</td>
+          <!--
+<td>GeoSPARQL - A Geographic Query Language for RDF Data [[!GeoSPARQL]]</td>
+-->
+        </tr>
+        <tr>
+          <td><code>locn</code></td>
+          <td><a href="http://www.w3.org/ns/locn#"><code>http://www.w3.org/ns/locn#</code></a></td>
+          <td>[<cite><a class="bibref" data-link-type="biblio" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#bib-locn" title="ISA Programme Location Core Vocabulary">LOCN<!---0.615718%--></a></cite><!---0.615718%-->]</td>
+          <!--
+<td>ISA Programme Core Location Vocabulary [[!LOCN]]</td>
+-->
+        </tr>
+        <!--
+<tr>
+<td><code>oa</code></td>
+<td><a href="http://www.w3.org/ns/oa#"><code>http://www.w3.org/ns/oa#</code></a></td>
+<td>Web Annotation Vocabulary [[ANNOTATION-VOCAB]]</td>
+</tr>
+-->
+        <tr>
+          <td><code>org</code></td>
+          <td><a href="http://www.w3.org/ns/org#"><code>http://www.w3.org/ns/org#</code></a></td>
+          <td>[<cite><a class="bibref" data-link-type="biblio" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#bib-vocab-org" title="The Organization Ontology">VOCAB-ORG<!---0.615718%--></a></cite><!---0.615718%-->]</td>
+          <!--
+<td>Organization Ontology [[!VOCAB-ORG]]</td>
+-->
+        </tr>
+
+
+      </tbody>
+    </table>
+  </section>
+
+  <section id="classes">
+    <!--OddPage--><h2 id="x6-classes"><bdi class="secno">6.<!---0.615718%--> </bdi> Classes <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#classes"></a></h2>
+    <p>All the classes along with its properties are listed in the following sections.</p>
+    <p>For each class following attributes will be added:
+      </p><ul>
+        <li>Label</li>
+        <li>Obligation: M, MA, R &amp; O</li>
+        <li>RDF class</li>
+        <li>Definition</li>
+        <li>Scope</li>
+        <li>Specifications</li>
+      </ul>
+    <p></p>
+    <p>For each property following attributes will be added:
+      </p><ul>
+        <li>Label</li>
+        <li>Obligation: M, MA, R &amp; O</li>
+        <li>Cardinality</li>
+        <li>RDF property</li>
+        <li>Definition</li>
+        <li>Range</li>
+        <li>Scope</li>
+        <li>Specifications</li>
+      </ul>
+    <p></p>
+  </section>
+  <section id="mandatory-classes">
+    <!--OddPage--><h2 id="x7-mandatory-classes"><bdi class="secno">7.<!---0.615718%--> </bdi> Mandatory Classes <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#mandatory-classes"></a></h2>
+    <section id="class-public-services">
+      <h3 id="x7-1-class-public-services"><bdi class="secno">7.1<!---0.615718%--> </bdi>Class:Public Services<a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#class-public-services"></a></h3>
+      <table class="simple definition">
+        <tbody>
+          <tr>
+            <th>Label</th>
+            <td>Public Service</td>
+          </tr>
+          <tr>
+            <th>Obligation</th>
+            <td><strong>Mandatory</strong></td>
+          </tr>
+          <tr>
+            <th>RDF Class</th>
+            <td><a data-cite="VOCAB-DCAT#class-catalog" href="https://www.w3.org/TR/vocab-dcat/#class-catalog"><code title="http://www.w3.org/ns/dcat#Catalog">cpsv:PublicService</code></a></td>
+          </tr>
+          <tr>
+            <th>Definition</th>
+            <td>A Public Service is a mandatory or discretionary set of activities performed, or able to be performed,
+              by or on behalf of a public organisation, publicly funded and arise from public policy.</td>
+          </tr>
+          <!--
+          <tr>
+          <th>Usage note</th>
+          <td></td>
+          </tr>
+          -->
+          <tr>
+            <th>Scope</th>
+            <td><a class="scope respec-offending-element" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#metadata-scope" title="Linter (local-refs-exist): Broken local reference found in document. Please fix the links mentioned. See developer console. Occured" id="respec-offender-linter-local-refs-exist-broken-local-reference-found-in-document-please-fix-the-links-mentioned-see-developer-console-occured">All</a></td>
+          </tr>
+          <tr>
+            <th>Specification</th>
+            <td>[<cite><a class="bibref" data-link-type="biblio" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#bib-cpsv-ap">CPSV-AP<!---0.615718%--></a></cite><!---0.615718%-->]</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p> The following table lists the properties used for describing a Public Service Class.</p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>Label</th>
+            <th><abbr title="Obligation">Obl.</abbr></th>
+            <th><abbr title="Max Cardinality">MC</abbr></th>
+            <th>RDF Property</th>
+            <th>Range</th>
+            <!--
+            <th>Code list</th>
+            -->
+            <th>Scope</th>
+            <th><abbr title="Specification">Spec.</abbr></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#catalogue-title" class="respec-offending-element" title="Linter (local-refs-exist): Broken local reference found in document. Please fix the links mentioned. See developer console. Occured" id="respec-offender-linter-local-refs-exist-broken-local-reference-found-in-document-please-fix-the-links-mentioned-see-developer-console-occured-0">identifier</a></td>
+            <td><strong>M</strong></td>
+            <td>1</td>
+            <td><a data-cite="DCTERMS#terms-identifier" href="http://dublincore.org/documents/dcmi-terms/#terms-identifier"><code title="http://purl.org/dc/terms/identifier">dct:identifier</code></a>
+            </td>
+            <td><a data-cite="RDF-SCHEMA#ch_literal" href="https://www.w3.org/TR/rdf-schema/#ch_literal"><code title="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</code></a></td>
+            <!--
+            <td></td>
+            -->
+            <td><a class="scope respec-offending-element" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#metadata-scope" title="Linter (local-refs-exist): Broken local reference found in document. Please fix the links mentioned. See developer console. Occured" id="respec-offender-linter-local-refs-exist-broken-local-reference-found-in-document-please-fix-the-links-mentioned-see-developer-console-occured-1">All</a></td>
+            <td>[<cite><a class="bibref" data-link-type="biblio" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#bib-dcat-ap" title="DCAT Application Profile for data portals in Europe. Version 2.0.0">DCAT-AP<!---0.615718%--></a></cite><!---0.615718%-->]</td>
+          </tr>
+          <tr>
+            <td><a href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#catalogue-description">name</a></td>
+            <td><strong>M</strong></td>
+            <td>1</td>
+            <td><a data-cite="DCTERMS#terms-description" href="http://dublincore.org/documents/dcmi-terms/#terms-description"><code title="http://purl.org/dc/terms/description">dct:title</code></a></td>
+            <td><a data-cite="RDF-SCHEMA#ch_literal" href="https://www.w3.org/TR/rdf-schema/#ch_literal"><code title="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</code></a></td>
+            <!--
+            <td></td>
+            -->
+            <!--
+            <td></td>
+            -->
+            <td><a class="scope respec-offending-element" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#metadata-scope" title="Linter (local-refs-exist): Broken local reference found in document. Please fix the links mentioned. See developer console. Occured" id="respec-offender-linter-local-refs-exist-broken-local-reference-found-in-document-please-fix-the-links-mentioned-see-developer-console-occured-2">All</a></td>
+            <td>[<cite><a class="bibref" data-link-type="biblio" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#bib-cpsv-ap">CPSV-AP<!---0.615718%--></a></cite><!---0.615718%-->]</td>
+          </tr>
+          <tr>
+            <td><a href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#catalogue-description">description</a></td>
+            <td><strong>M</strong></td>
+            <td>1</td>
+            <td><a data-cite="DCTERMS#terms-description" href="http://dublincore.org/documents/dcmi-terms/#terms-description"><code title="http://purl.org/dc/terms/description">dct:description</code></a></td>
+            <td><a data-cite="RDF-SCHEMA#ch_literal" href="https://www.w3.org/TR/rdf-schema/#ch_literal"><code title="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</code></a></td>
+            <!--
+            <td></td>
+            -->
+            <td><a class="scope respec-offending-element" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#metadata-scope" title="Linter (local-refs-exist): Broken local reference found in document. Please fix the links mentioned. See developer console. Occured" id="respec-offender-linter-local-refs-exist-broken-local-reference-found-in-document-please-fix-the-links-mentioned-see-developer-console-occured-3">All</a></td>
+            <td>[<cite><a class="bibref" data-link-type="biblio" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#bib-cpsv-ap">CPSV-AP<!---0.615718%--></a></cite><!---0.615718%-->]</td>
+          </tr>
+        </tbody>
+      </table>
+      <section id="catalogue-name">
+
+        <h4 id="x7-1-1-property-name"><bdi class="secno">7.1.1<!---0.615718%--> </bdi>Property: name<a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#catalogue-name"></a></h4>
+
+        <table class="simple definition">
+          <tbody>
+            <tr>
+              <th>Label</th>
+              <td>title</td>
+            </tr>
+            <tr>
+              <th>Obligation</th>
+              <td><strong>Mandatory</strong></td>
+            </tr>
+            <tr>
+              <th>Max card.</th>
+              <td>1</td>
+            </tr>
+            <tr>
+              <th>RDF Property</th>
+              <td><a data-cite="DCTERMS#terms-title" href="http://dublincore.org/documents/dcmi-terms/#terms-title"><code title="http://purl.org/dc/terms/title">dct:title</code></a>
+              </td>
+            </tr>
+            <tr>
+              <th>Range</th>
+              <td><a data-cite="RDF-SCHEMA#ch_literal" href="https://www.w3.org/TR/rdf-schema/#ch_literal"><code title="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</code></a></td>
+            </tr>
+            <tr>
+              <th>Definition</th>
+              <td>The name of the public service.</td>
+            </tr>
+            <tr>
+              <th>Scope</th>
+              <td><a class="scope respec-offending-element" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#metadata-scope" title="Linter (local-refs-exist): Broken local reference found in document. Please fix the links mentioned. See developer console. Occured" id="respec-offender-linter-local-refs-exist-broken-local-reference-found-in-document-please-fix-the-links-mentioned-see-developer-console-occured-4">All</a></td>
+            </tr>
+            <tr>
+              <th>Specification</th>
+              <td>[<cite><a class="bibref" data-link-type="biblio" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#bib-cpsv-ap">CPSV-AP<!---0.615718%--></a></cite><!---0.615718%-->]</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </section>
+
+      <section id="catalogue-description">
+
+        <h4 id="x7-1-2-property-description"><bdi class="secno">7.1.2<!---0.615718%--> </bdi>Property: description<a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#catalogue-description"></a></h4>
+
+        <table class="simple definition">
+          <tbody>
+            <tr>
+              <th>Label</th>
+              <td>description</td>
+            </tr>
+            <tr>
+              <th>Obligation</th>
+              <td><strong>Mandatory</strong></td>
+            </tr>
+            <tr>
+              <th>Max card.</th>
+              <td>1*</td>
+            </tr>
+            <tr>
+              <th>RDF Property</th>
+              <td><a data-cite="DCTERMS#terms-description" href="http://dublincore.org/documents/dcmi-terms/#terms-description"><code title="http://purl.org/dc/terms/description">dct:description</code></a></td>
+            </tr>
+            <tr>
+              <th>Range</th>
+              <td><a data-cite="RDF-SCHEMA#ch_literal" href="https://www.w3.org/TR/rdf-schema/#ch_literal"><code title="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</code></a></td>
+            </tr>
+            <tr>
+              <th>Definition</th>
+              <td>The description of the public service.</td>
+            </tr>
+            <tr>
+              <th>Scope</th>
+              <td><a class="scope respec-offending-element" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#metadata-scope" title="Linter (local-refs-exist): Broken local reference found in document. Please fix the links mentioned. See developer console. Occured" id="respec-offender-linter-local-refs-exist-broken-local-reference-found-in-document-please-fix-the-links-mentioned-see-developer-console-occured-5">All</a></td>
+            </tr>
+            <tr>
+              <th>Specification</th>
+              <td>[<cite><a class="bibref" data-link-type="biblio" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#bib-cpsv-ap">CPSV-AP<!---0.615718%--></a></cite><!---0.615718%-->]</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </section>
+
+
+
+      
+      
+
+    </section>
+
+  </section>
+ 
+  <section id="recommended-classes">
+    <!--OddPage--><h2 id="x8-recommended-classes"><bdi class="secno">8.<!---0.615718%--> </bdi> Recommended Classes <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#recommended-classes"></a></h2>
+    <p>List of all the recommended classes, their properites and description.</p>
+    <p>Class is suggested to use but can be empty. The minimum cardinality for a class is 0.</p>
+  </section>
+  
+  <section id="optional-classes">
+    <!--OddPage--><h2 id="x9-optional-classes"><bdi class="secno">9.<!---0.615718%--> </bdi> Optional Classes <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#optional-classes"></a></h2>
+    <p>List of all the optional classes their properites and description.</p>
+    <p>Class is optional and user can decide not to use. The minimum cardinality for a class is 0.</p>
+  </section>
+  
+
+  <section id="ref-code-lists" class="appendix">
+    <!--OddPage--><h2 id="a-reference-code-list"><bdi class="secno">A.<!---0.615718%--> </bdi> Reference Code list <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#ref-code-lists"></a></h2>
+    <p>The following table lists the reference code lists used in CPSV-AP-JRC, along with the metadata specification(s) where their use is defined.</p>
+    <table class="simple">
+      <thead>
+      <tr>
+      <th>Specification</th>
+      <th>Metadata elements</th>
+      <th>Code list URI</th>
+      <th>Code lists</th>
+      </tr>
+      </thead>
+      <tbody>
+      <!--
+      <tr>
+      <td>[[DCAT-AP]]</td>
+      <td>Catalogue record change type</td>
+      <td><a href="http://purl.org/adms/changetype"><code>http://purl.org/adms/changetype</code></a></td>
+      <td>ADMS Change Type controlled vocabulary [[ADMS-SKOS]]</td>
+      </tr>
+      -->
+      <!--
+      <tr>
+      <td>[[GeoDCAT-AP]]</td>
+      <td>Degree of conformity</td>
+      <td><a href="http://inspire.ec.europa.eu/metadata-codelist/DegreeOfConformity"><code>http://inspire.ec.europa.eu/metadata-codelist/DegreeOfConformity</code></a></td>
+      <td>Register operated by the INSPIRE Registry for degrees of conformity, as defined in [[INSPIRE-MD-REG]]</td>
+      </tr>
+      -->
+      <!--
+      <tr>
+      <td>[[DCAT-AP]]</td>
+      <td>Distribution status</td>
+      <td><a href="http://purl.org/adms/status"><code>http://purl.org/adms/status</code></a></td>
+      <td>ADMS Status controlled vocabulary [[ADMS-SKOS]]</td>
+      </tr>
+      -->
+      <tr>
+      <td>[<cite><a class="bibref" data-link-type="biblio" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#bib-statdcat-ap" title="StatDCAT-AP – DCAT Application Profile for description of statistical datasets. Version 1.0.1">StatDCAT-AP<!---0.615718%--></a></cite><!---0.615718%-->]</td>
+      <td>Distribution type</td>
+      <td><a href="http://publications.europa.eu/resource/authority/distribution-type"><code>http://publications.europa.eu/resource/authority/distribution-type</code></a></td>
+      <td>[<cite><a class="bibref" data-link-type="biblio" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#bib-mdr-dt">MDR-DT<!---0.615718%--></a></cite><!---0.615718%-->]</td>
+      </tr>
+      
+      <tr>
+      <td>[<cite><a class="bibref" data-link-type="biblio" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#bib-dcat-ap" title="DCAT Application Profile for data portals in Europe. Version 2.0.0">DCAT-AP<!---0.615718%--></a></cite><!---0.615718%-->]</td>
+      <td>Format</td>
+      <td><a href="http://publications.europa.eu/resource/authority/file-type"><code>http://publications.europa.eu/resource/authority/file-type</code></a></td>
+      <td>[<cite><a class="bibref" data-link-type="biblio" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#bib-mdr-ft">MDR-FT<!---0.615718%--></a></cite><!---0.615718%-->]</td>
+      </tr>
+    
+    </tbody>
+  </table>
+  <section id="identifier-schemes"><h3 id="a-1-identifier-schemes"><bdi class="secno">A.1<!---0.615718%--> </bdi>Identifier schemes<a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#identifier-schemes"></a></h3></section>
+  <section id="access-schemes"><h3 id="a-2-access-schemes"><bdi class="secno">A.2<!---0.615718%--> </bdi>Access schemes<a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#access-schemes"></a></h3></section>
+  <section id="metadata-schemes"><h3 id="a-3-metadata-schemes"><bdi class="secno">A.3<!---0.615718%--> </bdi>Metadata schemes<a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#metadata-schemes"></a></h3></section>
+
+  </section>
+
+  <section id="identifiers-as-uris" class="appendix">
+    <!--OddPage--><h2 id="b-identifiers-as-uris"><bdi class="secno">B.<!---0.615718%--> </bdi> Identifiers as URIs <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#identifiers-as-uris"></a></h2>
+    <p>Following the approach defined in [CiteDCAT-AP] (§ 10 Identifiers), in DCAT-AP-JRC, all identifiers are mapped to URIs, by concatenating the identifier with a URI prefix defined for each identifier type / scheme. Whenever possible, dereferenceable HTTP URIs/URLs are used; otherwise, URNs.
+
+      The mapping between the identifier type / scheme implemented in DCAT-AP-JRC is based on the relevant registries. No URI prefix is of course used if the identifier is already a URI (as URLs and URNs).
+      
+     </p><p>The following table shows, for each identifier type / scheme, which is the URI prefix used in DCAT-AP-JRC, along with examples of the results of such mappings.</p><p></p> 
+  </section>
+
+  <section id="mapping" class="appendix informative">
+    <!--OddPage--><h2 id="c-schema-org-mapping"><bdi class="secno">C.<!---0.615718%--> </bdi> Schema.org Mapping <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#mapping"></a></h2><p><em>This section is non-normative.<!---0.615718%--></em></p>
+    <p></p> As explained in § 4.2.13 Improving data discoverability on the Web, DCAT-AP-JRC is complemented with mapping rules for generating a [SCHEMA-ORG] representation of metadata records, to be used for optimising the indexing of dataset pages.
+    
+    <section id="mapping clases">
+      <h3 id="c-1-mapping-classes"><bdi class="secno">C.1<!---0.615718%--> </bdi> Mapping Classes <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#mapping%20clases"></a></h3>
+      <table class="simple">
+        <thead>
+        <tr>
+        <th>Class</th>
+        <th>DCAT-AP-JRC</th>
+        <th>Schema.org</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td><a class="no-sectionRef" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#schema-org-mapping-properties-catalogue">Catalogue</a></td>
+        <td><code title="http://www.w3.org/ns/dcat#Catalog">dcat:Catalog</code></td>
+        <td><a href="http://schema.org/DataCatalog"><code title="http://schema.org/DataCatalog">schema:DataCatalog</code></a></td>
+        </tr>
+        <tr>
+        <td><a class="no-sectionRef respec-offending-element" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#schema-org-mapping-properties-dataset" title="Linter (local-refs-exist): Broken local reference found in document. Please fix the links mentioned. See developer console. Occured" id="respec-offender-linter-local-refs-exist-broken-local-reference-found-in-document-please-fix-the-links-mentioned-see-developer-console-occured-6">Dataset</a></td>
+        <td><code title="http://www.w3.org/ns/dcat#Dataset">dcat:Dataset</code></td>
+        <td><a href="http://schema.org/Dataset"><code title="http://schema.org/Dataset">schema:Dataset</code></a></td>
+        </tr>
+        </tbody>
+        </table>
+    </section>
+
+
+    <section id="schema-org-mapping-properties">
+
+      <h3 id="c-2-mapped-properties"><bdi class="secno">C.2<!---0.615718%--> </bdi>Mapped properties<a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#schema-org-mapping-properties"></a></h3>
+      <!--
+      <p>TBD</p>
+      -->
+      <section id="schema-org-mapping-properties-catalogue">
+      
+      <h4 id="c-2-1-catalogue"><bdi class="secno">C.2.1<!---0.615718%--> </bdi>Catalogue<a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#schema-org-mapping-properties-catalogue"></a></h4>
+      
+      <table class="simple">
+      <thead>
+      <tr>
+      <th>Property</th>
+      <th>DCAT-AP-JRC</th>
+      <th>Schema.org</th>
+      <th>Range</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+      <td><a class="no-sectionRef respec-offending-element" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#catalogue-title" title="Linter (local-refs-exist): Broken local reference found in document. Please fix the links mentioned. See developer console. Occured" id="respec-offender-linter-local-refs-exist-broken-local-reference-found-in-document-please-fix-the-links-mentioned-see-developer-console-occured-7">title</a></td>
+      <td><code title="http://purl.org/dc/terms/title">dct:title</code></td>
+      <td><a href="http://schema.org/name"><code title="http://schema.org/name">schema:name</code></a></td>
+      <td><a href="http://schema.org/Text"><code title="http://schema.org/Text">schema:Text</code></a></td>
+      </tr>
+      <tr>
+      <td><a class="no-sectionRef respec-offending-element" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#catalogue-landing-page" title="Linter (local-refs-exist): Broken local reference found in document. Please fix the links mentioned. See developer console. Occured" id="respec-offender-linter-local-refs-exist-broken-local-reference-found-in-document-please-fix-the-links-mentioned-see-developer-console-occured-8">landing page</a></td>
+      <td><code title="http://xmlns.com/foaf/0.1/homepage">foaf:homepage</code></td>
+      <td><a href="http://schema.org/url"><code title="http://schema.org/url">schema:url</code></a></td>
+      <td><a href="http://schema.org/URL"><code title="http://schema.org/URL">schema:URL</code></a></td>
+      </tr>
+      </tbody>
+      </table>
+      
+      </section>
+    </section>
+
+      <section id="schema-org-mapping-example">
+
+        <h3 id="c-3-example"><bdi class="secno">C.3<!---0.615718%--> </bdi>Example<a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#schema-org-mapping-example"></a></h3>
+        
+        <p>The following [<cite><a class="bibref" data-link-type="biblio" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#bib-json-ld" title="JSON-LD 1.0">JSON-LD<!---0.615718%--></a></cite><!---0.615718%-->] snippet corresponds to the dataset in <a href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#ex-dataset" class="respec-offending-element" title="No matching id in document: ex-dataset." id="respec-offender-no-matching-id-in-document-ex-dataset">#ex-dataset</a>.</p>
+        
+        <aside id="ex-dataset-schema-org" class="example"><div class="marker">
+    <a class="self-link" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#ex-dataset-schema-org">Example<!---0.615718%--><bdi> 1<!---0.615718%--></bdi></a><span class="example-title">: Schema.org JSON-LD snippet of a dataset<!---0.615718%--></span><!---0.615718%-->
+  </div>
+        <pre data-include="./ex-dataset-schema-org" data-include-id="include-6077325885362039"></pre>
+        </aside>
+        
+        </section>
+        
+        </section>
+
+
+
+  <section id="accessibility-and-multilingual-aspects">
+    <!--OddPage--><h2 id="d-accessibility-and-multilingual-aspects"><bdi class="secno">D.<!---0.615718%--> </bdi> Accessibility and multilingual aspects <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#accessibility-and-multilingual-aspects"></a></h2>
+    <p>Describes accessibility in the context of AP. For example: Distribution format.</p>
+    <p>The CPSV-AP can operate in any language as: In a multilingual context, all datatype properties with datatype
+      “text” (for instance Name, Description…), where the value for that property may exist in multiple languages, the
+      property has multiple instances which are tagged with a language identifier for each language in which the value
+      for that property exists.
+    </p>
+  </section>
+
+  <section id="conformance"><!--OddPage--><h2 id="e-conformance"><bdi class="secno">E.<!---0.615718%--> </bdi>Conformance<!---0.615718%--><a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#conformance"></a></h2><p>
+      As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.<!---0.615718%-->
+    </p><p>
+        The key words<!---0.615718%--> <em class="rfc2119">MAY<!---0.615718%--></em><!---0.615718%--> and <!---0.615718%--><em class="rfc2119">MUST<!---0.615718%--></em><!---0.615718%--><!---0.615718%--> in this document
+        are<!---0.615718%--> to be interpreted as described in
+        <a href="https://tools.ietf.org/html/bcp14">BCP 14</a>
+        [<cite><a class="bibref" data-link-type="biblio" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#bib-rfc2119" title="Key words for use in RFCs to Indicate Requirement Levels">RFC2119<!---0.615718%--></a></cite><!---0.615718%-->]<!---0.615718%--> [<cite><a class="bibref" data-link-type="biblio" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#bib-rfc8174" title="Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words">RFC8174<!---0.615718%--></a></cite><!---0.615718%-->]<!---0.615718%-->
+        when, and only when, they appear in all capitals, as shown here.
+      </p><!---0.615718%-->
+
+    <p>Different conformance statement for the publication of can be given in this section.</p>
+    <!-- This section is filled automatically by ReSpec. -->
+  </section>
+
+  <section id="acknowledgements">
+    <!--OddPage--><h2 id="f-acknowledgements"><bdi class="secno">F.<!---0.615718%--> </bdi> Acknowledgements <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#acknowledgements"></a></h2>
+    <p>List of the names of the contributors.</p>
+  </section>
+<!--
+  <section>
+    <h2> References </h2>
+
+    <section>
+      <h3> Normative References </h3>
+      <p>References to a document made in the standard in such a way as to make it indispensable for the application of
+        the standard.</p>
+    </section>
+    <section>
+
+      <h3> Informative References </h3>
+      <p>Other references helping to gain understanding of the topic.</p>
+    </section>
+  </section>
+  <section>
+    <h2> Change log </h2>
+    <p>This is required.</p>
+    <p>Information on the changes from the last released version.</p>
+  </section>
+-->
+  <section class="appendix" id="namespaces-prefixes">
+    <!--OddPage--><h2 id="g-namespaces-prefixes"><bdi class="secno">G.<!---0.615718%--> </bdi>
+      Namespaces+ prefixes
+    <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#namespaces-prefixes"></a></h2>
+    <p>
+      List of all the namspaces and prefixes used in the AP.
+    </p>
+  </section>
+  <section class="appendix" id="quick-reference-of-classes-and-properties">
+    <!--OddPage--><h2 id="h-quick-reference-of-classes-and-properties"><bdi class="secno">H.<!---0.615718%--> </bdi>Quick reference of classes and properties<a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#quick-reference-of-classes-and-properties"></a></h2>
+    <p>List of all the classes and properties in the tabular format. </p>
+
+  </section>
+
+  <section class="appendix" id="key-concepts-and-definition">
+
+    <!--OddPage--><h2 id="i-key-concepts-and-definition"><bdi class="secno">I.<!---0.615718%--> </bdi>Key concepts and definition<a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#key-concepts-and-definition"></a></h2>
+    <p>Describe the key concepts with definitions.</p>
+  </section>
+
+  <section class="appendix" id="glossary">
+    <!--OddPage--><h2 id="j-glossary"><bdi class="secno">J.<!---0.615718%--> </bdi>Glossary<a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#glossary"></a></h2>
+    <p>List out the frequently used terms with definitions.</p>
+  </section>
+  <section class="abbreviations" id="list-of-abbreviations">
+    <!--OddPage--><h2 id="k-list-of-abbreviations"><bdi class="secno">K.<!---0.615718%--> </bdi>List of abbreviations<a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#list-of-abbreviations"></a></h2>
+    <p<>List of the abbreviations used.<p></p>
+  </p<></section>
+
+
+
+<section id="references" class="appendix"><!--OddPage--><h2 id="l-references"><bdi class="secno">L.<!---0.615718%--> </bdi>References<!---0.615718%--><a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#references"></a></h2><section id="normative-references">
+      <h3 id="l-1-normative-references"><bdi class="secno">L.1<!---0.615718%--> </bdi>
+        Normative references<!---0.615718%-->
+      <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#normative-references"></a></h3>
+    <dl class="bibliography">
+      <dt id="bib-cpsv-ap">[CPSV-AP<!---0.615718%-->]</dt><dd><em class="respec-offending-element">Reference not found.</em></dd><dt id="bib-dc11">[DC11<!---0.615718%-->]</dt><dd><a href="http://dublincore.org/documents/dces/"><cite>Dublin Core Metadata Element Set, Version 1.1</cite></a>.  DCMI. 14 June 2012. DCMI Recommendation. URL: <a href="http://dublincore.org/documents/dces/">http://dublincore.org/documents/dces/</a><!---0.615718%--></dd><dt id="bib-dcat-ap">[DCAT-AP<!---0.615718%-->]</dt><dd><a href="https://joinup.ec.europa.eu/solution/dcat-application-profile-data-portals-europe"><cite>DCAT Application Profile for data portals in Europe. Version 2.0.0</cite></a>.  European Commission. 20 November 2019. URL: <a href="https://joinup.ec.europa.eu/solution/dcat-application-profile-data-portals-europe">https://joinup.ec.europa.eu/solution/dcat-application-profile-data-portals-europe</a><!---0.615718%--></dd><dt id="bib-dcterms">[DCTERMS<!---0.615718%-->]</dt><dd><a href="http://dublincore.org/documents/dcmi-terms/"><cite>DCMI Metadata Terms</cite></a>. DCMI Usage Board.  DCMI. 14 June 2012. DCMI Recommendation. URL: <a href="http://dublincore.org/documents/dcmi-terms/">http://dublincore.org/documents/dcmi-terms/</a><!---0.615718%--></dd><dt id="bib-foaf">[FOAF<!---0.615718%-->]</dt><dd><a href="http://xmlns.com/foaf/spec"><cite>FOAF Vocabulary Specification 0.99 (Paddington Edition)</cite></a>. Dan Brickley; Libby Miller.  FOAF project. 14 January 2014. URL: <a href="http://xmlns.com/foaf/spec">http://xmlns.com/foaf/spec</a><!---0.615718%--></dd><dt id="bib-geosparql">[GeoSPARQL<!---0.615718%-->]</dt><dd><a href="http://www.opengeospatial.org/standards/geosparql"><cite>GeoSPARQL - A Geographic Query Language for RDF Data</cite></a>. Matthew Perry; John Herring.  OGC. 10 September 2012. URL: <a href="http://www.opengeospatial.org/standards/geosparql">http://www.opengeospatial.org/standards/geosparql</a><!---0.615718%--></dd><dt id="bib-locn">[LOCN<!---0.615718%-->]</dt><dd><a href="http://www.w3.org/ns/locn"><cite>ISA Programme Location Core Vocabulary</cite></a>. Andrea Perego; Michael Lutz.  European Commission. 23 March 2015. Second version in w3.org/ns space. URL: <a href="http://www.w3.org/ns/locn">http://www.w3.org/ns/locn</a><!---0.615718%--></dd><dt id="bib-mdr-dt">[MDR-DT<!---0.615718%-->]</dt><dd><em class="respec-offending-element">Reference not found.</em></dd><dt id="bib-mdr-ft">[MDR-FT<!---0.615718%-->]</dt><dd><em class="respec-offending-element">Reference not found.</em></dd><dt id="bib-rdf-schema">[RDF-SCHEMA<!---0.615718%-->]</dt><dd><a href="https://www.w3.org/TR/rdf-schema/"><cite>RDF Schema 1.1</cite></a>. Dan Brickley; Ramanathan Guha.  W3C. 25 February 2014. W3C Recommendation. URL: <a href="https://www.w3.org/TR/rdf-schema/">https://www.w3.org/TR/rdf-schema/</a><!---0.615718%--></dd><dt id="bib-rfc2119">[RFC2119<!---0.615718%-->]</dt><dd><a href="https://tools.ietf.org/html/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. S. Bradner.  IETF. March 1997. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc2119">https://tools.ietf.org/html/rfc2119</a><!---0.615718%--></dd><dt id="bib-rfc8174">[RFC8174<!---0.615718%-->]</dt><dd><a href="https://tools.ietf.org/html/rfc8174"><cite>Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</cite></a>. B. Leiba.  IETF. May 2017. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc8174">https://tools.ietf.org/html/rfc8174</a><!---0.615718%--></dd><dt id="bib-statdcat-ap">[StatDCAT-AP<!---0.615718%-->]</dt><dd><a href="https://joinup.ec.europa.eu/solution/statdcat-application-profile-data-portals-europe"><cite>StatDCAT-AP – DCAT Application Profile for description of statistical datasets. Version 1.0.1</cite></a>.  European Commission. 28 May 2019. URL: <a href="https://joinup.ec.europa.eu/solution/statdcat-application-profile-data-portals-europe">https://joinup.ec.europa.eu/solution/statdcat-application-profile-data-portals-europe</a><!---0.615718%--></dd><dt id="bib-vocab-adms">[VOCAB-ADMS<!---0.615718%-->]</dt><dd><a href="https://www.w3.org/TR/vocab-adms/"><cite>Asset Description Metadata Schema (ADMS)</cite></a>. Phil Archer; Gofran Shukair.  W3C. 1 August 2013. W3C Note. URL: <a href="https://www.w3.org/TR/vocab-adms/">https://www.w3.org/TR/vocab-adms/</a><!---0.615718%--></dd><dt id="bib-vocab-dcat">[VOCAB-DCAT<!---0.615718%-->]</dt><dd><a href="https://www.w3.org/TR/vocab-dcat/"><cite>Data Catalog Vocabulary (DCAT)</cite></a>. Fadi Maali; John Erickson.  W3C. 4 February 2020. W3C Recommendation. URL: <a href="https://www.w3.org/TR/vocab-dcat/">https://www.w3.org/TR/vocab-dcat/</a><!---0.615718%--></dd><dt id="bib-vocab-org">[VOCAB-ORG<!---0.615718%-->]</dt><dd><a href="https://www.w3.org/TR/vocab-org/"><cite>The Organization Ontology</cite></a>. Dave Reynolds.  W3C. 16 January 2014. W3C Recommendation. URL: <a href="https://www.w3.org/TR/vocab-org/">https://www.w3.org/TR/vocab-org/</a><!---0.615718%--></dd><!---0.615718%-->
+    </dl></section><section id="informative-references">
+      <h3 id="l-2-informative-references"><bdi class="secno">L.2<!---0.615718%--> </bdi>
+        Informative references<!---0.615718%-->
+      <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#informative-references"></a></h3>
+    <dl class="bibliography">
+      <dt id="bib-json-ld">[JSON-LD<!---0.615718%-->]</dt><dd><a href="https://www.w3.org/TR/json-ld/"><cite>JSON-LD 1.0</cite></a>. Manu Sporny; Gregg Kellogg; Markus Lanthaler.  W3C. 16 January 2014. W3C Recommendation. URL: <a href="https://www.w3.org/TR/json-ld/">https://www.w3.org/TR/json-ld/</a><!---0.615718%--></dd><!---0.615718%-->
+    </dl></section></section><p role="navigation" id="back-to-top">
+    <a href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_AP_example.html#title"><abbr title="Back to Top">↑</abbr></a>
+  </p><script src="./Documentation_AP_TExample_files/fixup.js.download"></script></body></html>

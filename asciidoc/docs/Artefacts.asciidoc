@@ -1,0 +1,263 @@
+
+ifdef::env-github[]
+:base-repository-dir: https://github.com/ecobosco/SEMICguidelines/blob/master
+:imagesdir: https://github.com/ecobosco/SEMICguidelines/blob/master/asciidoc/art/
+:guideline-number: 113
+endif::[]
+
+:example-styles: verbatim,quotes, post_replacements
+
+In this section, the guidelines for publication of the artefacts are documented. 
+
+The types of artefacts are:
+
+. <<machine-readable-files, Machine-readable Files>>
+. <<human-oriented-documentation-artefacts, Human-oriented Documentation>>
+
+{nbsp}
+
+[discrete]
+=== _Machine-readable Files_
+
+The guidelines for publishing the machine-readable files for <<eGovernment-core-vocabularies-artefacts, eGovernment Core Vocabularies>> and <<application-profiles-artefacts, Application Profiles>> are indicated below.
+
+[discrete]
+[#eGovernment-core-vocabularies-artefacts]
+==== _eGovernment Core Vocabularies_
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Make basic artefacts public** ]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Make basic artefacts public**::]
+{nbsp} **Summary**::
+The following artefacts SHALL be made available via the web portal:
+ * The core RDFS file in turtle and JSON-LD formats; +
+ * The SHACL file with the class models and simple constraints in turtle format.
+
+{nbsp} **Description** ::
+These artefacts are the minimum atomic parts needed to implement Vocabulary.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+RDFS file: cbv_v1.0.0.ttl, cbv_v1.0.0.jsonld. +
+SHACL file: cbv-constraints_v1.0.0.ttl, cbv-constraints_v1.0.0.xsd.
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Make additional artefacts public** ]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Make additional artefacts public**::]
+{nbsp} **Summary**::
+The following artefacts CAN be made available via the web portal: +
+ * The RDFS file with additional semantics to infer new knowledge in turtle format
+ * The XMI file that could be exported from the UML Class Diagram model
+
+{nbsp} **Description** ::
+These additional artefacts help to better understand the Vocabulary.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+RDFS file: cbv-semantics_v1.0.0.ttl +
+XMI file: cbv-constraints_v1.0.0.xmi
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+[discrete]
+[#application-profiles-artefacts]
+==== _Application Profiles_
+
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Make basic artefacts public** ]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Make basic artefacts public**::]
+{nbsp} **Summary**::
+The following artefacts SHALL be made available via the web portal:
+ * The core RDFS file in turtle and JSON-LD formats; +
+ * The SHACL file with the class models and simple constraints in turtle format.
+
+{nbsp} **Description** ::
+These artefacts are the minimum atomic parts needed to implement Vocabulary.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+RDFS file: cbv-AP_v1.0.0.ttl, cbv_v1.0.0.jsonld. +
+SHACL file: cbv-AP-constraints_v1.0.0.ttl, cbv-constraints_v1.0.0.xsd.
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Make additional artefacts public** ]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Make additional artefacts public**::]
+{nbsp} **Summary**::
+The following artefacts CAN be made available via the web portal: +
+ * The RDFS file with additional semantics to infer new knowledge in turtle format
+ * The XMI file that could be exported from the UML Class Diagram model
+
+{nbsp} **Description** ::
+These additional artefacts help to better understand the Vocabulary.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+RDFS file: cbv-AP-semantics_v1.0.0.ttl +
+XMI file: cbv-AP-constraints_v1.0.0.xmi
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+{nbsp}
+
+[discrete]
+[#human-oriented-documentation-artefacts]
+==== _Human-oriented documentation_
+
+This subsection provides guidelines for human-oriented documentation: 
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Publish an introductory page** ]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Publish an introductory page**::]
+{nbsp} **Summary**::
+Each eGovernment Core Vocabulary and application profile SHALL have an introductory page on a web portal that provides a high-level overview and offers links to +
+ * The documentation on the standard as described in the following section; +
+ * The UML class diagram that gives a visual representation of the model in file formats PNG or SVG +
+ * The machine-readable files as enumerated in section <<machine-readable-files, Machine-readable Files>> +
+
+{nbsp} **Description** ::
+This is necessary to help potential users to understand the Vocabulary.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+Introductory link:https://joinup.ec.europa.eu/solution/e-government-core-vocabularies/core-business-vocabulary[web page] for the Core Business Vocabulary in ISA^2^ portal: https://joinup.ec.europa.eu/solution/e-government-core-vocabularies/core-business-vocabulary
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Use the standard template** ]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Use the standard template**::]
+{nbsp} **Summary**::
+The specifications documentation SHALL be using the standard HTML template: +
+ * link:{base-repository-dir}/asciidoc/resources/html_examples/Documentation_AP_Template.html[Template]
+ * link:{base-repository-dir}/asciidoc/resources/html_examples/Documentation_AP_Example.html[Example]
+
+{nbsp} **Description** ::
+Respecting the standard ensures an easier reading of the documentation and improves user experience.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+ * link:{base-repository-dir}/asciidoc/resources/html_examples/Documentation_coreVocab_template.html[Template] +
+ * link:{base-repository-dir}/asciidoc/resources/html_examples/Documentation_coreVocab_example.html[Example]
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Publish an HTML glossary** ]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Publish an HTML glossary**::]
+{nbsp} **Summary**::
+The glossary SHALL consist of an HTML document providing an overview of the classes, attributes and associations used. For each one of them, the following information SHOULD be indicated:
+
+ * Label
+ * Definition
+ * Scope or usage note (optional)
+
+
+{nbsp} **Description** ::
+This improves user experience by making the content swiftly accessible.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+The eProcurement Ontology link:https://eprocurementontology.github.io/CDM_Report/HTML/index.htm[Glossary]
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''

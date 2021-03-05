@@ -1,0 +1,1078 @@
+ifdef::env-github[]
+:guideline-number: 57
+:base-wiki-dir: https://github.com/ecobosco/SEMICguidelines/wiki/
+endif::[]
+
+The content has declarations of the vocabulary itself, as mentioned in the guidelines below. The guidelines are provided initially for all artefacts (Classes and Properties) and then for Classes and Properties separately in an RDFS file.
+ 
+ * <<all-artefacts-classes-and-properties, All Artefacts (Classes and Properties)>>
+ * <<classes-vocabulary, Classes>>
+ * <<properties-vocabulary, Properties>>
+
+[discrete]
+==== _All Artefacts (Classes and Properties)_
+
+{empty}
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: All Artefacts (Classes and Properties)**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: All Artefacts (Classes and Properties)**::]
+{nbsp} **Summary**::
+All classes and properties SHALL be declared in the vocabulary’s namespace.
+
+{nbsp} **Description** ::
+This is a design choice to take explicit ownership of the domain.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[source,turtle]
+----
+cb:LegalEntity a rdfs:Class, owl:Class;
+  rdfs:label "Legal Entity"@en;
+  rdfs:comment """This is the key class for the Business eGovernment Core Vocabulary and represents a business that is legally registered."""@en;
+skos:scopeNote """In many countries there is a single registry although in others, such as Spain and Germany, multiple registries exist. A Legal Entity is able to trade, is legally liable for its actions, accounts, tax affairs etc. It is a sub class of org:FormalOrganization which covers a wider range of entities, such as charities."""@en;
+  rdfs:isDefinedBy <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0>;
+  rdfs:subClassOf org:FormalOrganization;
+ .
+----
+{empty}::
+The class `+LegalEntity+` has as URI `https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#LegalEntity` `+cb:LegalEntity+` meaning part of the vocabularies’ namespace.
+
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+++++
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[source,turtle]
+----
+@prefix cb: <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#> . <--1-->
+@prefix adms: <http://www.w3.org/ns/adms#> . <--2-->
+…
+<https://data.europe.eu/semanticassets/ns/cbv_v1.0.0>  <--1-->
+  a owl:Ontology; <--3--><--4-->
+  dcterms:abstract """The Core Business Vocabulary provides a minimum set of classes and properties for describing a registered legal entity (business). Its limited scope does not include sole traders, or relationships between registered legal entities. This vocabulary is closely integrated with the Location and Person eGovernment Core Vocabularies."""@en; <--7-->
+  dcterms:license <https://joinup.ec.europa.eu/category/licence/isa-open-metadata-licence-v11>; <--7-->
+  dcterms:modified "2020-31-03"^^xsd:date; <--7-->
+  rdfs:comment "This file specifies the set of RDF classes and properties used in the Business eGovernment Core Vocabulary"@en; <--6-->
+  rdfs:label "Business eGovernment Core Vocabulary"@en; <--6-->
+  owl:imports dcterms:; <--5-->
+  owl:imports <http://www.w3.org/2004/02/skos/core>;
+  owl:imports <http://www.w3.org/ns/locn>;
+  owl:imports org:;
+  owl:imports foaf:;
+  .
+cb:LegalEntity <--8-->
+  a rdfs:Class;
+  a owl:Class;
+  .
+----
+<1> Guideline 50
+<2> Guideline 51
+<3> Guideline 52
+<4> Guideline 53
+<5> Guideline 54
+<6> Guideline 55
+<7> Guideline 56
+<8> Guideline 57
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: All Artefacts (Classes and Properties) II**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: All Artefacts (Classes and Properties) II**::]
+{nbsp} **Summary**::
+All classes and properties SHALL have a `+rdf:type+`.
+
+{nbsp} **Description** ::
+All subjects need to be typed. This enhances the usability of the model in dedicated RDF editing environments.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[source,turtle]
+----
+cb:LegalEntity rdf:type rdfs:Class, owl:Class;.
+----
+
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+++++
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+{empty}::
+[source,turtle]
+----
+@prefix cb: <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#> . <--1-->
+@prefix adms: <http://www.w3.org/ns/adms#> . <--2-->
+…
+<https://data.europe.eu/semanticassets/ns/cbv_v1.0.0>  <--1-->
+  a owl:Ontology;  <--3--> <--4-->
+  dcterms:abstract """The Core Business Vocabulary provides a minimum set of classes and properties for describing a registered legal entity (business). Its limited scope does not include sole traders, or relationships between registered legal entities. This vocabulary is closely integrated with the Location and Person eGovernment Core Vocabularies."""@en;  <--7-->
+  dcterms:license <https://joinup.ec.europa.eu/category/licence/isa-open-metadata-licence-v11>;  <--7-->
+  dcterms:modified "2020-31-03"^^xsd:date;  <--7-->
+  rdfs:comment "This file specifies the set of RDF classes and properties used in the Business eGovernment Core Vocabulary"@en; <--6-->
+  rdfs:label "Business eGovernment Core Vocabulary"@en; <--6-->
+  owl:imports dcterms:; <--5-->
+  owl:imports <http://www.w3.org/2004/02/skos/core>;
+  owl:imports <http://www.w3.org/ns/locn>;
+  owl:imports org:;
+  owl:imports foaf:;
+  .
+cb:LegalEntity  <--8-->
+  a rdfs:Class;  <--9-->
+  a owl:Class;
+   .
+----
+<1> Guideline 50
+<2> Guideline 51
+<3> Guideline 52
+<4> Guideline 53
+<5> Guideline 54
+<6> Guideline 55
+<7> Guideline 56
+<8> Guideline 57
+<9> Guideline 58
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: All Artefacts (Classes and Properties) III**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: All Artefacts (Classes and Properties) III**::]
+{nbsp} **Summary**::
+All classes and properties SHALL have labels.
+-	A class needs to have one rdfs:label in English;
+-	More are allowed for other languages, but only one `+rdfs:label+` per language.
+
+
+{nbsp} **Description** ::
+Everything needs to be human-understandable and usable.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[source,turtle]
+----
+cb:LegalEntity a rdfs:Class, owl:Class;
+  rdfs:label "Legal Entity"@en;
+----
+
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+++++
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[source,turtle]
+----
+@prefix cb: <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#> . <--1-->
+@prefix adms: <http://www.w3.org/ns/adms#> . <--2-->
+…
+<https://data.europe.eu/semanticassets/ns/cbv_v1.0.0>  <--1-->
+  a owl:Ontology;  <--3--> <--4-->
+  dcterms:abstract """The Core Business Vocabulary provides a minimum set of classes and properties for describing a registered legal entity (business). Its limited scope does not include sole traders, or relationships between registered legal entities. This vocabulary is closely integrated with the Location and Person eGovernment Core Vocabularies."""@en;  <--7-->
+  dcterms:license <https://joinup.ec.europa.eu/category/licence/isa-open-metadata-licence-v11>;  <--7-->
+  dcterms:modified "2020-31-03"^^xsd:date;  <--7-->
+  rdfs:comment "This file specifies the set of RDF classes and properties used in the Business eGovernment Core Vocabulary"@en; <--6-->
+  rdfs:label "Business eGovernment Core Vocabulary"@en; <--6-->
+  owl:imports dcterms:; <--5-->
+  owl:imports <http://www.w3.org/2004/02/skos/core>;
+  owl:imports <http://www.w3.org/ns/locn>;
+  owl:imports org:;
+  owl:imports foaf:;
+  .
+cb:LegalEntity  <--8-->
+  a rdfs:Class;  <--9-->
+  a owl:Class;
+   rdfs:label "Legal Entity"@en; <--10-->
+  .
+----
+<1> Guideline 50
+<2> Guideline 51
+<3> Guideline 52
+<4> Guideline 53
+<5> Guideline 54
+<6> Guideline 55
+<7> Guideline 56
+<8> Guideline 57
+<9> Guideline 58
+<10> Guideline 59
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: All Artefacts (Classes and Properties) IV**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: All Artefacts (Classes and Properties) IV**::]
+{nbsp} **Summary**::
+All classes and properties SHALL have definitions/descriptions.
+-	They need to have one rdfs:comment in English describing the meaning of the class or property;
+-	More are allowed for other languages, but only one `+rdfs:comment+` per language.
+
+
+{nbsp} **Description** ::
+Everything needs to be human-understandable and usable.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[source,turtle]
+----
+cb:LegalEntity a rdfs:Class, owl:Class;
+  rdfs:label "Legal Entity"@en;
+  rdfs:comment """This is the key class for the Business eGovernment Core Vocabulary and represents a business that is legally registered."""@en; .
+----
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+++++
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[source,turtle]
+----
+@prefix cb: <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#> . <--1-->
+@prefix adms: <http://www.w3.org/ns/adms#> . <--2-->
+…
+<https://data.europe.eu/semanticassets/ns/cbv_v1.0.0>  <--1-->
+  a owl:Ontology; <--3--><--4-->
+  dcterms:abstract """The Core Business Vocabulary provides a minimum set of classes and properties for describing a registered legal entity (business). Its limited scope does not include sole traders, or relationships between registered legal entities. This vocabulary is closely integrated with the Location and Person eGovernment Core Vocabularies."""@en; <--7-->
+  dcterms:license <https://joinup.ec.europa.eu/category/licence/isa-open-metadata-licence-v11>; <--7-->
+  dcterms:modified "2020-31-03"^^xsd:date; <--7-->
+  rdfs:comment "This file specifies the set of RDF classes and properties used in the Business eGovernment Core Vocabulary"@en; <--6-->
+  rdfs:label "Business eGovernment Core Vocabulary"@en; <--6-->
+  owl:imports dcterms:; <--5-->
+  owl:imports <http://www.w3.org/2004/02/skos/core>;
+  owl:imports <http://www.w3.org/ns/locn>;
+  owl:imports org:;
+  owl:imports foaf:;
+  .
+cb:LegalEntity <--8-->
+  a rdfs:Class; <--9-->
+  a owl:Class;
+   rdfs:comment """This is the key class for the Business eGovernment Core Vocabulary and represents a business that is legally registered."""@en; <--11-->
+   rdfs:label "Legal Entity"@en; <--10-->
+   .
+----
+<1> Guideline 50
+<2> Guideline 51
+<3> Guideline 52
+<4> Guideline 53
+<5> Guideline 54
+<6> Guideline 55
+<7> Guideline 56
+<8> Guideline 57
+<9> Guideline 58
+<10> Guideline 59
+<11> Guideline 60
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: All Artefacts (Classes and Properties) V**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: All Artefacts (Classes and Properties) V**::]
+{nbsp} **Summary**::
+All classes and properties CAN have optional usage note or scope note.
+-	If there is one, `+skos:scopeNote+`,it SHALL be in English with the content on ‘how’ and ‘when’ to use the class or property;
+-	More are allowed for other languages, but only one `+skos:scopeNote+` per language.
+
+
+{nbsp} **Description** ::
+It is advised practice to include (next to the definition) further guidance on when and how to use the construct.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[source,turtle]
+----
+cb:LegalEntity a rdfs:Class, owl:Class;
+  rdfs:label "Legal Entity"@en;
+skos:scopeNote """In many countries there is a single registry although in others, such as Spain and Germany, multiple registries exist. A Legal Entity is able to trade, is legally liable for its actions, accounts, tax affairs etc. It is a sub class of org:FormalOrganization which covers a wider range of entities, such as charities."""@en;.
+----
+
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+++++
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+
+[source,turtle]
+----
+@prefix cb: <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#> . <--1-->
+@prefix adms: <http://www.w3.org/ns/adms#> . <--2-->
+…
+<https://data.europe.eu/semanticassets/ns/cbv_v1.0.0>  <--1-->
+  a owl:Ontology; <--3--><--4-->
+  dcterms:abstract """The Core Business Vocabulary provides a minimum set of classes and properties for describing a registered legal entity (business). … the Location and Person eGovernment Core Vocabularies."""@en; <--7-->
+  dcterms:license <https://joinup.ec.europa.eu/category/licence/isa-open-metadata-licence-v11>; <--7-->
+  dcterms:modified "2020-31-03"^^xsd:date; <--7-->
+  rdfs:comment "This file specifies the set of RDF classes and properties used in the Business eGovernment Core Vocabulary"@en; <--6-->
+  rdfs:label "Business eGovernment Core Vocabulary"@en; <--6-->
+  owl:imports dcterms:; <--5-->
+  owl:imports <http://www.w3.org/2004/02/skos/core>;
+  owl:imports <http://www.w3.org/ns/locn>;
+  owl:imports org:;
+  owl:imports foaf:;
+  .
+cb:LegalEntity <--8-->
+  a rdfs:Class; <--9-->
+  a owl:Class;
+   rdfs:comment """This is the key class for the Business eGovernment Core Vocabulary and represents a business that is legally registered."""@en; <--11-->
+   rdfs:label "Legal Entity"@en; <--10-->
+  skos:scopeNote """In many countries there is a single registry although in others, such as Spain and Germany, multiple registries exist. A Legal Entity is able to trade, is legally liable for its actions, accounts, tax affairs etc. It is a subclass of org:FormalOrganization which covers a wider range of entities, such as charities."""@en; <--12-->
+   .
+----
+<1> Guideline 50
+<2> Guideline 51
+<3> Guideline 52
+<4> Guideline 53
+<5> Guideline 54
+<6> Guideline 55
+<7> Guideline 56
+<8> Guideline 57
+<9> Guideline 58
+<10> Guideline 59
+<11> Guideline 60
+<12> Guideline 61
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: All Artefacts (Classes and Properties) VI**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: All Artefacts (Classes and Properties) VI**::]
+{nbsp} **Summary**::
+All classes and properties CAN have optional multiple alternative labels (`+skos:altLabel+`).
+-	Every `+skos:altLabel+` needs to have a language indicator; *more than one* alternative label per language *is allowed*.
+
+
+
+{nbsp} **Description** ::
+This addresses the need to capture and use synonyms.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[source,turtle]
+----
+cb:LegalEntity a rdfs:Class, owl:Class;
+  rdfs:label "Legal Entity"@en;
+  skos:altLabel "Legal Organisation"@en .
+----
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+++++
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[source,turtle]
+----
+@prefix cb: <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#> . <--1-->
+@prefix adms: <http://www.w3.org/ns/adms#> . <--2-->
+…
+<https://data.europe.eu/semanticassets/ns/cbv_v1.0.0>  <--1-->
+  a owl:Ontology; <--3--><--4-->
+  dcterms:abstract """The Core Business Vocabulary provides a minimum set of classes and properties for describing a registered legal entity (business). Its limited scope does not include sole traders, or relationships between registered legal entities. This vocabulary is closely integrated with the Location and Person eGovernment Core Vocabularies."""@en; <--7-->
+  dcterms:license <https://joinup.ec.europa.eu/category/licence/isa-open-metadata-licence-v11>; <--7-->
+  dcterms:modified "2020-31-03"^^xsd:date; <--7-->
+  rdfs:comment "This file specifies the set of RDF classes and properties used in the Business eGovernment Core Vocabulary"@en; <--6-->
+  rdfs:label "Business eGovernment Core Vocabulary"@en; <--6-->
+  owl:imports dcterms:; <--5-->
+  owl:imports <http://www.w3.org/2004/02/skos/core>;
+  owl:imports <http://www.w3.org/ns/locn>;
+  owl:imports org:;
+  owl:imports foaf:;
+  .
+cb:LegalEntity <--8-->
+  a rdfs:Class; <--9-->
+  a owl:Class;
+   rdfs:comment """This is the key class for the Business eGovernment Core Vocabulary and represents a business that is legally registered."""@en; <--11-->
+   rdfs:label "Legal Entity"@en; <--10-->
+  skos:altLabel "Legal Organisation"@en; <--13-->
+  skos:scopeNote """In many countries there is a single registry although in others, such as Spain and Germany, multiple registries exist. A Legal Entity is able to trade, is legally liable for its actions, accounts, tax affairs etc. It is a subclass of org:FormalOrganization which covers a wider range of entities, such as charities."""@en; <--12-->
+   .
+----
+<1> Guideline 50
+<2> Guideline 51
+<3> Guideline 52
+<4> Guideline 53
+<5> Guideline 54
+<6> Guideline 55
+<7> Guideline 56
+<8> Guideline 57
+<9> Guideline 58
+<10> Guideline 59
+<11> Guideline 60
+<12> Guideline 61
+<13> Guideline 62
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: All Artefacts (Classes and Properties) VII**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: All Artefacts (Classes and Properties) VII**::]
+{nbsp} **Summary**::
+All classes and properties SHALL be linked to their vocabulary with `+rdfs:isDefinedBy+`.
+
+{nbsp} **Description** ::
+An explicit link between the construct and the vocabulary in which it has been defined is informative when used out of context.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[source,turtle]
+----
+cb:LegalEntity a rdfs:Class, owl:Class;
+  rdfs:label "Legal Entity"@en;
+  rdfs:isDefinedBy <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0>;
+  .
+----
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+++++
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[source,turtle]
+----
+@prefix cb: <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#> . <--1-->
+@prefix adms: <http://www.w3.org/ns/adms#> . <--2-->
+…
+<https://data.europe.eu/semanticassets/ns/cbv_v1.0.0>  <--1-->
+  a owl:Ontology; <--3--><--4-->
+  dcterms:abstract """The Core Business Vocabulary provides a minimum set of classes and properties for describing a registered legal entity (business). Its limited scope does not include sole traders, or relationships between registered legal entities. This vocabulary is closely integrated with the Location and Person eGovernment Core Vocabularies."""@en; <--7-->
+  dcterms:license <https://joinup.ec.europa.eu/category/licence/isa-open-metadata-licence-v11>; <--7-->
+  dcterms:modified "2020-31-03"^^xsd:date; <--7-->
+  rdfs:comment "This file specifies the set of RDF classes and properties used in the Business eGovernment Core Vocabulary"@en; <--6-->
+  rdfs:label "Business eGovernment Core Vocabulary"@en; <--6-->
+  owl:imports dcterms:; <--5-->
+  owl:imports <http://www.w3.org/2004/02/skos/core>;
+  owl:imports <http://www.w3.org/ns/locn>;
+  owl:imports org:;
+  owl:imports foaf:;
+  .
+cb:LegalEntity <--8-->
+  a rdfs:Class; <--9-->
+  a owl:Class;
+   rdfs:comment """This is the key class for the Business eGovernment Core Vocabulary and represents a business that is legally registered."""@en; <--11-->
+  rdfs:isDefinedBy <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0>;<--14-->
+   rdfs:label "Legal Entity"@en; <--10-->
+  skos:altLabel "Legal Organisation"@en; <--13-->
+  skos:scopeNote """In many countries there is a single registry although in others, such as Spain and Germany, multiple registries exist. A Legal Entity is able to trade, is legally liable for its actions, accounts, tax affairs etc. It is a subclass of org:FormalOrganization which covers a wider range of entities, such as charities."""@en; <--12-->
+   .
+----
+<1> Guideline 50
+<2> Guideline 51
+<3> Guideline 52
+<4> Guideline 53
+<5> Guideline 54
+<6> Guideline 55
+<7> Guideline 56
+<8> Guideline 57
+<9> Guideline 58
+<10> Guideline 59
+<11> Guideline 60
+<12> Guideline 61
+<13> Guideline 62
+<14> Guideline 63
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+[discrete]
+[#classes-vocabulary]
+==== _Classes_
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Classes**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Classes**::]
+{nbsp} **Summary**::
+Class names SHALL be in UpperCamelCase.
+
+{nbsp} **Description** ::
+This is an established practice.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[source,turtle]
+----
+cb:LegalEntity a rdfs:Class, owl:Class;
+  rdfs:label "Legal Entity"@en;
+.
+----
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+++++
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[source,turtle]
+----
+@prefix cb: <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#> . <--1-->
+@prefix adms: <http://www.w3.org/ns/adms#> . <--2-->
+…
+<https://data.europe.eu/semanticassets/ns/cbv_v1.0.0>  <--1-->
+  a owl:Ontology; <--3--><--4-->
+  dcterms:abstract """The Core Business Vocabulary provides a minimum set of classes and properties for describing a registered legal entity (business). Its limited scope does not include sole traders, or relationships between registered legal entities. This vocabulary is closely integrated with the Location and Person eGovernment Core Vocabularies."""@en; <--7-->
+  dcterms:license <https://joinup.ec.europa.eu/category/licence/isa-open-metadata-licence-v11>; <--7-->
+  dcterms:modified "2020-31-03"^^xsd:date; <--7-->
+  rdfs:comment "This file specifies the set of RDF classes and properties used in the Business eGovernment Core Vocabulary"@en; <--6-->
+  rdfs:label "Business eGovernment Core Vocabulary"@en; <--6-->
+  owl:imports dcterms:; <--5-->
+  owl:imports <http://www.w3.org/2004/02/skos/core>;
+  owl:imports <http://www.w3.org/ns/locn>;
+  owl:imports org:;
+  owl:imports foaf:;
+  .
+cb:LegalEntity <--8--><--15-->
+  a rdfs:Class; <--9-->
+  a owl:Class;
+   rdfs:comment """This is the key class for the Business eGovernment Core Vocabulary and represents a business that is legally registered."""@en; <--11-->
+  rdfs:isDefinedBy <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0>;<--14-->
+   rdfs:label "Legal Entity"@en; <--10-->
+  skos:altLabel "Legal Organisation"@en; <--13-->
+  skos:scopeNote """In many countries there is a single registry although in others, such as Spain and Germany, multiple registries exist. A Legal Entity is able to trade, is legally liable for its actions, accounts, tax affairs etc. It is a subclass of org:FormalOrganization which covers a wider range of entities, such as charities."""@en; <--12-->
+   .
+----
+<1> Guideline 50
+<2> Guideline 51
+<3> Guideline 52
+<4> Guideline 53
+<5> Guideline 54
+<6> Guideline 55
+<7> Guideline 56
+<8> Guideline 57
+<9> Guideline 58
+<10> Guideline 59
+<11> Guideline 60
+<12> Guideline 61
+<13> Guideline 62
+<14> Guideline 63
+<15> Guideline 64
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Classes II**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Classes II**::]
+{nbsp} **Summary**::
+The `+rdfs:subClassOf+` relation between Classes CAN be used. This is important for constraint checking of SHACL files since `+rdfs:subClassOf+` relationships are taken into account for the triggering of shapes.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[source,turtle]
+----
+cb:LegalEntity
+a rdfs:Class, owl:Class;
+  rdfs:label "Legal Entity"@en;
+  rdfs:subClassOf org:FormalOrganization;
+ .
+----
+
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+++++
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[source,turtle]
+----
+@prefix cb: <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#> . <--1-->
+@prefix adms: <http://www.w3.org/ns/adms#> . <--2-->
+…
+<https://data.europe.eu/semanticassets/ns/cbv_v1.0.0>  <--1-->
+  a owl:Ontology; <--3--><--4-->
+  dcterms:abstract """The Core Business Vocabulary provides a minimum set of classes and properties for describing a registered legal entity (business). Its limited scope does not include sole traders, or relationships between registered legal entities. This vocabulary is closely integrated with the Location and Person eGovernment Core Vocabularies."""@en; <--7-->
+  dcterms:license <https://joinup.ec.europa.eu/category/licence/isa-open-metadata-licence-v11>; <--7-->
+  dcterms:modified "2020-31-03"^^xsd:date; <--7-->
+  rdfs:comment "This file specifies the set of RDF classes and properties used in the Business eGovernment Core Vocabulary"@en; <--6-->
+  rdfs:label "Business eGovernment Core Vocabulary"@en; <--6-->
+  owl:imports dcterms:; <--5-->
+  owl:imports <http://www.w3.org/2004/02/skos/core>;
+  owl:imports <http://www.w3.org/ns/locn>;
+  owl:imports foaf:;
+  .
+cb:LegalEntity <--8--><--15-->
+  a rdfs:Class; <--9-->
+  a owl:Class;
+   rdfs:comment """This is the key class for the Business eGovernment Core Vocabulary and represents a business that is legally registered."""@en; <--11-->
+  rdfs:isDefinedBy <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0>;<--14-->
+   rdfs:label "Legal Entity"@en; <--10-->
+  skos:altLabel "Legal Organisation"@en; <--13-->
+  rdfs:subClassOf org:FormalOrganization; <--16-->
+  skos:scopeNote """In many countries there is a single registry although in others, such as Spain and Germany, multiple registries exist. A Legal Entity is able to trade, is legally liable for its actions, accounts, tax affairs etc. It is a subclass of org:FormalOrganization which covers a wider range of entities, such as charities."""@en; <--12-->
+   .
+----
+<1> Guideline 50
+<2> Guideline 51
+<3> Guideline 52
+<4> Guideline 53
+<5> Guideline 54
+<6> Guideline 55
+<7> Guideline 56
+<8> Guideline 57
+<9> Guideline 58
+<10> Guideline 59
+<11> Guideline 60
+<12> Guideline 61
+<13> Guideline 62
+<14> Guideline 63
+<15> Guideline 64
+<16> Guideline 65
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+[discrete]
+[#properties-vocabulary]
+==== _Properties_
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Properties**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Properties**::]
+{nbsp} **Summary**::
+If a property has type `+rdf:Property+`, a more specific type CAN be mentioned (DatatypeProperty or ObjectProperty).
+
+{nbsp} **Description** ::
+This is more informative to the RDF/OWL parser.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[source,turtle]
+----
+cb:legalName
+  a rdf:Property;
+  a owl:DatatypeProperty;
+  rdfs:comment "The legal name of the business."@en;
+  rdfs:isDefinedBy <http://www.w3.org/ns/legal>;
+  rdfs:label "legal name"@en;
+  skos:scopeNote """A business might have more than one legal name, particularly in countries with more than one official language. In such cases the language of the string should be identified."""@en;
+.
+cb:registeredAddress
+  a rdf:Property;
+  a owl:ObjectProperty;
+  rdfs:comment "Links a Legal Entity to its registered address."@en;
+  rdfs:isDefinedBy <http://www.w3.org/ns/legal>;
+  rdfs:label "registered address"@en;
+  skos:scopeNote "This may or may not be the actual address at which the legal entity does its business, it is commonly the address of their lawyer or accountant, but it is the address to which formal communications can be sent. legal:registeredAddress is a sub property of locn:address that has a domain of legal:LegalEntity and a range of locn:Address."@en;.
+----
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+++++
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[source,turtle]
+----
+@prefix cb: <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#> . <--1-->
+@prefix adms: <http://www.w3.org/ns/adms#> . <--2-->
+…
+<https://data.europe.eu/semanticassets/ns/cbv_v1.0.0>  <--1-->
+  a owl:Ontology; <--3--><--4-->
+  dcterms:abstract """The Core Business Vocabulary provides a minimum set of classes and properties for describing a registered legal entity (business). Its limited scope does not include sole traders, or relationships between registered legal entities. This vocabulary is closely integrated with the Location and Person eGovernment Core Vocabularies."""@en; <--7-->
+  dcterms:license <https://joinup.ec.europa.eu/category/licence/isa-open-metadata-licence-v11>; <--7-->
+  dcterms:modified "2020-31-03"^^xsd:date; <--7-->
+  rdfs:comment "This file specifies the set of RDF classes and properties used in the Business eGovernment Core Vocabulary"@en; <--6-->
+  rdfs:label "Business eGovernment Core Vocabulary"@en; <--6-->
+  owl:imports dcterms:; <--5-->
+  owl:imports <http://www.w3.org/2004/02/skos/core>;
+  owl:imports <http://www.w3.org/ns/locn>;
+  owl:imports org:;
+  owl:imports foaf:;
+  .
+cb:LegalEntity <--8--><--15-->
+  a rdfs:Class; <--9-->
+  a owl:Class;
+   rdfs:comment """This is the key class for the Business eGovernment Core Vocabulary and represents a business that is legally registered."""@en; <--11-->
+  rdfs:isDefinedBy <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0>;<--14-->
+   rdfs:label "Legal Entity"@en; <--10-->
+  skos:altLabel "Legal Organisation"@en; <--13-->
+  rdfs:subClassOf org:FormalOrganization; <--16-->
+  skos:scopeNote """In many countries there is a single registry although in others, such as Spain and Germany, multiple registries exist. A Legal Entity is able to trade, is legally liable for its actions, accounts, tax affairs etc. It is a subclass of org:FormalOrganization which covers a wider range of entities, such as charities."""@en; <--12-->
+   .
+cb:companyActivity <--8-->
+  a rdf:Property; <--9-->
+  a owl:ObjectProperty; <--17-->
+  rdfs:comment "The economical activity of a company."@en; <--11-->
+  rdfs:isDefinedBy <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0>; <--14-->
+  rdfs:label "company activity"@en; <--10-->
+  skos:scopeNote """The activity of a company should be recorded using a controlled vocabulary expressed as a SKOS concept scheme (see <a xmlns=\"http://www.w3.org/ns/legal#\" href=\"#skos:Concept\">Code</a>. Several such vocabularies exist, many of which map to the UN's ISIC codes. Where a particular controlled vocabulary is in use within a given context, such as SIC codes in the UK, it is acceptable to use these, however, the preferred choice for European interoperability is NACE."""@en; <--12-->
+.
+----
+<1> Guideline 50
+<2> Guideline 51
+<3> Guideline 52
+<4> Guideline 53
+<5> Guideline 54
+<6> Guideline 55
+<7> Guideline 56
+<8> Guideline 57
+<9> Guideline 58
+<10> Guideline 59
+<11> Guideline 60
+<12> Guideline 61
+<13> Guideline 62
+<14> Guideline 63
+<15> Guideline 64
+<16> Guideline 65
+<17> Guideline 66
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}:Properties II**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Properties II**::]
+{nbsp} **Summary**::
+Property names SHALL be in lowerCamelCase.
+
+{nbsp} **Description** ::
+This is an established practice.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[source,turtle]
+----
+cb:registeredAddress
+  a rdf:Property;
+  a owl:ObjectProperty;.
+----
+
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+++++
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[source,turtle]
+----
+@prefix cb: <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#> . <--1-->
+@prefix adms: <http://www.w3.org/ns/adms#> . <--2-->
+…
+<https://data.europe.eu/semanticassets/ns/cbv_v1.0.0>  <--1-->
+  a owl:Ontology; <--3--> <--4-->
+  dcterms:abstract """The Core Business Vocabulary provides a minimum set of classes and properties for describing a registered legal entity (business). Its limited scope does not include sole traders, or relationships between registered legal entities. This vocabulary is closely integrated with the Location and Person eGovernment Core Vocabularies."""@en; <--7-->
+  dcterms:license <https://joinup.ec.europa.eu/category/licence/isa-open-metadata-licence-v11>; <--7-->
+  dcterms:modified "2020-31-03"^^xsd:date; <--7-->
+  rdfs:comment "This file specifies the set of RDF classes and properties used in the Business eGovernment Core Vocabulary"@en; <--6-->
+  rdfs:label "Business eGovernment Core Vocabulary"@en; <--6-->
+  owl:imports dcterms:; <--5-->
+  owl:imports <http://www.w3.org/2004/02/skos/core>;
+  owl:imports <http://www.w3.org/ns/locn>;
+  owl:imports org:;
+  owl:imports foaf:;
+  .
+cb:LegalEntity <--8--> <--15-->
+  a rdfs:Class; <--9-->
+  a owl:Class;
+   rdfs:comment """This is the key class for the Business eGovernment Core Vocabulary and represents a business that is legally registered."""@en; <--11-->
+  rdfs:isDefinedBy <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0>;<--14-->
+   rdfs:label "Legal Entity"@en; <--10-->
+  skos:altLabel "Legal Organisation"@en; <--13-->
+  rdfs:subClassOf org:FormalOrganization; <--16-->
+  skos:scopeNote """In many countries there is a single registry although in others, such as Spain and Germany, multiple registries exist. A Legal Entity is able to trade, is legally liable for its actions, accounts, tax affairs etc. It is a subclass of org:FormalOrganization which covers a wider range of entities, such as charities."""@en; <--12-->
+   .
+cb:companyActivity <--8--><--18-->
+  a rdf:Property; <--9-->
+  a owl:ObjectProperty; <--17-->
+  rdfs:comment "The economical activity of a company."@en; <--11-->
+  rdfs:isDefinedBy <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0>; <--14-->
+  rdfs:label "company activity"@en; <--10-->
+  skos:scopeNote """The activity of a company should be recorded using a controlled vocabulary expressed as a SKOS concept scheme (see <a xmlns=\"http://www.w3.org/ns/legal#\" href=\"#skos:Concept\">Code</a>. Several such vocabularies exist, many of which map to the UN's ISIC codes. Where a particular controlled vocabulary is in use within a given context, such as SIC codes in the UK, it is acceptable to use these, however, the preferred choice for European interoperability is NACE."""@en; <--12-->
+.
+----
+<1> Guideline 50
+<2> Guideline 51
+<3> Guideline 52
+<4> Guideline 53
+<5> Guideline 54
+<6> Guideline 55
+<7> Guideline 56
+<8> Guideline 57
+<9> Guideline 58
+<10> Guideline 59
+<11> Guideline 60
+<12> Guideline 61
+<13> Guideline 62
+<14> Guideline 63
+<15> Guideline 64
+<16> Guideline 65
+<17> Guideline 66
+<18> Guideline 67
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Properties III**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Properties III**::]
+{nbsp} **Summary**::
+`+rdfs:domain+` and `+rdfs:range+` SHOULD not be used.
+
+{nbsp} **Description** ::
+-	If one wants to attach a property to a class in an object oriented way, our first choice is to use a SHACL Shape to express this containment; when not using SHACL we advise to use the domainIncludes property from http://purl.org/dc/dcam/.
+-	If one wants to express a constraint on the allowed values of a property, e.g. the value must be a skos:Concept, the preferred solution is to express this constraint in a SHACL Shape; or use rangeIncludes from http://purl.org/dc/dcam/ when not using SHACL.
+-	If one wants to explicitly use rdfs:domain and rdfs:range for inferring new facts, move these constructs to the semantics RDFS/OWL file.
+
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Properties IV**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Properties IV**::]
+{nbsp} **Summary**::
+A warning SHOULD be issued by a validating processor when one encounters domain and/or range in a eGovernment Core Vocabulary RDFS file.
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Properties V**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Properties V**::]
+{nbsp} **Summary**::
+If a domain or range is encountered on an imported vocabulary, a warning SHOULD be issued that the changed semantics need to align with those of the original.
+
+{nbsp} **Description** ::
+The original vocabulary has already established the inferences which can be deducted; overruling those can lead to semantic incompatibilities.
+It is bad practice to redefine the semantics of a vocabulary that you don’t own.
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[source,turtle]
+----
+<http://www.w3.org/ns/org#purpose> a rdf:Property;  rdfs:label "purpose"@en;  rdfs:domain cv:PublicOrganisation .
+----
+{empty}::
+The original domain as defined by w3c’s org vocabulary is `+org:Organisation+`. The overruling in this case means that any entity that uses `+org:purpose+` becomes a `+cv:PublicOrganisation+`, which leads to potential problems in cases where both vocabularies (org and core public organisation) are used/imported, since every instance with a purpose will be a PublicOrganisation.
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====

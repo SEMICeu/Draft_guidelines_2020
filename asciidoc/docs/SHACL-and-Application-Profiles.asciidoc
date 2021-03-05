@@ -1,0 +1,13 @@
+
+ifdef::env-github[]
+:base-wiki-dir: https://github.com/ecobosco/SEMICguidelines/wiki/
+:imagesdir: https://github.com/ecobosco/SEMICguidelines/blob/master/asciidoc/art/
+endif::[]
+The guidelines in the section should be used when defining additional or more specific constraints at the level of application profiles (see Figure below). The application profile can import the constraints file of the eGovernment Core Vocabulary and enhance it with additional constraints. 
+
+As indicated earlier: occurrences need to be set at this level.
+
+Since all imported Property Shapes have identifiers, it is possible to attach/add further constraints and, if required, to deactivate those.
+
+.Situating SHACL constraint checking for Application Profiles
+image::SHACL_AP.jpg[Situating SHACL constraint checking for Application Profiles,80%,80%, align="center"]

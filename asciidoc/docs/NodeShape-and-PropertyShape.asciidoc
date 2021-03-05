@@ -1,0 +1,93 @@
+
+ifdef::env-github[]
+:guideline-number: 96
+:base-wiki-dir: https://github.com/ecobosco/SEMICguidelines/wiki/
+:imagesdir: https://github.com/ecobosco/SEMICguidelines/blob/master/asciidoc/art/
+endif::[]
+
+The Class NodeShape guidelines and PropertyShape guidelines are similar to those formulated for the eGovernment Core Vocabularies, except for occurrence indicators.
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: SHACL Level**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: SHACL Level**::]
+{nbsp} **Summary**::
+`+sh:minCount+` and sh:maxCount SHOULD be indicated.footnote:[Except for the required `+rdfs:label+`.].
+
+
+{nbsp} **Description** ::
+As noted earlier, the occurrences are indicated on the level of the application profiles.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+[source,turtle]
+----
+cb-c:LegalEntity-companyStatus
+  sh:in (
+  	<http://vocab.belgif.be/auth/companyStatus/active>
+  	<http://vocab.belgif.be/auth/companyStatus/defaulted>
+  	<http://vocab.belgif.be/auth/companyStatus/stopped>
+	);
+  sh:minCount 1;
+  sh:maxCount 1;
+----
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+++++
+<details>
+    <summary><b><i>Aggregated example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Aggregated example**::
+endif::[]
+[source,turtle]
+----
+@prefix cb-ap: <https://data.europe.eu/semanticassets/ns/cbv-ap_v1.0.0#> . <--3-->
+@prefix cb-c: <https://data.europe.eu/semanticassets/ns/cbv-constraints_v1.0.0#> .
+@prefix cb: <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+<https://data.europe.eu/semanticassets/ns/cbv-ap_v1.0.0> <--1-->
+  a owl:Ontology; <--1-->
+  owl:imports <https://data.europe.eu/semanticassets/ns/cbv-constraints_v1.0.0>; <--2-->
+  dcterms:title "Business eGovernment Core Vocabulary constraint SHACL AP"@en; <--4-->
+  dcterms:description """The Core Business Vocabulary constraint SHACL Application Profile provides the classes with their attributes and relationships, and the constraints on occurrences and values used."""@en; <--4-->
+  .
+cb-c:LegalEntity-companyStatus
+  sh:in (
+  	<http://vocab.belgif.be/auth/companyStatus/active>
+  	<http://vocab.belgif.be/auth/companyStatus/defaulted>
+  	<http://vocab.belgif.be/auth/companyStatus/stopped>
+	);
+  sh:minCount 1; <--5-->
+  sh:maxCount 1; <--5-->  
+  .
+----
+<1> Guideline 93
+<2> Guideline 94
+<3> Guideline 95
+<4> Guideline 96
+<5> Guideline 97
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====

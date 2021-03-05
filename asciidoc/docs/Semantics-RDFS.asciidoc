@@ -1,0 +1,54 @@
+[source,turtle]
+----
+@prefix cb-sem: <https://data.europe.eu/semanticassets/ns/cbv-semantics_v1.0.0#> .
+@prefix cb: <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#> . 
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+
+<https://data.europe.eu/semanticassets/ns/cbv-semantics_v1.0.0>
+  a owl:Ontology;
+  owl:imports <https://data.europe.eu/semanticassets/ns/cbv_v1.0.0>;
+  owl:imports dcterms:;
+  owl:imports foaf:;
+  dcterms:title "Business eGovernment Core Vocabulary Semantics"@en;
+  dcterms:description """The Core Business Vocabulary provides the minimum set of classes and properties for describing a registered legal entity (business) and their machine oriented semantics e.g. the inferences that are useful to make using the model"""@en;
+  dcterms:modified "2020-31-03"^^xsd:date;
+  adms:status <http://purl.org/adms/status/Completed>;
+.
+cb:LegalEntity
+  owl:disjointWith <http://www.w3.org/ns/locn#Address>;
+.
+cb:companyActivity
+  rdfs:domain cb:Company;
+  rdfs:subPropertyOf <http://www.w3.org/ns/org#classification>;
+.
+cb:companyStatus
+  rdfs:domain cb:Company;
+  rdfs:subPropertyOf <http://www.w3.org/ns/org#classification>;
+.
+cb:companyType
+  rdfs:domain cb:Company;
+;
+  rdfs:subPropertyOf <http://www.w3.org/ns/org#classification>;
+.
+cb:legalEntity
+  rdfs:range cb:LegalEntity
+.
+cb:legalIdentifier
+  a owl:InverseFunctionalProperty;
+  rdfs:range rdfs:Literal;
+  rdfs:subPropertyOf <http://purl.org/dc/terms/identifier>;
+.
+cb:legalName
+  rdfs:range rdfs:Literal;
+.
+cb:registeredAddress
+  rdfs:range <http://www.w3.org/ns/locn#Address>;
+  rdfs:subPropertyOf <http://www.w3.org/ns/locn#address>;
+.
+----

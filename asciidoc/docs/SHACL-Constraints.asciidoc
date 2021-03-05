@@ -1,0 +1,17 @@
+
+ifdef::env-github[]
+:base-wiki-dir: https://github.com/ecobosco/SEMICguidelines/wiki/
+:imagesdir: https://github.com/ecobosco/SEMICguidelines/blob/master/asciidoc/art/
+endif::[]
+
+To solve the closed and open world mismatch, the proposal is made to separate the various concerns into different files:
+
+* An RDFS file (required) with human-oriented semantics containing labels, definitions, scope and usage note that will serve two other models
+* One (optional) in RDFS/OWL, aimed at inferring new facts
+* One in SHACL (required) that defines the classes with their attributes and relationships, and the constraints on occurrences and values used
+
+The focus of this section is to provide guidelines for object-oriented shapes at the level of eGovernment Core Vocabularies (see Figure below).
+
+[#shacl_constraints]
+._Situating SHACL for constraint checking_
+image::shacl_constraints.jpg[Situating SHACL for constraint checking,80%,80%, align="center"]

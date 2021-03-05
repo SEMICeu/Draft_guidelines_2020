@@ -1,0 +1,2 @@
+
+Since the objective is to keep the potential reuse of the vocabulary as open as possible, the cardinalities at the eGovernment Core Vocabulary level should be completely open. The cardinalities will then be specified on the application profiles level. One exception to this approach is that every instance of all classes SHALL have one `+rdfs:label+`.

@@ -1,0 +1,172 @@
+ifndef::imagesdir[:imagesdir: images]
+ifndef::guideline-number[:guideline-number: 0]
+ifndef::downloaddir[:downloaddir: download]
+// ifndef::base-wiki-dir[:base-wiki-dir: ./index.html#]
+ifndef::base-wiki-dir[:base-wiki-dir: #]
+
+:stylesheet: ../../stylesheets/styles.css
+
+= *SEMIC Style Guide for Drafting Semantic Specifications*
+
+:toc:
+:toclevels: 4
+:sectnums:
+:sectnums: 4
+
+ifdef::backend-pdf[include::../disclaimer.asciidoc[]]
+
+include::../home.asciidoc[]
+
+== Need
+
+include::../need.asciidoc[]
+include::../Objectives.asciidoc[]
+include::../Target-audience.asciidoc[]
+include::../Design-approach.asciidoc[]
+
+== General Guidelines
+
+=== Naming and versioning
+
+include::../Naming-and-Versioning.asciidoc[]
+
+=== Reuse of external vocabularies
+
+include::../Reuse-of-external-vocabularies.asciidoc[]
+
+== UML Modelling
+
+=== General guidelines
+
+include::../General-guidelines.asciidoc[]
+
+=== eGovernment Core Vocabularies
+
+include::../eGovernment-Core-Vocabularies.asciidoc[]
+
+=== Application Profiles
+
+include::../Application-Profiles-UML.asciidoc[]
+
+== RDF guidelines
+
+=== Vocabulary annotations in RDFS
+
+include::../Vocabulary-annotations-in-RDFS.asciidoc[]
+
+==== Environment Setup
+
+include::../Environment-Setup.asciidoc[]
+
+==== Vocabulary
+
+include::../Vocabulary.asciidoc[]
+
+==== Vocabulary content
+
+include::../Vocabulary-content.asciidoc[]
+
+=== Vocabulary semantics in RDFS/OWL
+
+include::../Vocabulary-semantics-in-RDFS-OWL.asciidoc[]
+
+==== Environment Setup
+
+include::../Semantic-Environment-Setup.asciidoc[]
+
+==== Vocabulary
+
+include::../Semantic-vocabulary.asciidoc[]
+
+=== Application Profiles
+
+include::../Application-Profiles.asciidoc[]
+
+== SHACL guidelines
+
+=== SHACL Approach
+
+include::../SHACL-approach.asciidoc[]
+
+==== SHACL Constraints
+
+include::../SHACL-constraints.asciidoc[]
+
+==== Generic
+
+include::../Generic.asciidoc[]
+
+==== SHACL Level
+
+include::../SHACL-level.asciidoc[]
+
+==== NodeShape
+
+include::../NodeShape.asciidoc[]
+
+==== PropertyShape
+
+include::../PropertyShape.asciidoc[]
+
+=== SHACL and Application Profiles
+
+include::../SHACL-and-Application-Profiles.asciidoc[]
+
+==== SHACL Level Application Profile
+
+include::../SHACL-Level-Application-Profile.asciidoc[]
+
+==== NodeShape and PropertyShape
+
+include::../NodeShape-and-PropertyShape.asciidoc[]
+
+==== PropertyShape Refinement
+
+include::../PropertyShape-Refinement.asciidoc[]
+
+== XSD guidelines
+
+=== XSD Design
+
+include::../XSD-Design.asciidoc[]
+
+=== Application Profiles
+
+include::../Application-Profiles-XSD.asciidoc[]
+
+=== XSD Annotations
+
+include::../XSD-Annotations.asciidoc[]
+
+
+== Publishing
+
+=== Artefacts
+
+include::../Artefacts.asciidoc[]
+
+=== LOD Resources
+
+include::../LOD-Resources.asciidoc[]
+
+== Samples
+
+=== Core RDFS
+
+include::../Core-RDFS.asciidoc[]
+
+=== SHACL
+
+include::../SHACL.asciidoc[]
+
+=== Semantics RDFS
+
+include::../Semantics-RDFS.asciidoc[]
+
+=== SHACL Application Profiles
+
+include::../SHACL-Application-Profiles.asciidoc[]
+
+=== link:https://github.com/SEMICeu/CCCEV/blob/CV-2.0.0/cccev/2.0.0/xml/xsd/cccev-2.0.0.xsd[XSD Vocabularies]
+
+=== link:https://github.com/SEMICeu/CCCEV/tree/CV-2.0.0/cccev/2.0.0/uml[XSD Constraints and AP]

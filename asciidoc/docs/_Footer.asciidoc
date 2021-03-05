@@ -1,0 +1,4 @@
+ifdef::env-github[]
+:base-wiki-dir: https://github.com/ecobosco/SEMICguidelines/wiki/
+endif::[]
+The views expressed in this report are purely those of the Author(s) and may not, in any circumstances, be interpreted as stating an official position of the European Commission. Please read the full {base-wiki-dir}Disclaimer[disclaimer] note.

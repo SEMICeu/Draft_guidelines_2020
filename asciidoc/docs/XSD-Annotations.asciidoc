@@ -1,0 +1,9 @@
+
+Any Vocabulary intended to be read by humans should offer two different sets of XSD schemata:
+
+ * **Runtime**: meant to facilitate implementing the schemata.
+ * **Annotated**: meant to provide human users with extended information.
+
+Even though XSD schemata can be self-explanatory in most cases, Core Vocabularies should offer normative schemata providing a more comprehensive description of the elements, such as their definition, range, and multiplicity. However, this is inefficient when implementing the schemata and may burden users looking for very specific sections in the code. Hence, this established practice footnote:[See: https://github.com/SEMICeu/CCCEV/tree/CV-2.0.0/cccev/2.0.0/xml[CCCEV XML folder] or https://docs.oasis-open.org/ubl/csprd02-UBL-2.3/UBL-2.3.html#S-UBL-2.3-SCHEMAS[UBL XSD Schemas]] allows users to conveniently choose the set they need.
+
+For more information regarding annotations, see https://github.com/SEMICeu/CCCEV/blob/CV-2.0.0/cccev/2.0.0/xml/xsd/cccev-2.0.0.xsd[CCCEV annotated schemata].

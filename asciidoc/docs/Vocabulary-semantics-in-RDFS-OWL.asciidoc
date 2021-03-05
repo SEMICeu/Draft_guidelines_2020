@@ -1,0 +1,20 @@
+
+ifdef::env-github[]
+:imagesdir: https://github.com/ecobosco/SEMICguidelines/blob/master/asciidoc/art/
+:base-wiki-dir: https://github.com/ecobosco/SEMICguidelines/wiki/
+endif::[]
+
+[#vocabulary-semantics-in-rdfs-owl]
+To solve the closed and open world mismatch, the proposal is made to separate the different concerns into different files:
+
+* An RDFS file (required) with human-oriented semantics containing labels, definitions, scope and usage note that will serve two other models
+
+* One (optional) in RDFS/OWL, aimed at inferring new facts
+
+* One in SHACL (required) that defines the classes with their attributes and relationships, and the constraints on occurrences and values used
+
+The focus of this section is on the optional RDFS/OWL file with additional constructs purely aimed at reasoning (see Figure 1). The presence of these additional constructs explains why this file is optional. Most linked data applications do not reason because, either there is no apparent need seen for reasoning, or there is a fear of the additional computing resources required. In this instances situation, there is no need to spend time and community money on constructs for this aim.
+
+[#RDFS_semantics]
+.Situating RDFS for machine semantics
+image::RDFS_semantics.jpg[Situating RDFS for machine semantics,80%,60%, align="center"]

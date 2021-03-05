@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<!-- saved from url=(0082)file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html -->
+<html lang="en-GB"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><style>.issue-label{text-transform:initial}.warning>p:first-child{margin-top:0}.warning{padding:.5em;border-left-width:.5em;border-left-style:solid}span.warning{padding:.1em .5em .15em}.issue.closed span.issue-number{text-decoration:line-through}.warning{border-color:#f11;border-width:.2em;border-style:solid;background:#fbe9e9}.warning-title:before{content:"⚠";font-size:1.3em;float:left;padding-right:.3em;margin-top:-.3em}li.task-list-item{list-style:none}input.task-list-item-checkbox{margin:0 .35em .25em -1.6em;vertical-align:middle}.issue a.respec-gh-label{padding:5px;margin:0 2px 0 2px;font-size:10px;text-transform:none;text-decoration:none;font-weight:700;border-radius:4px;position:relative;bottom:2px;border:none;display:inline-block}</style><style class="removeOnSave">dfn{cursor:pointer}.dfn-panel{--fill:#fff;position:absolute;left:var(--left);top:var(--top);z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font:small Helvetica Neue,sans-serif,Droid Sans Fallback;background:var(--fill);color:#000;box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);border-radius:2px}.dfn-panel:not(.docked)::after,.dfn-panel:not(.docked)::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:9px solid #a2a9b1;top:-9px;left:calc(var(--caret-offset,0px) + .75em)}.dfn-panel:not(.docked)::after{border-bottom:10px solid var(--fill)}.dfn-panel *{margin:0}.dfn-panel>b{display:block}.dfn-panel ul a[href]{color:#333}.dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}.dfn-panel a[href]:hover{border-bottom-width:1px}.dfn-panel>b+b{margin-top:.25em}.dfn-panel ul{padding:0}.dfn-panel li{margin-left:1em}.dfn-panel.docked{display:inline-block;position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}</style><link rel="preconnect" crossorigin="anonymous" href="https://www.w3.org/" class="removeOnSave"><link rel="preload" as="script" href="./Documentation_coreVocab_template_files/fixup.js.download" class="removeOnSave"><link rel="preload" as="style" href="./Documentation_coreVocab_template_files/base.css" class="removeOnSave"><link rel="preload" as="image" href="./Documentation_coreVocab_template_files/W3C" class="removeOnSave"><link rel="stylesheet" href="./Documentation_coreVocab_template_files/base.css" class="removeOnSave">
+
+  <title>Title of Vocabulary</title>
+  
+
+
+  <link rel="dns-prefetch" crossorigin="anonymous" href="https://specref.herokuapp.com/" class="removeOnSave"><link rel="preconnect" crossorigin="anonymous" href="https://respec.org/" class="removeOnSave"><link rel="preload" as="script" href="https://www.w3.org/Tools/respec/respec-highlight.js" class="removeOnSave"><style id="respec-ui-styles" class="removeOnSave">.respec-modal .close-button{position:absolute;z-index:inherit;padding:.2em;font-weight:700;cursor:pointer;margin-left:5px;border:none;background:0 0}#respec-ui{position:fixed;display:flex;flex-direction:row-reverse;top:20px;right:20px;width:202px;text-align:right;z-index:9000}#respec-pill,.respec-info-button{background:#fff;height:2.5em;color:#787878;border:1px solid #ccc;box-shadow:1px 1px 8px 0 rgba(100,100,100,.5)}.respec-info-button{border:none;opacity:.75;border-radius:2em;margin-right:1em;min-width:3.5em}.respec-info-button:focus,.respec-info-button:hover{opacity:1;transition:opacity .2s}#respec-pill:disabled{font-size:2.8px;text-indent:-9999em;border-top:1.1em solid rgba(40,40,40,.2);border-right:1.1em solid rgba(40,40,40,.2);border-bottom:1.1em solid rgba(40,40,40,.2);border-left:1.1em solid #fff;transform:translateZ(0);animation:respec-spin .5s infinite linear;box-shadow:none}#respec-pill:disabled,#respec-pill:disabled:after{border-radius:50%;width:10em;height:10em}@keyframes respec-spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}.respec-hidden{visibility:hidden;opacity:0;transition:visibility 0s .2s,opacity .2s linear}.respec-visible{visibility:visible;opacity:1;transition:opacity .2s linear}#respec-pill:focus,#respec-pill:hover{color:#000;background-color:#f5f5f5;transition:color .2s}#respec-menu{position:absolute;margin:0;padding:0;font-family:sans-serif;background:#fff;box-shadow:1px 1px 8px 0 rgba(100,100,100,.5);width:200px;display:none;text-align:left;margin-top:32px;font-size:.8em}#respec-menu:not([hidden]){display:block}#respec-menu li{list-style-type:none;margin:0;padding:0}.respec-save-buttons{display:grid;grid-template-columns:repeat(auto-fill,minmax(47%,2fr));grid-gap:.5cm;padding:.5cm}.respec-save-button:link{padding-top:16px;color:#f0f0f0;background:#2a5aa8;justify-self:stretch;height:1cm;text-decoration:none;text-align:center;font-size:inherit;border:none;border-radius:.2cm}.respec-save-button:link:hover{color:#fff;background:#2a5aa8;padding:0;margin:0;border:0;padding-top:16px}.respec-save-button:link:focus{background:#193766}#respec-pill:focus,#respec-ui button:focus,.respec-option:focus{outline:0;outline-style:none}#respec-pill-error{background-color:red;color:#fff}#respec-pill-warning{background-color:orange;color:#fff}.respec-error-list,.respec-warning-list{margin:0;padding:0;list-style:none;font-family:sans-serif;background-color:#fffbe6;font-size:.85em}.respec-error-list>li,.respec-warning-list>li{padding:.4em .7em}.respec-warning-list>li::before{content:"⚠️";padding-right:.5em}.respec-error-list p,.respec-warning-list p{padding:0;margin:0}.respec-warning-list li{color:#5c3b00;border-bottom:thin solid #fff5c2}.respec-error-list,.respec-error-list li{background-color:#fff0f0}.respec-error-list li::before{content:"💥";padding-right:.5em}.respec-error-list li{padding:.4em .7em;color:#5c3b00;border-bottom:thin solid #ffd7d7}.respec-error-list li>p{margin:0;padding:0;display:inline-block}.respec-error-list li>p:first-child,.respec-warning-list li>p:first-child{display:inline}.respec-error-list>li li,.respec-warning-list>li li{margin:0;list-style:disc}#respec-overlay{display:block;position:fixed;z-index:10000;top:0;left:0;height:100%;width:100%;background:#000}.respec-show-overlay{transition:opacity .2s linear;opacity:.5}.respec-hide-overlay{transition:opacity .2s linear;opacity:0}.respec-modal{display:block;position:fixed;z-index:11000;margin:auto;top:10%;background:#fff;border:5px solid #666;min-width:20%;width:79%;padding:0;max-height:80%;overflow-y:auto;margin:0 -.5cm}@media screen and (min-width:78em){.respec-modal{width:62%}}.respec-modal h3{margin:0;padding:.2em;text-align:center;color:#000;background:linear-gradient(to bottom,#eee 0,#eee 50%,#ccc 100%);font-size:1em}.respec-modal .inside div p{padding-left:1cm}#respec-menu button.respec-option{background:#fff;padding:0 .2cm;border:none;width:100%;text-align:left;font-size:inherit;padding:1.2em 1.2em}#respec-menu button.respec-option:hover,#respec-menu button:focus{background-color:#eee}.respec-cmd-icon{padding-right:.5em}#respec-ui button.respec-option:last-child{border:none;border-radius:inherit}.respec-button-copy-paste{position:absolute;height:28px;width:40px;cursor:pointer;background-image:linear-gradient(#fcfcfc,#eee);border:1px solid #90b8de;border-left:0;border-radius:0 0 3px 0;-webkit-user-select:none;user-select:none;-webkit-appearance:none;top:0;left:127px}#specref-ui{margin:0 2%;margin-bottom:.5cm}#specref-ui header{font-size:.7em;background-color:#eee;text-align:center;padding:.2cm;margin-bottom:.5cm;border-radius:0 0 .2cm .2cm}#specref-ui header h1{padding:0;margin:0;color:#000}#specref-ui p{padding:0;margin:0;font-size:.8em;text-align:center}#specref-ui p.state{margin:1cm}#specref-ui .searchcomponent{font-size:16px;display:grid;grid-template-columns:auto 2cm}#specref-ui button,#specref-ui input{border:0;padding:6px 12px}#specref-ui label{font-size:.6em;grid-column-end:3;text-align:right;grid-column-start:1}#specref-ui input[type=search]{-webkit-appearance:none;font-size:16px;border-radius:.1cm 0 0 .1cm;border:1px solid #ccc}#specref-ui button[type=submit]{color:#fff;border-radius:0 .1cm .1cm 0;background-color:#337ab7}#specref-ui button[type=submit]:hover{background-color:#286090;border-color:#204d74}#specref-ui .result-stats{margin:0;padding:0;color:grey;font-size:.7em;font-weight:700}#specref-ui .specref-results{font-size:.8em}#specref-ui .specref-results dd+dt{margin-top:.51cm}#specref-ui .specref-results a{text-transform:capitalize}#specref-ui .specref-results .authors{display:block;color:#006621}@media print{#respec-ui{display:none}}#xref-ui{width:100%;min-height:550px;height:100%;overflow:hidden;padding:0;margin:0;border:0}#xref-ui:not(.ready){background:url(https://respec.org/xref/loader.gif) no-repeat center}.respec-dfn-list .dfn-status{margin-left:.5em;padding:.1em;text-align:center;white-space:nowrap;font-size:90%;border-radius:.2em}.respec-dfn-list .exported{background:#d1edfd;color:#040b1c;box-shadow:0 0 0 .125em #1ca5f940}.respec-dfn-list .unused{background:#fde0e6;color:#9d0c29;box-shadow:0 0 0 .125em #f1466840}#xref-ui+a[href]{font-size:.9rem;float:right;margin:0 .5em .5em;border-bottom-width:1px}</style><style id="respec-mainstyle">@keyframes pop{0%{transform:scale(1,1)}25%{transform:scale(1.25,1.25);opacity:.75}100%{transform:scale(1,1)}}.hljs{background:0 0!important}a abbr,h1 abbr,h2 abbr,h3 abbr,h4 abbr,h5 abbr,h6 abbr{border:none}dfn{font-weight:700}a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}a.bibref{text-decoration:none}.respec-offending-element:target{animation:pop .25s ease-in-out 0s 1}.respec-offending-element,a[href].respec-offending-element{text-decoration:red wavy underline}@supports not (text-decoration:red wavy underline){.respec-offending-element:not(pre){display:inline-block}.respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}}#references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}cite .bibref{font-style:normal}code{color:#c63501}th code{color:inherit}a[href].orcid{padding-left:4px;padding-right:4px}a[href].orcid>svg{margin-bottom:-2px}.toc a,.tof a{text-decoration:none}a .figno,a .secno{color:#000}ol.tof,ul.tof{list-style:none outside none}.caption{margin-top:.5em;font-style:italic}table.simple{border-spacing:0;border-collapse:collapse;border-bottom:3px solid #005a9c}.simple th{background:#005a9c;color:#fff;padding:3px 5px;text-align:left}.simple th a{color:#fff;padding:3px 5px;text-align:left}.simple th[scope=row]{background:inherit;color:inherit;border-top:1px solid #ddd}.simple td{padding:3px 10px;border-top:1px solid #ddd}.simple tr:nth-child(even){background:#f0f6ff}.section dd>p:first-child{margin-top:0}.section dd>p:last-child{margin-bottom:0}.section dd{margin-bottom:1em}.section dl.attrs dd,.section dl.eldef dd{margin-bottom:0}#issue-summary>ul,.respec-dfn-list{column-count:2}#issue-summary li,.respec-dfn-list li{list-style:none}details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}details.respec-tests-details>*{padding-right:2em}details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}details.respec-tests-details[open]>summary{border-bottom:thin solid #cad3e2;padding-left:1em;margin-bottom:1em;line-height:2em}details.respec-tests-details>ul{width:100%;margin-top:-.3em}details.respec-tests-details>li{padding-left:1em}a[href].self-link:hover{opacity:1;text-decoration:none;background-color:transparent}h2,h3,h4,h5,h6{position:relative}aside.example .marker>a.self-link{color:inherit}h2>a.self-link,h3>a.self-link,h4>a.self-link,h5>a.self-link,h6>a.self-link{border:none;color:inherit;font-size:83%;height:2em;left:-1.6em;opacity:.5;position:absolute;text-align:center;text-decoration:none;top:0;transition:opacity .2s;width:2em}h2>a.self-link::before,h3>a.self-link::before,h4>a.self-link::before,h5>a.self-link::before,h6>a.self-link::before{content:"§";display:block}@media (max-width:767px){dd{margin-left:0}h2>a.self-link,h3>a.self-link,h4>a.self-link,h5>a.self-link,h6>a.self-link{left:auto;top:auto}}@media print{.removeOnSave{display:none}}</style>
+  
+  <style>
+    table {
+      width: 100%;
+    }
+
+    table.definition th {
+      width: 20%
+    }
+
+    table.definition td {
+      width: 80%
+    }
+
+    table.small {
+      font-size: small;
+    }
+
+    .disclaimer {
+      font-size: .9em;
+    }
+
+    .disclaimer:before {
+      content: "\2605\00a0 Disclaimer: ";
+      font-weight: bold;
+    }
+
+    .scope {
+      font-variant: small-caps;
+    }
+
+    table code,
+    table pre {
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      word-break: break-all;
+    }
+
+    .code {
+      margin: 1em auto;
+      padding: .5em;
+      border: .5em;
+      border-left-style: solid;
+      page-break-inside: avoid;
+      border-color: #52E052;
+      background: #E9FBE9;
+      overflow: auto;
+    }
+  </style>
+
+  
+<link rel="stylesheet" href="./Documentation_coreVocab_template_files/W3C-UD"><meta name="description" content="This is required."><style class="removeOnSave">var:hover{text-decoration:underline;cursor:pointer}var.respec-hl{color:var(--color,#000);background-color:var(--bg-color);box-shadow:0 0 0 2px var(--bg-color)}var.respec-hl-c1{--bg-color:#f4d200}var.respec-hl-c2{--bg-color:#ff87a2}var.respec-hl-c3{--bg-color:#96e885}var.respec-hl-c4{--bg-color:#3eeed2}var.respec-hl-c5{--bg-color:#eacfb6}var.respec-hl-c6{--bg-color:#82ddff}var.respec-hl-c7{--bg-color:#ffbcf2}@media print{var.respec-hl{background:0 0;color:#000;box-shadow:unset}}</style><style>var{position:relative;cursor:pointer}var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px;opacity:0;transition:opacity .4s;pointer-events:none}var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6px 0 6px;border-style:solid;border-color:transparent;border-top-color:#000}var[data-type]::after{content:attr(data-type);transform:translateX(-50%) translateY(-100%);background:#000;text-align:center;font-family:"Dank Mono","Fira Code",monospace;font-style:normal;padding:6px;border-radius:3px;color:#daca88;text-indent:0;font-weight:400}var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}</style><script id="initialUserConfig" type="application/json">{
+  "specStatus": "unofficial",
+  "editors": [
+    {
+      "name": "SEMIC",
+      "url": "https://your-site.com"
+    }
+  ],
+  "authors": [
+    {
+      "name": "A"
+    },
+    {
+      "name": "B"
+    }
+  ],
+  "github": "https://github.com/w3c/some-API/",
+  "publishISODate": "2020-07-10T00:00:00.000Z",
+  "generatedSubtitle": "Unofficial Draft 10 July 2020"
+}</script></head>
+
+<body class="h-entry toc-sidebar"><p id="toc-nav"><a id="toc-jump" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#toc"><span aria-hidden="true">↑</span> <span>Jump to Table of Contents</span></a><a id="toc-toggle" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#toc"><span aria-hidden="true">←</span> <span>Collapse Sidebar</span></a></p><div id="respec-ui" class="removeOnSave"><button id="respec-pill" aria-controls="respec-menu" aria-expanded="false" aria-haspopup="true" aria-label="ReSpec Menu">ReSpec</button><ul id="respec-menu" role="menu" aria-labelledby="respec-pill" hidden=""><li role="menuitem"><button class="respec-option" id="respec-button-export" title="Ctrl+Shift+Alt+S">
+      <span class="respec-cmd-icon" aria-hidden="true">💾<!---0.086877%--></span> Export<!---0.086877%-->…
+    </button><!---0.086877%--></li><li role="menuitem"><button class="respec-option" id="respec-button-search-specref" title="Ctrl+Shift+Alt+space">
+      <span class="respec-cmd-icon" aria-hidden="true">🔎<!---0.086877%--></span> Search Specref<!---0.086877%-->…
+    </button><!---0.086877%--></li><li role="menuitem"><button class="respec-option" id="respec-button-definitions" title="Ctrl+Shift+Alt+D">
+      <span class="respec-cmd-icon" aria-hidden="true">📔<!---0.086877%--></span> Definitions<!---0.086877%-->…
+    </button><!---0.086877%--></li><li role="menuitem"><button class="respec-option" id="respec-button-about-25.6.0" title="Ctrl+Shift+Alt+A">
+      <span class="respec-cmd-icon" aria-hidden="true">ℹ️<!---0.086877%--></span> About 25.6.0<!---0.086877%-->…
+    </button><!---0.086877%--></li></ul></div><div class="head">
+    <a class="logo" href="https://www.w3.org/"><img alt="W3C" width="72" height="48" src="./Documentation_coreVocab_template_files/W3C"></a><!---0.086877%--> <h1 id="title" class="title">Title of Vocabulary</h1><!---0.086877%-->
+    <!---0.086877%-->
+    <h2>
+      <!---0.086877%-->Unofficial Draft<!---0.086877%-->
+      <time class="dt-published" datetime="2020-07-10">10 July 2020<!---0.086877%--></time><!---0.086877%-->
+    </h2>
+    <dl>
+      <!---0.086877%-->
+      <dt>Latest editor's draft:<!---0.086877%--></dt><dd><a href="https://w3c.github.io/some-API/">https://w3c.github.io/some-API/<!---0.086877%--></a></dd><!---0.086877%-->
+      <!---0.086877%-->
+      <!---0.086877%-->
+      <!---0.086877%-->
+      <!---0.086877%-->
+      <!---0.086877%-->
+      <dt>Editor:<!---0.086877%--></dt>
+      <dd class="p-author h-card vcard"><a class="u-url url p-name fn" href="https://your-site.com/">SEMIC<!---0.086877%--></a><!---0.086877%--></dd><!---0.086877%-->
+      <!---0.086877%-->
+      <dt>
+              Authors:<!---0.086877%-->
+            </dt><dd class="p-author h-card vcard"><span class="p-name fn">A<!---0.086877%--></span><!---0.086877%--></dd><dd class="p-author h-card vcard"><span class="p-name fn">B<!---0.086877%--></span><!---0.086877%--></dd><!---0.086877%--><!---0.086877%-->
+      <dt>Participate<!---0.086877%-->:</dt><dd>
+    <a href="https://github.com/w3c/some-API/">GitHub w3c/some-API<!---0.086877%--></a><!---0.086877%-->
+  </dd><dd>
+    <a href="https://github.com/w3c/some-API/issues/">File a bug<!---0.086877%--></a><!---0.086877%-->
+  </dd><dd>
+    <a href="https://github.com/w3c/some-API/commits/gh-pages">Commit history<!---0.086877%--></a><!---0.086877%-->
+  </dd><dd>
+    <a href="https://github.com/w3c/some-API/pulls/">Pull requests<!---0.086877%--></a><!---0.086877%-->
+  </dd><!---0.086877%--><!---0.086877%-->
+    </dl>
+    <!---0.086877%-->
+    <!---0.086877%-->
+    <!---0.086877%-->
+    <p class="copyright">
+          This document is licensed under a
+          <a rel="license" href="https://creativecommons.org/licenses/by/4.0/" class="subfoot">Creative Commons Attribution 4.0 License<!---0.086877%--></a><!---0.086877%-->.
+        </p><!---0.086877%-->
+    <hr title="Separator for header">
+  </div>
+  <aside id="disclaimer" class="disclaimer">
+    The views expressed are purely those of the author and may not in any circumstances be regarded as stating an
+    official position of the European Commission.
+  </aside>
+
+  <section id="abstract" class="introductory"><h2>Abstract</h2>
+    <p>This is required.</p>
+    <p>Give the summary of the content of this document.</p>
+    <p>You can also provide 'Editors Note' to the readers</p>
+    <div class="note" id="issue-container-generatedID"><div role="heading" class="ednote-title marker" id="h-ednote" aria-level="3"><span>Editor's note</span><!---0.086877%--></div><aside class="">
+      <p>
+        xxx
+      </p>
+    </aside></div>
+  </section>
+
+  <section id="sotd" class="introductory"><h2>Status of This Document<!---0.086877%--></h2><!---0.086877%--><p>
+      This document is draft of a potential specification. It has no official
+      standing of any kind and does not represent the support or consensus of
+      any standards organization.
+    </p>
+    <p>This is required.</p>
+    <!-- This section is filled automatically by ReSpec. -->
+
+  <!---0.086877%--><!---0.086877%--><!---0.086877%--><!---0.086877%--></section>
+  <nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents<!---0.086877%--></h2><ol class="toc"><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#Introduction"><bdi class="secno">1.<!---0.086877%--> </bdi>
+      Introduction
+    </a><!---0.086877%--><ol class="toc"><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#scope"><bdi class="secno">1.1<!---0.086877%--> </bdi>
+        Scope
+      </a><!---0.086877%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#Structure"><bdi class="secno">1.2<!---0.086877%--> </bdi>
+
+        Structure of the document
+      </a><!---0.086877%--></li></ol></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#what-is-x-vocabulary"><bdi class="secno">2.<!---0.086877%--> </bdi>
+      What is 'X' vocabulary?
+    </a><!---0.086877%--><ol class="toc"><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#background"><bdi class="secno">2.1<!---0.086877%--> </bdi>
+        Background
+      </a><!---0.086877%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#context"><bdi class="secno">2.2<!---0.086877%--> </bdi>
+        Context
+      </a><!---0.086877%--></li></ol></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#conformance"><bdi class="secno">3.<!---0.086877%--> </bdi>Conformance<!---0.086877%--></a><!---0.086877%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#namespaces-and-prefixes"><bdi class="secno">4.<!---0.086877%--> </bdi> Namespaces and prefixes </a><!---0.086877%--><ol class="toc"><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#normative-namespaces"><bdi class="secno">4.1<!---0.086877%--> </bdi>Normative Namespaces</a><!---0.086877%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#normative-namespaces"><bdi class="secno">4.2<!---0.086877%--> </bdi>Non-normative Namespaces</a><!---0.086877%--></li></ol></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#vocabulary-overview"><bdi class="secno">5.<!---0.086877%--> </bdi>Vocabulary Overview</a><!---0.086877%--><ol class="toc"><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#modelling-knowledge-basic-notions"><bdi class="secno">5.1<!---0.086877%--> </bdi>Modelling knowledge:Basic Notions</a><!---0.086877%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#conceptual-model"><bdi class="secno">5.2<!---0.086877%--> </bdi>
+        Conceptual Model
+      </a><!---0.086877%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#data-types"><bdi class="secno">5.3<!---0.086877%--> </bdi> Data Types </a><!---0.086877%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#undefined-classes"><bdi class="secno">5.4<!---0.086877%--> </bdi> Undefined Classes </a><!---0.086877%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#properties-considered-and-excluded"><bdi class="secno">5.5<!---0.086877%--> </bdi> Properties considered and excluded </a><!---0.086877%--></li></ol></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#vocabulary-specifications"><bdi class="secno">6.<!---0.086877%--> </bdi>Vocabulary specifications</a><!---0.086877%--><ol class="toc"><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#representation"><bdi class="secno">6.1<!---0.086877%--> </bdi>Representation</a><!---0.086877%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#elements-from-other-vocabularies"><bdi class="secno">6.2<!---0.086877%--> </bdi>Elements from other vocabularies</a><!---0.086877%--></li></ol></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#classes"><bdi class="secno">7.<!---0.086877%--> </bdi> Classes </a><!---0.086877%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#identifiers-as-uris"><bdi class="secno">8.<!---0.086877%--> </bdi> Identifiers as URIs </a><!---0.086877%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#usage-guidelines"><bdi class="secno">9.<!---0.086877%--> </bdi>Usage Guidelines</a><!---0.086877%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#schemas-for-the-vocabularies"><bdi class="secno">10.<!---0.086877%--> </bdi>Schemas for the vocabularies</a><!---0.086877%--><ol class="toc"><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#rdfs"><bdi class="secno">10.1<!---0.086877%--> </bdi>RDFS </a><!---0.086877%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#shacl"><bdi class="secno">10.2<!---0.086877%--> </bdi>SHACL </a><!---0.086877%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#xml"><bdi class="secno">10.3<!---0.086877%--> </bdi>XML </a><!---0.086877%--></li></ol></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#profiles"><bdi class="secno">11.<!---0.086877%--> </bdi>Profiles</a><!---0.086877%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#what-to-read-next"><bdi class="secno">12.<!---0.086877%--> </bdi>
+      What to read next?
+    </a><!---0.086877%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#acknowledgements"><bdi class="secno">A.<!---0.086877%--> </bdi> Acknowledgements </a><!---0.086877%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#the-complete-sample-ontolology"><bdi class="secno">B.<!---0.086877%--> </bdi>
+      The complete Sample Ontolology
+    </a><!---0.086877%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#change-log"><bdi class="secno">C.<!---0.086877%--> </bdi> Change log </a><!---0.086877%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#references"><bdi class="secno">D.<!---0.086877%--> </bdi> References </a><!---0.086877%--><ol class="toc"><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#normative-references"><bdi class="secno">D.1<!---0.086877%--> </bdi> Normative References </a><!---0.086877%--></li><li class="tocline"><a class="tocxref" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#informative-references"><bdi class="secno">D.2<!---0.086877%--> </bdi> Informative References </a><!---0.086877%--></li></ol></li></ol></nav>
+  <section id="Introduction" class="informative">
+    <!--OddPage--><h2 id="x1-introduction"><bdi class="secno">1.<!---0.086877%--> </bdi>
+      Introduction
+    <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#Introduction"></a></h2><p><em>This section is non-normative.<!---0.086877%--></em></p>
+    <p>This is required</p>
+    <p>Short description of the document.</p>
+
+    <section id="scope" class="informative">
+      <h3 id="x1-1-scope"><bdi class="secno">1.1<!---0.086877%--> </bdi>
+        Scope
+      <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#scope"></a></h3><p><em>This section is non-normative.<!---0.086877%--></em></p>
+      <p>Scope of the document is given here .</p>
+      <p>Provide the information on what is covered and what is not by the document.</p>
+    </section>
+    <section id="Structure" class="informative">
+      <h3 id="x1-2-structure-of-the-document"><bdi class="secno">1.2<!---0.086877%--> </bdi>
+
+        Structure of the document
+      <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#Structure"></a></h3><p><em>This section is non-normative.<!---0.086877%--></em></p>
+      <p>Overview of the different sections of the document is breifly described here.</p>
+    </section>
+  </section>
+
+
+
+  <section id="what-is-x-vocabulary">
+    <!--OddPage--><h2 id="x2-what-is-x-vocabulary"><bdi class="secno">2.<!---0.086877%--> </bdi>
+      What is 'X' vocabulary?
+    <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#what-is-x-vocabulary"></a></h2>
+    <section id="background">
+      <h3 id="x2-1-background"><bdi class="secno">2.1<!---0.086877%--> </bdi>
+        Background
+      <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#background"></a></h3>
+      <p>Introduction to the application profile. Describee the history of origin here.</p>
+    </section>
+    <section id="context">
+      <h3 id="x2-2-context"><bdi class="secno">2.2<!---0.086877%--> </bdi>
+        Context
+      <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#context"></a></h3>
+      <p>Explanation that helps to understand the need/motivation behind this development.</p>
+    </section>
+  </section>
+
+
+    <section id="conformance"><!--OddPage--><h2 id="x3-conformance"><bdi class="secno">3.<!---0.086877%--> </bdi>Conformance<!---0.086877%--><a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#conformance"></a></h2><p>
+      As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.<!---0.086877%-->
+    </p><!---0.086877%-->
+
+      <p>Different conformance statement for the publication of can be given in this section.</p>
+      <!-- This section is filled automatically by ReSpec. -->
+    </section>
+
+  <section id="namespaces-and-prefixes">
+    <!--OddPage--><h2 id="x4-namespaces-and-prefixes"><bdi class="secno">4.<!---0.086877%--> </bdi> Namespaces and prefixes <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#namespaces-and-prefixes"></a></h2>
+    <p>The full list of namespaces and prefixes of the vocabularies and specifications used.</p>
+    <section id="normative-namespaces">
+      <h3 id="x4-1-normative-namespaces"><bdi class="secno">4.1<!---0.086877%--> </bdi>Normative Namespaces<a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#normative-namespaces"></a></h3>
+
+      <p>Namespaces and prefixes used in normative parts of this recommendation are shown in the table.</p>
+
+
+    </section>
+
+    <section class="informative" id="normative-namespaces">
+      <h3 id="x4-2-non-normative-namespaces"><bdi class="secno">4.2<!---0.086877%--> </bdi>Non-normative Namespaces<a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#normative-namespaces"></a></h3><p><em>This section is non-normative.<!---0.086877%--></em></p>
+
+      <p>Namespaces and prefixes used in normative parts of this recommendation are shown in the table.</p>
+    </section>
+  </section>
+
+
+  <section id="vocabulary-overview">
+    <!--OddPage--><h2 id="x5-vocabulary-overview"><bdi class="secno">5.<!---0.086877%--> </bdi>Vocabulary Overview<a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#vocabulary-overview"></a></h2>
+    <section id="modelling-knowledge-basic-notions">
+      <h3 id="x5-1-modelling-knowledge-basic-notions"><bdi class="secno">5.1<!---0.086877%--> </bdi>Modelling knowledge:Basic Notions<a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#modelling-knowledge-basic-notions"></a></h3>
+      <p>
+        Explanation of some fundamental notions to help understand how knowledge is represented in the vocabulary.
+      </p>
+    </section>
+
+    <section id="conceptual-model">
+      <h3 id="x5-2-conceptual-model"><bdi class="secno">5.2<!---0.086877%--> </bdi>
+        Conceptual Model
+      <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#conceptual-model"></a></h3>
+      <p>UML Diagram representation of the vocabularies used.</p>
+      <p>Figurative reperesentation of the Vocabulary.</p>
+    </section>
+    <section id="data-types">
+      <h3 id="x5-3-data-types"><bdi class="secno">5.3<!---0.086877%--> </bdi> Data Types <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#data-types"></a></h3>
+      <p>Data types are described here.</p>
+    </section>
+
+    <section id="undefined-classes">
+      <h3 id="x5-4-undefined-classes"><bdi class="secno">5.4<!---0.086877%--> </bdi> Undefined Classes <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#undefined-classes"></a></h3>
+      <p>Classes that are still not defined are given here.</p>
+    </section>
+    <section id="properties-considered-and-excluded">
+      <h3 id="x5-5-properties-considered-and-excluded"><bdi class="secno">5.5<!---0.086877%--> </bdi> Properties considered and excluded <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#properties-considered-and-excluded"></a></h3>
+      <p>The properties that were considered but excluded are described here.</p>
+    </section>
+
+  </section>
+
+
+  <section id="vocabulary-specifications">
+    <!--OddPage--><h2 id="x6-vocabulary-specifications"><bdi class="secno">6.<!---0.086877%--> </bdi>Vocabulary specifications<a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#vocabulary-specifications"></a></h2>
+    <section id="representation">
+      <h3 id="x6-1-representation"><bdi class="secno">6.1<!---0.086877%--> </bdi>Representation<a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#representation"></a></h3>
+      <p>Available formats of vocabulary.</p>
+    </section>
+    <section id="elements-from-other-vocabularies">
+      <h3 id="x6-2-elements-from-other-vocabularies"><bdi class="secno">6.2<!---0.086877%--> </bdi>Elements from other vocabularies<a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#elements-from-other-vocabularies"></a></h3>
+      <p>
+        Describe the elements that were used from other vocabularies.
+      </p>
+    </section>
+  </section>
+    <section id="classes">
+      <!--OddPage--><h2 id="x7-classes"><bdi class="secno">7.<!---0.086877%--> </bdi> Classes <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#classes"></a></h2>
+      <p>All the classes along with its properties are listed in the following sections.</p>
+      <p>For each class following attributes will be added:
+        </p><ul>
+          <li>URI</li>
+          <li>Label</li>
+          <li>Definition</li>
+
+          <li>Sub-class of</li>
+          <li>Usage Note</li>
+          <li>See also</li>
+
+        </ul>
+      <p></p>
+      <p>For each property following attributes will be added:
+        </p><ul>
+          <li>URI</li>
+          <li>label</li>
+          <li>Definition</li>
+          <li>Domain</li>
+          <li>Range</li>
+          <li>Scope</li>
+          <li>Subproperty of</li>
+          <li>Usage note</li>
+        </ul>
+      <p></p>
+    </section>
+ 
+
+  <section id="identifiers-as-uris">
+    <!--OddPage--><h2 id="x8-identifiers-as-uris"><bdi class="secno">8.<!---0.086877%--> </bdi> Identifiers as URIs <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#identifiers-as-uris"></a></h2>
+    <p>Define the approach behind using URIs.</p>
+  </section>
+
+  <section id="usage-guidelines">
+    <!--OddPage--><h2 id="x9-usage-guidelines"><bdi class="secno">9.<!---0.086877%--> </bdi>Usage Guidelines<a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#usage-guidelines"></a></h2>
+    <p>Quick overview of how the vocabulary might be used.</p>
+  </section>
+
+  <section id="schemas-for-the-vocabularies">
+    <!--OddPage--><h2 id="x10-schemas-for-the-vocabularies"><bdi class="secno">10.<!---0.086877%--> </bdi>Schemas for the vocabularies<a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#schemas-for-the-vocabularies"></a></h2>
+    <p>Serialisations of each of the vocabularies in both XML and RDF.</p>
+    <section id="rdfs">
+      <h3 id="x10-1-rdfs"><bdi class="secno">10.1<!---0.086877%--> </bdi>RDFS <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#rdfs"></a></h3>
+      <p>The RDF schemas for the vocabularies are provided.</p>
+    </section>
+    <section id="shacl">
+      <h3 id="x10-2-shacl"><bdi class="secno">10.2<!---0.086877%--> </bdi>SHACL <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#shacl"></a></h3>
+      <p>The RDF schemas for the vocabularies are provided</p>
+
+    </section>
+    <section id="xml">
+      <h3 id="x10-3-xml"><bdi class="secno">10.3<!---0.086877%--> </bdi>XML <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#xml"></a></h3>
+      <p>The RDF schemas for the vocabularies are provided</p>
+
+    </section>
+
+  </section>
+
+
+  <section id="profiles">
+    <!--OddPage--><h2 id="x11-profiles"><bdi class="secno">11.<!---0.086877%--> </bdi>Profiles<a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#profiles"></a></h2>
+    <p>List of the application profile developed from the vocabulary.</p>
+  </section>
+
+  <section id="what-to-read-next">
+    <!--OddPage--><h2 id="x12-what-to-read-next"><bdi class="secno">12.<!---0.086877%--> </bdi>
+      What to read next?
+    <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#what-to-read-next"></a></h2>
+    <p>Provide the link to other tutorials, tools, documentation and other related documents.</p>
+  </section>
+
+
+
+
+  <section class="appendix" id="acknowledgements">
+    <!--OddPage--><h2 id="a-acknowledgements"><bdi class="secno">A.<!---0.086877%--> </bdi> Acknowledgements <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#acknowledgements"></a></h2>
+    <p>List of the names of the contributors.</p>
+  </section>
+
+
+
+  <section class="appendix" id="the-complete-sample-ontolology">
+    <!--OddPage--><h2 id="b-the-complete-sample-ontolology"><bdi class="secno">B.<!---0.086877%--> </bdi>
+      The complete Sample Ontolology
+    <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#the-complete-sample-ontolology"></a></h2>
+    <p>
+      List of all the namspaces and prefixes used in the AP.
+    </p>
+
+  </section>
+
+  <section id="change-log">
+    <!--OddPage--><h2 id="c-change-log"><bdi class="secno">C.<!---0.086877%--> </bdi> Change log <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#change-log"></a></h2>
+    <p>This is required.</p>
+    <p>Information on the changes from the last released version.</p>
+  </section>
+
+
+  <section id="references">
+    <!--OddPage--><h2 id="d-references"><bdi class="secno">D.<!---0.086877%--> </bdi> References <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#references"></a></h2>
+
+    <section id="normative-references">
+      <h3 id="d-1-normative-references"><bdi class="secno">D.1<!---0.086877%--> </bdi> Normative References <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#normative-references"></a></h3>
+      <p>References to a document made in the standard in such a way as to make it indispensable for the application of
+        the standard.</p>
+    </section>
+    <section id="informative-references">
+
+      <h3 id="d-2-informative-references"><bdi class="secno">D.2<!---0.086877%--> </bdi> Informative References <a class="self-link" aria-label="§" href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#informative-references"></a></h3>
+      <p>Other references helping to gain understanding of the topic.</p>
+    </section>
+  </section>
+
+
+
+
+
+<p role="navigation" id="back-to-top">
+    <a href="file:///C:/Users/jrevenga/AppData/Local/Temp/Documentation_coreVocab_template.html#title"><abbr title="Back to Top">↑</abbr></a>
+  </p><script src="./Documentation_coreVocab_template_files/fixup.js.download"></script></body></html>

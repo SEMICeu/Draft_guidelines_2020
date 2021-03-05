@@ -1,0 +1,17 @@
+.Guideline: 1
+[cols="<1,<5"]
+|===
+|*Summary*:|
+For the eGovernment Core Vocabularies managed by SEMIC: +
+-The {topic} of the vocabulary SHOULD be indicated with the first capital letters of the words in the title (Capitalise Each Word). +
+-For multi-topic vocabularies, and/or SHOULD be dismissed. +
+-SEMIC CAN be used as {Prefix} in case of overlaps with other vocabularies. {Prefix} is optional.
+|*Description*:|In case of one topic: +
+_{Prefix}? Core {Topic} Vocabulary_ +
+For multi-topic vocabulary – i.e. vocabulary using various topics - the rule should be: +
+_{Prefix}? (Core {Topic} (and/or)) + Core {Topic} Vocabulary_
+
+
+|*Example*:|Topic: Person -> Core Person Vocabulary, abbreviated as CPV
+Topic: Criterion and Evidence -> Core Criterion and Core Evidence Vocabulary, abbreviated as CCCEV
+

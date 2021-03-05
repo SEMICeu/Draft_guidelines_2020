@@ -1,0 +1,328 @@
+ifdef::env-github[]
+:base-wiki-dir: https://github.com/ecobosco/SEMICguidelines/wiki/
+:guideline-number: 121
+endif::[]
+
+Publishing a vocabulary as a Linked Open Data resource means to make it accessible, both human and machine-readable, in a standard way, thus supporting the semantic web. The publication as full LOD implies that the data is compliant with the highest grade of _5-Star_ footnote:[https://5stardata.info/en/] open data evaluation: +
+
+ * The data is available on the Web under an open license +
+ * The data is available following a clear structure +
+ * The data is available using a non-proprietary open format +
+ * The data uses URIs to denote concepts +
+ * The data is linked to other resources to provide context +
+
+The following subsections describe how to set up a system to ensure such a publication. +
+
+[discrete]
+==== Publishing a Vocabulary/Application Profile Using Persistent URIs
+
+When publishing LOD data, it is crucial to have a structured and persistent system of URIs in place. Such URIs make it easy for the users to understand the structure of the vocabulary and retrieve information as they expect. The guidelines for using persistent URIs while publishing a vocabulary or application profile are stated below.
+
+'''
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Use one URI per artefact**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Use one URI per artefact**::]
+{nbsp} **Summary**::
+All artefacts of the model (classes, attributes, associations and others) SHALL have a URI assigned to them.
+
+{nbsp} **Description**::
+N/A
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+N/A
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Use the standard base URIs**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Use the standard base URIs**::]
+{nbsp} **Summary**::
+The following base URIs SHOULD be used: +
+ * For SEMIC interoperability solutions such URIs SHOULD use base URI https://semic.eu +
+ * For European controlled vocabularies such URIs SHOULD be maintained by the Publications Office of the EU. Their base URI is http://data.europa.eu/
+
+{nbsp} **Description**::
+N/A
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+N/A
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+[discrete]
+==== Dereferencing the Vocabulary
+
+Dereferencing means that if one retrieves the URL of the vocabulary or the application profile, they get the related information back. +
+
+In what format the information is returned, depends on content negotiation. A web client can use in the header part of the HTTP request (the Accept field) to indicate the content type(s) that is acceptable and expected as the response. +
+
+'''
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Dereferencing the Vocabulary I**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Dereferencing the Vocabulary I**::]
+{nbsp} **Summary**::
+In case of a core RDFS vocabulary, the vocabulary server SHOULD return: +
+ * A human-aimed HTML representation, being the **default** response; +
+ * The RDFS representation.
+
+{nbsp} **Description**::
+N/A
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+{nbsp} HTML representation::
+. With footnote:curl[https://curl.haxx.se/], a command-line tool for getting data via URL, the corresponding command is : +
+--- + 
+`curl "https://data.europe.eu/semanticassets/ns/cbv_v1.0.0"` +
+--- +
+This file can also be directly retrieved with ‘.html’ file extension (https://data.europe.eu/semanticassets/ns/cbv_v1.0.0.html).
+
+{nbsp} RDFS representation::
+ . In turtle using MIME type text/turtle: +
+--- +
+`curl "https://data.europe.eu/semanticassets/ns/cbv_v1.0.0" -H 'Accept: text/turtle'` +
+--- +
+Also, directly retrievable with ‘.ttl’ extension (https://data.europe.eu/semanticassets/ns/cbv_v1.0.0.ttl). +
+
+ . In json-ld using MIME type application/ld+json: +
+--- +
+`curl "https://data.europe.eu/semanticassets/ns/cbv_v1.0.0" -H 'Accept: application/ld+json'` +
+--- +
+Also, directly retrievable with ‘.jsonld’ extension (https://data.europe.eu/semanticassets/ns/cbv_v1.0.0.jsonld).
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Dereferencing the Vocabulary II**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Dereferencing the Vocabulary II**::]
+{nbsp} **Summary**::
+In case of a semantics-based  RDFS vocabulary, the vocabulary server SHOULD return: +
+ * A human-aimed HTML representation, being the **default** response; +
+ * The RDFS representation.
+
+{nbsp} **Description** ::
+N/A
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+{nbsp} HTML representation::
+. With footnote:curl[], a command-line tool for getting data via URL, the corresponding command is : +
+--- + 
+`curl "https://data.europe.eu/semanticassets/ns/cbv-semantics_v1.0.0"` +
+--- +
+This file can also be directly retrieved with ‘.html’ file extension (https://data.europe.eu/semanticassets/ns/cbv-semantics_v1.0.0.html).
+
+{nbsp} RDFS representation::
+. In turtle using MIME type text/turtle:
+--- +
+`curl "https://data.europe.eu/semanticassets/ns/cbv-semantics_v1.0.0" -H 'Accept: text/turtle'` +
+--- +
+Also, directly retrievable with ‘.ttl’ extension (https://data.europe.eu/semanticassets/ns/cbv-semantics_v1.0.0.ttl). +
+
+ . In json-ld using MIME type application/ld+json: +
+--- +
+`curl "https://data.europe.eu/semanticassets/ns/cbv-semantics_v1.0.0" -H 'Accept: application/ld+json'` +
+--- +
+Also, directly retrievable with ‘.jsonld’ extension (https://data.europe.eu/semanticassets/ns/cbv-semantics_v1.0.0.jsonld).
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Dereferencing the Vocabulary III**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Dereferencing the Vocabulary III**::]
+{nbsp} **Summary**::
+In case of a constraints model, the vocabulary server SHOULD return: +
+ * A human-aimed HTML representation, being the **default** response; +
+ * The SHACL representation in turtle using MIME type text/turtle; +
+ * The XML schema in xsd using MIME type application/xml.
+
+{nbsp} **Description** ::
+N/A
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+{nbsp} SHACL representation::
+. In turtle using MIME type text/turtle:
+With footnote:curl[], a command-line tool for getting data via URL, the corresponding command is : +
+--- + 
+`curl "https://data.europe.eu/semanticassets/ns/cbv-constraints_v1.0.0" -H 'Accept: text/turtle'` +
+--- +
+Direct retrievable with ‘.ttl’ extension (https://data.europe.eu/semanticassets/ns/cbv-constraints_v1.0.0.ttl).
+
+{nbsp} XML Schema::
+ . In XSD using MIME type application/XML: +
+--- +
+`curl "https://data.europe.eu/semanticassets/ns/cbv-constraints_v1.0.0" -H 'Accept: application/xml'` +
+--- +
+Direct retrievable with ‘.xsd’ extension (https://data.europe.eu/semanticassets/ns/cbv-constraints_v1.0.0.xsd).
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Dereferencing the Vocabulary IV**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Dereferencing the Vocabulary IV**::]
+{nbsp} **Summary**::
+IEvery response of the server SHOULD contain links to:
+ * The other representations/formats;
+ * The external assets that have been imported.
+
+{nbsp} **Description** ::
+N/A
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+N/A
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Dereferencing the Vocabulary V**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Dereferencing the Vocabulary V**::]
+{nbsp} **Summary**::
+The HTML representation SHOULD have landing points based on the used fragment identifier. The other representations/formats. +
+Further technical details can be found at “_Best Practice Recipes for Publishing RDF Vocabularies_” footnote:[https://www.w3.org/TR/swbp-vocab-pub/#negotiation].
+
+{nbsp} **Description** ::
+N/A
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+The URL https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#LegalEntity should end at the HTML fragment describing the LegalEntity Class in the document. +
+The URL https://data.europe.eu/semanticassets/ns/cbv_v1.0.0#registeredAddress should result in the HTML fragment describing the registeredAddress property in the document.
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+[discrete]
+==== Providing human-oriented documentation
+
+For a LOD ontology, it is essential to provide definitions and usage notes for all elements. Absence of such documentation will hinder external partners in their reuse. +
+
+'''
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Make easy-to-browse documentation**]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Make easy-to-browse documentation**::]
+{nbsp} **Summary**::
+The documentation SHOULD be easy to browse and be able to explain all classes and relationships with their: +
+ * labels
+ * descriptions
+ * usage notes
+
+{empty}::
+Such information CAN be conveyed by pointing to the free-text documentation (deliverable/report/PDF) which describes the model.
+
+{nbsp} **Description** ::
+N/A
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+The proper documentation in the form of web pages with easy navigation is the preferable option. Details on such documentation are provided in section link:{base-wiki-dir}artefacts#human-oriented-documentation[Human-oriented documentation].
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====

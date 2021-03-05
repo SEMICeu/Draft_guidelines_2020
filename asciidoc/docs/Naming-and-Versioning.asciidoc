@@ -1,0 +1,219 @@
+ifdef::env-github[]
+:guideline-number: 0
+:imagesdir: https://github.com/ecobosco/SEMICguidelines/blob/master/asciidoc/art/
+endif::[]
+The first section addresses the generic style guide which applies to all parts of the eGovernment Core Vocabularies. 
+
+It covers the following main topics:
+
+- the naming convention for the eGovernment Core Vocabularies/AP
+- namespaces for eGovernment Core Vocabularies/AP, constraints and reasoning
+- metadata properties and relationship for eGovernment Core Vocabularies and AP
+- reuse of foreign/external vocabularies. +
+{nbsp}
+
+'''
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Follow the standard vocabulary naming pattern** ]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}**: Follow the standard vocabulary naming pattern**::]
+{nbsp} **Summary**::
+For the eGovernment Core Vocabularies managed by SEMIC. +
+ * The `topic` of the vocabulary SHOULD be indicated with the first capital letters of the words in the title (Capitalise Each Word). +
+ * For multi-topic vocabularies, and/or SHOULD be dismissed. +
+ * SEMIC CAN be used as `Prefix` in case of overlaps with other vocabularies. `Prefix` is optional.
+
+{nbsp} **Description** ::
+In case of one topic: +
+`{Prefix}? Core {Topic} Vocabulary` +
+{nbsp} +
+For multi-topic vocabulary – i.e. vocabulary using various topics – the rule should be: +
+`{Prefix}? (Core {Topic} (and|or)) * Core {Topic} Vocabulary`
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+Topic: Person -> Core Person Vocabulary, abbreviated as CPV +
+{nbsp} +
+Topic: Criterion and Evidence -> Core Criterion and Core Evidence Vocabulary, abbreviated as CCCEV
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Follow the standard AP naming pattern** ]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Follow the standard AP naming pattern**::]
+{nbsp} **Summary**::
+For the Application Profiles managed by SEMIC: +
+- The `Source` of the vocabulary SHOULD be indicated with the first capital letters of the words in the title (Capitalise Each Word). +
+- `Publisher` SHOULD define the geographical coverage, usually represented as the organisation/country publishing the AP.
+
+{nbsp} **Description** ::
+`{Publisher}-{Source}-AP`
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+Source: DCAT, Publisher: SEMIC -> SEMIC-DCAT-AP +
+{nbsp} +
+Source: AM, Publisher: Belgium -> Belgium-AM-AP
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Follow the standard version naming pattern** ]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Follow the standard version naming pattern**::]
+{nbsp} **Summary**::
+For the eGovernment Core Vocabularies and Application Profiles managed by SEMIC: +
+ * `Topic` SHOULD indicate the eGovernment Core Vocabulary or Application Profile as an abbreviation. +
+ * The version number SHOULD be indicated as vMAJOR.MINOR.PATCH following the semantic versioning footnote:[https://semver.org/] principle.
+
+{nbsp} **Description** ::
+`{Topic} v{Major}. {Minor}.{Patch}` +
+{nbsp} +
+Where:
+ * `{Major}`= version when introducing changes that are not backwards compatible;
+ * `{Minor}` = version when added functionality is backwards-compatible;
+ * `{Patch}` = version when the change contains only backwards-compatible bug fixes.
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+Topic: Core Person Vocabulary, Major version: 1, Minor version: 2, Patch: 3 -> Core Person Vocabulary v1.2.3, abbreviated as CPV v1.2.3
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Use the standard namespace naming pattern** ]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Use the standard namespace naming pattern**::]
+{nbsp} **Summary**::
+For the eGovernment Core Vocabularies and Application Profiles managed by SEMIC: +
+ * The name and version of the standard in the namespace SHOULD be in lower case. See Artefact naming and versioning. +
+ * In constraint namespaces footnote:[The Constraints vocabulary contains indications of constraints, building further on the Core], ‘constraints’ SHOULD be in between the name and the version number. +
+ * In reasoning namespaces footnote:[The Reasoning vocabulary is an optional construct meant for reasoning to infer new facts, building further on the core], ‘semantics’ SHOULD be in between the name and the version number.
+
+{nbsp} **Description** ::
+Namespace:
+`{Domain}/{Context}/ns/{Topic}_{Version}` +
+{nbsp} +
+Constraint and Reasoning Namespace: 
+`{Domain}/{Context}/ns/{Topic}(_{Type})?_{Version}` +
+{nbsp} +
+Where: +
+ * `{Domain}`= data.europe.eu +
+ * `{Context}`= semanticassets +
+ * `{Topic}`= name of the eGovernment Core Vocabulary| application profile +
+ * `{Type}`= indication of the type of the vocabulary= ‘constraints’| ‘semantics’ +
+ * `{version}`= indication of the version=`v{Major}.{Minor}.{Patch}`
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+Namespace: +
+ * eGovernment Core Vocabularies namespace: https://data.europe.eu/semanticassets/ns/cpv_v1.0.0 +
+ * Application profiles namespace: https://data.europe.eu/semanticassets/ns/dcat-ap_v2.0.1  +
+ * Constraints Namespace:
+https://data.europe.eu/semanticassets/ns/cpv-constraints_v1.0.0. +
+ * Reasoning Namespaces footnote:[For XML Schemas (XSD), use the same construct as the EGovernment Core Vocabulary for the target namespace of the schema.]:
+https://data.europe.eu/semanticassets/ns/cpv-semantics_v1.0.0.
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
+'''
+
+ifndef::backend-pdf[.**Guideline {counter:guideline-number}: Use the standard file naming pattern** ]
+[%collapsible]
+====
+ifdef::backend-pdf[**Guideline {counter:guideline-number}: Use the standard file naming pattern**::]
+{nbsp} **Summary**::
+For the eGovernment Core Vocabularies and Application Profiles managed by SEMIC: +
+ * `{Topic}` SHOULD indicate the name of the eGovernment Core Vocabulary or Application Profile where spaces are replaced with “_” +
+ * The `{fileextention}` SHOULD indicate the file extension: TTL, JSON-LD and XSD.
+
+{nbsp} **Description** ::
+For the core file: +
+`{Topic_}-{Version}.{fileextension}`
+{nbsp} +
+For the semantics and constraints files in rdfs and SHACL: +
+`{Topic_}-{‘constraints’|’semantics’}-{Version}.{fileextension}` +
+{nbsp} +
+Where: +
+`{Version}=v{Major}.{Minor}.{Patch}`
+
+ifndef::backend-pdf[]
+++++
+<details>
+    <summary><b><i>Example</i></b></summary>
+++++
+{empty}::
+endif::[]
+ifdef::backend-pdf[]
+{nbsp} **Example**::
+endif::[]
+eGovernment Core Vocabularies file name: +
+ * Core_Person_Vocabulary-v1.0.0.ttl +
+ * Core_Person_Vocabulary-v2.1.6.jsonld  +
+ * Core_Criterion_and_Core_Evidence_Vocabulary-v2.1.2.xsd +
+ * CPV-v1.0.0.ttl +
+ * CPV-v2.1.6.jsonld +
+ * CCCEV-v2.1.2.xsd
+{empty}::
+For the semantics and constraints files in rdfs and SHACL: +
+ * Core_Person_Vocabulary-constraints-v1.0.0.ttl +
+ * Core_Person_Vocabulary-semantics-v2.1.6.jsonld +
+ * Core_Criterion_and_Core_Evidence_Vocabulary-v2.1.2.xsd +
+ * CPV-constraints-v1.0.0.ttl
+ifndef::backend-pdf[]
+++++
+</details>
+++++
+endif::[]
+====
